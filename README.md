@@ -1,17 +1,45 @@
-## 프로젝트 README.md는 여러분이 작업한 프로젝트 레포의 얼굴입니다.
+<a href="https://gitmoji.carloscuesta.me">
+  <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji">
+</a> 
 
-### Readme에 들어가야 할 것들  
+# 💡 About
+한글로 구성된 **색갈피(Saekgalpi-ColorPalette)** 에서 손쉽게 색을 찾아서 사용해 보세요!
+```
+1. 배색과 피커가 같이 있는 색갈피
+2. 사용자가 커스텀 가능한 색갈피
+3. 공유가 가능한 색갈피
+    - 공유 방법
+        1. 헥사코드
+        2. RGB
+        3. 이미지 저장
+        4. url 카피
+```
+## 🌿 Stand up Meeting time
+🗓 MON - FRI 
+🕙 10:00 A.M. - 10:30 A.M.
 
-- 서비스 설명
-- 스크린샷 or 데모 : 여러분이 작성한 프로젝트의 시연 스크린샷 혹은 gif 파일을 첨부해서 어떤 결과물을 구현했는지 한 눈에 볼 수 있도록 해 주세요. 
-- 주요 기능에 대한 안내 
-- 설치 & 사용 방법
-- 기술 스택 : 다음 [레퍼런스](https://velog.io/@loakick/Shield-IO-%EC%82%AC%EC%9A%A9%EB%B2%95-iojyndy4pi)를 참고하여 뱃지로 표현할 수도 있어요.
+## 🔨 Defalt Setting
+* Node.js version : 12.16.11
 
-> 이 외에도 팀원 소개, 아키텍쳐, 스키마 등 여러분의 프로젝트를 더 잘 어필할 수 있는 내용들을 추가해 주세요. 
-> 예시가 될 수 있는 레파지토리들을 검색해서 참고하면 좋겠습니다. 
+## 📝 [[ WireFrame ]]
+기능 플로우
+<details>
+<summery> </summery>
+<img src="https://user-images.githubusercontent.com/59815596/86088603-9f39e180-bae1-11ea-9583-6ba707aacdc2.png"></img>
+</details>
 
-<br/>
-<br/>
+## ⚖️ [[ Team Rules ]]
 
-**이 외에 프로젝트 과정에서의 기획과정, 회고, 진행 현황등 자세한 사항들은 Wiki에 기록하게 됩니다. [여기](https://github.com/codestates/project-test/wiki)를 눌러 이동해 주세요**
+* **일정 존재할 경우 최소한 전날 아침에 스탠드업 미팅 때 이야기 하기**
+
+* 일과 시간 맞춰서 12:00-12:55 연락 자제
+
+* 저녁시간 18:00 - 20:00 (칼답 X)
+
+* 평일 23시 이후로 연락 자제 (칼답 X)
+
+* 6시간 수면 꼭 하기
+
+* *건강관리 하세요 제발 밥 잘먹고 잘 주무세요 제발*
+
+
