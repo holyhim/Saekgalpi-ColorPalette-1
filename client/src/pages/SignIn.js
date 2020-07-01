@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SignIn = () => {
-    return <div> 로긴 </div>;
+    return <main> 로긴 </main>;
 };
 
 export default SignIn;
