@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         {}
     );
 
-    User.hasMany(Palette, { foreignKey: 'userId', targetKey: 'id' });
+    User.belongsTo(Palette, { foreignKey: 'userId', targetKey: 'id' });
 
     return Palette;
 };
