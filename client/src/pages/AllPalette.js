@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Allpelette() {
+const AllPalette = () => {
     return <div> 올 팔레트입니다. </div>;
-}
+};
 
-export default Allpelette;
+export default AllPalette;

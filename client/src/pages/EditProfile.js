@@ -1,7 +1,7 @@
 import React from 'react';
 
-function EidtProfile() {
+const EditProfile = () => {
     return <div> 프로필 수정 창입니다. </div>;
-}
+};
 
-export default EidtProfile;
+export default EditProfile;

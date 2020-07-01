@@ -4,7 +4,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Main from '../pages/Main';
 import MyPage from '../pages/MyPage';
-import Allpelette from '../pages/AllPelette';
+import AllPalette from '../pages/AllPalette';
 import MainHeader from '../components/MainHeader';
 import SubHeader from '../components/SubHeader';
 
@@ -13,11 +13,11 @@ export default () => (
         <MainHeader />
         <SubHeader />
         <Switch>
-            <Route path='/login' component={SignIn} />
-            <Route path='/signup' component={SignUp} />
-            <Route path='/allPalette' component={Allpelette} />
+            <Route path='/signIn' component={SignIn} />
+            <Route path='/signUp' component={SignUp} />
+            <Route path='/allPalette' component={AllPalette} />
 
-            <Route path='/mypage' component={MyPage} />
+            <Route path='/MyPage' component={MyPage} />
 
             <Route path='/' component={Main} exact />
         </Switch>

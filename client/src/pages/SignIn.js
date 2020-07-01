@@ -1,7 +1,7 @@
 import React from 'react';
 
-function SignIn() {
+const SignIn = () => {
     return <div> 로긴 </div>;
-}
+};
 
 export default SignIn;

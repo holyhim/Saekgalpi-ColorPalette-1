@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function MainHeader() {
+const MainHeader = () => {
     return (
         <div>
             <ul>
                 <li>
-                    <Link to='/login'>로그인</Link>
+                    <Link to='/signIn'>로그인</Link>
                 </li>
                 <li>
-                    <Link to='/signup'>회원가입</Link>
+                    <Link to='/signUp'>회원가입</Link>
                 </li>
                 <li>
-                    <Link to='/mypage'>내 색갈피</Link>
+                    <Link to='/MyPage'>내 색갈피</Link>
                 </li>
                 <li>
                     <button>로그아웃</button>
@@ -22,10 +22,10 @@ function MainHeader() {
                 <Link to='/'>로고</Link>
             </div>
             <div>
-                <Link to='/allpalette'>모든 색갈피 보기</Link>
+                <Link to='/allPalette'>모든 색갈피 보기</Link>
             </div>
         </div>
     );
-}
+};
 
 export default MainHeader;
