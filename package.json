@@ -1,0 +1,26 @@
+{
+  "name": "saekgalpi-colorpalette",
+  "version": "1.0.0",
+  "description": "main package of colorpalette",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codestates/Saekgalpi-ColorPalette.git"
+  },
+  "keywords": [
+    "colorpalette"
+  ],
+  "author": "hwabaek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codestates/Saekgalpi-ColorPalette/issues"
+  },
+  "homepage": "https://github.com/codestates/Saekgalpi-ColorPalette#readme",
+  "dependencies": {},
+  "devDependencies": {
+
+  }
+}
