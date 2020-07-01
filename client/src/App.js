@@ -1,18 +1,12 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import HeaderRouter from './router/HeaderRouter';
-import BodyRouter from './router/BodyRouter';
+import Router from './Router';
 import './App.css';
 
 const App = () => {
     return (
         <BrowserRouter>
-            <header>
-                <HeaderRouter />
-            </header>
-            <main>
-                <BodyRouter />
-            </main>
+            <Router />
             <footer> {/*푸터의 템플릿이 들어가는 자리입니다.*/} </footer>
         </BrowserRouter>
     );
