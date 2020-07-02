@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint **/*.js --quiet",
-    "server-start" : "nodemon index.js"
+    "server-start": "nodemon index.js"
   },
   "keywords": [
     "colorpalette-server"
