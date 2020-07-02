@@ -1,15 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import Header from './components/Header';
+import Main from './pages/Main';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import Main from './pages/Main';
 import MyPage from './pages/MyPage';
 import AllPalette from './pages/AllPalette';
 import MakePalette from './pages/MakePalette';
 import EditPalette from './pages/EditPalette';
-import EditProfile from './pages/EditProfile';
+import ChangePassword from './pages/ChangePassword';
 import PaletteDetail from './pages/PaletteDetail';
-import Header from './components/Header';
+import ChangeSignatureColor from './pages/ChangeSignatureColor';
 
 const Router = () => {
     // css로 제어 ->  react router는 고정되기 때문에
@@ -25,7 +27,11 @@ const Router = () => {
 
                 <Route path='/MyPage' component={MyPage} />
 
-                <Route path='/editProfile/:id' component={EditProfile} />
+                <Route path='/changePassword/:id' component={ChangePassword} />
+                <Route
+                    path='/changeSignatureColor/:id'
+                    component={ChangeSignatureColor}
+                />
                 <Route path='/editPalette/:id' component={EditPalette} />
                 <Route path='/makePalette' component={MakePalette} />
                 <Route path='/paletteDetail/:id' component={PaletteDetail} />
