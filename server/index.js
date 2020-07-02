@@ -6,10 +6,19 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 const {
-  signInController,
-  signUpController,
-  userContoroller,
-} = require('./controllers');
+  colorEdit,
+  colorDrop,
+  colorInfo,
+  visitCheck,
+} = require('/controller/colorController');
+
+const {
+  signIn,
+  signUp,
+  signOut,
+  userInfo,
+  admin,
+} = require('/controller/userController');
 
 const app = express();
 const port = 5000;
@@ -30,7 +39,7 @@ app.use(
 
 app.use(
   session({
-    secret: 'hwabaek',
+    secret: '@hwabaek',
     resave: false,
     saveUninitialized: true,
   })
@@ -40,8 +49,15 @@ app.get('/', (req, res) => {
   res.status(200).send('Success');
 });
 
-app.get('/user', userContoroller);
-app.post('/signin', signInController);
-app.post('/signup', signUpController);
+app.get('/MyPage', userInfo);
+app.post('/SignIn', signIn);
+app.post('/SignUp', signUp);
+app.post('/', signOut);
+app.post('/MyPage', admin);
+
+app.get('/PaletteDetail', colorInfo);
+app.post('/MyPage', colorDrop);
+app.post('/MakePalette', colorEdit);
+app.post('/PaletteDetail', visitCheck);
 
 module.exports = app;
