@@ -1,10 +1,10 @@
 import React from 'react';
 
 const ChangeSignatureColor = () => {
-    // TODO: 이 페이지 들어올 때 해당 유저 GET 요청
+    // TODO: 이 페이지 들어올 때 해당 유저 GET 요청 (useEffect, axios)
 
     const onClickSaveButton = () => {
-        // TODO: 서버로 비밀번호 수정 POST 요청 (axios 사용)
+        // TODO: 서버로 시그니처 컬러 수정 POST 요청 (axios 사용)
     };
 
     return (
