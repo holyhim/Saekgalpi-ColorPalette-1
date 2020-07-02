@@ -1,12 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
-const SignUp = ({ history }) => {
-    const onClickSignUpButton = (e) => {
-        e.preventDefault();
-        // TODO: 서버로 회원가입 POST 요청 (axios 사용)
+const ChangePassword = () => {
+    // TODO: 이 페이지 들어올 때 해당 유저 GET 요청
 
-        history.push('/');
+    const onClickSaveButton = () => {
+        // TODO: 서버로 비밀번호 수정 POST 요청 (axios 사용)
     };
 
     const handleInputValue = (e) => {
@@ -16,7 +14,7 @@ const SignUp = ({ history }) => {
 
     return (
         <main>
-            <h1> 회원가입 </h1>
+            <h1> 비밀번호 수정 </h1>
             <div>
                 <form
                     onSubmit={(e) => {
@@ -24,34 +22,28 @@ const SignUp = ({ history }) => {
                     }}
                 >
                     <div>
+                        {/* // TODO: 시그니처 컬러 변경: 컬러피커 이용 */}
                         <input
                             type='text'
-                            placeholder='닉네임'
-                            name='username'
-                            onChange={handleInputValue}
-                        />
-                        {/* // TODO : 프로필 -> 컬러피커 패키지: 피커 모양은 간단한걸로 */}
-                        <input
-                            type='text'
-                            placeholder='이메일'
-                            name='email'
+                            placeholder='현재 비밀번호를 입력해주세요.'
+                            name='currentPassword'
                             onChange={handleInputValue}
                         />
                         <input
                             type='text'
-                            placeholder='비밀번호'
-                            name='password'
+                            placeholder='새 비밀번호를 입력해주세요.'
+                            name='newPassword'
                             onChange={handleInputValue}
                         />
                         <input
                             type='text'
                             placeholder='비밀번호를 다시 한 번 입력하세요'
-                            name='passwordCheck'
+                            name='newPasswordCheck'
                             onChange={handleInputValue}
                         />
                     </div>
                     <div>
-                        <button onClick={onClickSignUpButton}>회원가입</button>
+                        <button onClick={onClickSaveButton}>저장</button>
                     </div>
                 </form>
             </div>
@@ -59,4 +51,4 @@ const SignUp = ({ history }) => {
     );
 };
 
-export default withRouter(SignUp);
+export default ChangePassword;
