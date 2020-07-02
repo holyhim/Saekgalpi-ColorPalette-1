@@ -1,0 +1,1 @@
+// Changed SignatureColor API
