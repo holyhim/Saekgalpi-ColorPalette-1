@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PaletteList from '../components/PaletteList';
 
 const MyPage = () => {
     const isAdmin = true; // 추후 state로 변경 예정 / 임시 변수
@@ -19,7 +20,7 @@ const MyPage = () => {
                 </button>
             </section>
             <section>
-                추후 추가될 컴포넌트입니다: 팔레트 리스트 컴포넌트 자리
+                <PaletteList />
                 {/* //TODO: isAdmin을 하위 컴포넌트에 props로 넘겨주고, 하위 컴포넌트에서 팔레트 삭제 버튼을 추가 */}
             </section>
             {isAdmin ? (
