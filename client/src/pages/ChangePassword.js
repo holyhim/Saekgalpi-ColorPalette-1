@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditProfile = () => {
+const ChangePassword = () => {
     // TODO: 이 페이지 들어올 때 해당 유저 GET 요청
 
     const onClickSaveButton = () => {
@@ -14,7 +14,7 @@ const EditProfile = () => {
 
     return (
         <main>
-            <h1> 회원정보수정 </h1>
+            <h1> 비밀번호 수정 </h1>
             <div>
                 <form
                     onSubmit={(e) => {
@@ -22,18 +22,23 @@ const EditProfile = () => {
                     }}
                 >
                     <div>
-                        <span>닉네임</span>
-                        <span>이메일</span>
+                        {/* // TODO: 시그니처 컬러 변경: 컬러피커 이용 */}
                         <input
                             type='text'
-                            placeholder='비밀번호'
-                            name='password'
+                            placeholder='현재 비밀번호를 입력해주세요.'
+                            name='currentPassword'
+                            onChange={handleInputValue}
+                        />
+                        <input
+                            type='text'
+                            placeholder='새 비밀번호를 입력해주세요.'
+                            name='newPassword'
                             onChange={handleInputValue}
                         />
                         <input
                             type='text'
                             placeholder='비밀번호를 다시 한 번 입력하세요'
-                            name='passwordCheck'
+                            name='newPasswordCheck'
                             onChange={handleInputValue}
                         />
                     </div>
@@ -46,4 +51,4 @@ const EditProfile = () => {
     );
 };
 
-export default EditProfile;
+export default ChangePassword;
