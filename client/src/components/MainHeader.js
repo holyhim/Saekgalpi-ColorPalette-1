@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const MainHeader = () => {
     return (
-        <header>
+        <>
             <ul>
                 <li>
                     <Link to='/signIn'>로그인</Link>
@@ -24,7 +24,7 @@ const MainHeader = () => {
             <div>
                 <Link to='/allPalette'>모든 색갈피 보기</Link>
             </div>
-        </header>
+        </>
     );
 };
 
