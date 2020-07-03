@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+
 import Router from './Router';
+import Footer from './components/templete/Footer';
 import './App.css';
-import Footer from './components/Footer';
 
 const App = () => {
     return (

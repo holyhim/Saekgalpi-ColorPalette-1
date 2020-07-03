@@ -1,4 +1,5 @@
 import React from 'react';
+import PaletteList from '../../components/palette/PaletteList';
 
 const AllPalette = () => {
     const onChangeInput = (e) => {
@@ -25,7 +26,9 @@ const AllPalette = () => {
                 />
                 <button onClick={onClickSearchButton}>검색</button>
             </form>
-            <section>추후 팔레트 리스트 컴포넌트가 추가될 자리입니다</section>
+            <section>
+                <PaletteList />
+            </section>
         </main>
     );
 };

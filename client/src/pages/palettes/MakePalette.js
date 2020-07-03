@@ -1,6 +1,6 @@
 import React from 'react';
-import EditPaletteList from '../components/EditPaletteList';
-import EditPaletteHexList from '../components/EditPaletteHexList';
+import EditPaletteList from '../../components/palette/EditPaletteList';
+import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 
 const MakePalette = () => {
     const onChangeColor = (e) => {
