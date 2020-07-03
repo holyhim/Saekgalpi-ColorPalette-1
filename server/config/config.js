@@ -1,12 +1,12 @@
 module.exports = {
   development: {
-    username: 'root',
+    username: 'root', // hwabaek
     password: process.env.DATABASE_PASSWORD,
     database: 'colorPalette',
     host: 'localhost',
     dialect: 'mysql',
     logging: false,
-    //port : 
+    //port : 13306
   }
 };
 
