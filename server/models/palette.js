@@ -1,19 +1,23 @@
 'use strict';
 
+//const User = require('./user');
+
 module.exports = (sequelize, DataTypes) => {
-    const Palette = sequelize.define(
-        'Palette',
-        {
-            userId: DataTypes.INTEGER,
-            paletteName: DataTypes.STRING,
-            description: DataTypes.STRING,
-            colorCode: DataTypes.STRING,
-            visit: DataTypes.INTEGER,
-        },
-        {}
-    );
+  const Palette = sequelize.define(
+    'Palette',
+    {
+      userId: DataTypes.INTEGER,
+      paletteName: DataTypes.STRING,
+      description: DataTypes.STRING,
+      colorCode: DataTypes.STRING,
+      visit: DataTypes.INTEGER,
+    },
+    {}
+  );
 
-    User.belongsTo(Palette, { foreignKey: 'userId', targetKey: 'id' });
+  //   Palette.associate = function (models) {
+  //     models.Palette.hasMany(User, { foreignKey: 'userId', targetKey: 'id' });
+  //   };
 
-    return Palette;
+  return Palette;
 };
