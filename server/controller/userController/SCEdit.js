@@ -16,34 +16,35 @@ const user = require('../../models/user');
  * }
  * ***********/
 module.exports = {
-    SCEdit: (req, res) => {
-        const { email, password, signatureColorChange } = req.body;
-        if (email && password) {
-            user.update(
-                {
-                    signatureColor: signatureColorChange,
-                    // updateAt을 추가해야 할 수 있음 (이후 시험 때 오지 않는 것을 확인하다면 추가 예정)
-                },
-                {
-                    where: {
-                        email: email,
-                    },
-                }
-            )
-                .then((data) => {
-                    if (data) {
-                        res.status(200).send(data);
-                        alert('signatureColor가 성공적으로 변경되었습니다.');
-                    } else {
-                        res.status(401).send('need user');
-                        alert('유저가 존재하지 않습니다.');
-                    }
-                })
-                .catch((err) => {
-                    if (err) {
-                        res.status(500).send();
-                    }
-                });
-        }
-    },
+  post: (req, res) => {
+    const { email, password, signatureColorChange } = req.body;
+    if (email && password) {
+      user
+        .update(
+          {
+            signatureColor: signatureColorChange,
+            // updateAt을 추가해야 할 수 있음 (이후 시험 때 오지 않는 것을 확인하다면 추가 예정)
+          },
+          {
+            where: {
+              email: email,
+            },
+          }
+        )
+        .then((data) => {
+          if (data) {
+            res.status(200).send(data);
+            alert('signatureColor가 성공적으로 변경되었습니다.');
+          } else {
+            res.status(401).send('need user');
+            alert('유저가 존재하지 않습니다.');
+          }
+        })
+        .catch((err) => {
+          if (err) {
+            res.status(500).send();
+          }
+        });
+    }
+  },
 };

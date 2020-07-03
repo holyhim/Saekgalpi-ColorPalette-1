@@ -1,7 +1,7 @@
-const { user } = require('./models');
+const { user } = require('../../models');
 
 module.exports = {
-  signIn: (req, res) => {
+  post: (req, res) => {
     const { email, password } = req.body;
     user
       .findOne({
