@@ -19,6 +19,11 @@ module.exports = {
           alert('비밀번호를 확인해주세요.');
         } else res.status(200).send('Signin Sucsses');
         alert(`${req.body.email}님 어서오세요 !`);
+      })
+      .catch((err) => {
+        if (err) {
+          res.status(500).send('');
+        }
       });
   },
 };
