@@ -1,7 +1,7 @@
 const express = require('express');
 require('./models');
 const bodyParser = require('body-parser');
-const session = require('express-session');
+//const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
@@ -25,14 +25,6 @@ app.use(
   })
 );
 
-app.use(
-  session({
-    secret: '@hwabaek',
-    resave: false,
-    saveUninitialized: true,
-  })
-);
-
 app.get('/', (req, res) => {
   res.status(200).send('Success');
 });
@@ -40,6 +32,9 @@ app.get('/', (req, res) => {
 app.use('/user', userRouter);
 app.use('/color', colorRouter);
 
-// 40, 41번 line에 대한 것은 Check가 필요합니다.
+app.set('port', port);
+app.listen(app.get('port'), () => {
+  console.log(`app is listening in PORT ${app.get('port')}`);
+});
 
 module.exports = app;
