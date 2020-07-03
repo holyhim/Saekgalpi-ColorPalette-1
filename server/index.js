@@ -1,7 +1,7 @@
 const express = require('express');
 require('./models');
 const bodyParser = require('body-parser');
-//const session = require('express-session');
+const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
@@ -22,6 +22,14 @@ app.use(
     origin: ['http://localhost:3000'],
     methods: ['GET', 'POST'],
     credentials: true,
+  })
+);
+
+app.use(
+  session({
+    secret: '@code',
+    resave: false,
+    saveUninitialized: true,
   })
 );
 
