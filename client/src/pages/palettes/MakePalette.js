@@ -1,11 +1,8 @@
 import React from 'react';
-import EditPaletteList from '../components/EditPaletteList';
-import EditPaletteHexList from '../components/EditPaletteHexList';
+import EditPaletteList from '../../components/palette/EditPaletteList';
+import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 
-const EditPalette = () => {
-    //TODO: GET 해당 팔레트에 대한 정보를 서버에서 요청
-    //props로 넣어 주면 됩니다
-
+const MakePalette = () => {
     const onChangeColor = (e) => {
         // 컬러 갯수에 따라서 바뀜
         // TODO: Input 값 value로 받아 state 설정
@@ -67,4 +64,4 @@ const EditPalette = () => {
     );
 };
 
-export default EditPalette;
+export default MakePalette;

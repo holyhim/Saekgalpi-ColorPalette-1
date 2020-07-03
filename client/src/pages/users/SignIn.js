@@ -40,8 +40,8 @@ const SignIn = ({ history }) => {
                         />
                     </div>
                     <div>
-                        <button onClick={onClickSignInButton}>회원가입</button>
-                        <button onClick={onClickSignUpButton}>로그인</button>
+                        <button onClick={onClickSignUpButton}>회원가입</button>
+                        <button onClick={onClickSignInButton}>로그인</button>
                     </div>
                 </form>
             </div>

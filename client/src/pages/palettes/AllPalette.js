@@ -1,5 +1,5 @@
 import React from 'react';
-import PaletteList from '../components/PaletteList';
+import PaletteList from '../../components/palette/PaletteList';
 
 const AllPalette = () => {
     const onChangeInput = (e) => {
