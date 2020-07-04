@@ -1,34 +1,79 @@
 // 낱개 팔레트 회원과 해당 팔레의 userid가 같다면 딜리트 버튼이 있어야 함
-import React from 'react';
-import styd from 'styled-components';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-const PaletteEntryWrapper = styd.div`
-background-color: #aa0033;
-margin: 5px;
-width: 100px;
-display: inline-block;
+const PaletteWrapper = styled.div`
+    position: 'relative';
+    width: 200px;
+    height: 200px;
 `;
+
+const PaletteColors = styled.div`
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(${(props) => props.number}, 1fr);
+    width: 200px;
+    height: 200px;
+`;
+// TODO: 추후 데이터받아서 props.number로 넘겨주기
+
+const PaletteInfo = styled.div`
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 200px;
+    background-color: #f1f2f6;
+    padding: 5px 0;
+`;
+
 const PaletteListEntry = () => {
     //주석 나중에 제거하거나 다듬을 것
-    //숫자에 맞게 div를 생성하는 헬퍼 함수를 만들어야 합니다
+    //숫자에 맞게 div를 생성하는 헬퍼 함수를 만들어야 합니다 -> 받은 숫자에 맞게 map으로 div를 만들어주는 건 어떨까요?
+    const [isMouseOver, setIsMouseOver] = useState(false);
+
+    const toggleInfo = () => {
+        setIsMouseOver((prevState) => !prevState);
+    };
 
     return (
-        <PaletteEntryWrapper>
+        <PaletteWrapper className='palette__wrapper'>
             {/* wrapper */}
-            <div>
+            <PaletteColors
+                className='palette__colors'
+                onMouseOver={toggleInfo}
+                onMouseOut={toggleInfo}
+                number={2}
+            >
                 {/* div를 묶어 줘야 됨 */}
-                <div>+</div>
-                <div>+</div>
-            </div>
-            <div>
-                {/* hover page */}
-                <span>타이틀</span>
-                <button>ㅁ</button>
-                <button>저장</button>
-                <button>공유</button>
-            </div>
-            <button>삭제</button>
-        </PaletteEntryWrapper>
+                <div
+                    className='palette__color'
+                    style={{ backgroundColor: '#3742fa' }}
+                >
+                    +
+                </div>
+                <div
+                    className='palette__color'
+                    style={{ backgroundColor: '#1e90ff' }}
+                >
+                    +
+                </div>
+            </PaletteColors>
+            {isMouseOver ? (
+                <PaletteInfo className='palette__info--hidden'>
+                    {/* hover page */}
+                    <span className='palette__title'>타이틀</span>
+                    <div className='palette__icons'>
+                        <button className='palette__like'>ㅁ</button>
+                        <button className='palette__save'>저장</button>
+                        <button className='palette__share'>공유</button>
+                    </div>
+                </PaletteInfo>
+            ) : (
+                <></>
+            )}
+            <button className='palette__delete--hidden'>삭제</button>
+        </PaletteWrapper>
     );
 };
 
