@@ -1,5 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 import PaletteList from '../../components/palette/PaletteList';
+import './AllPalette.scss';
 
 const AllPalette = () => {
     const onChangeInput = (e) => {
@@ -12,21 +14,28 @@ const AllPalette = () => {
     };
 
     return (
-        <main>
-            <h1>전체 색갈피 보기</h1>
+        <main className='all-palette__main'>
+            <h1 className='all-palette__title'>전체 색갈피 보기</h1>
             <form
+                className='all-palette__search-form'
                 onSubmit={(e) => {
                     e.preventDefault();
                 }}
             >
                 <input
+                    className='search-form__input'
                     type='text'
                     placeholder='검색어를 입력하세요'
                     onChange={onChangeInput}
                 />
-                <button onClick={onClickSearchButton}>검색</button>
+                <button
+                    className='search-form__submit-button'
+                    onClick={onClickSearchButton}
+                >
+                    검색
+                </button>
             </form>
-            <section>
+            <section className='all-palette__palettes'>
                 <PaletteList />
             </section>
         </main>
