@@ -1,9 +1,9 @@
-const { user } = require('./models');
+const { User } = require('../../models');
 
 module.exports = {
-  signIn: (req, res) => {
+  post: (req, res) => {
     const { email, password } = req.body;
-    user
+    User
       .findOne({
         where: {
           email: email,

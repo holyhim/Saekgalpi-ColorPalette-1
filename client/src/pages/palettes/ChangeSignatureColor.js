@@ -1,4 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
+import './ChangeSignatureColor.scss';
 
 const ChangeSignatureColor = () => {
     // TODO: 이 페이지 들어올 때 해당 유저 GET 요청 (useEffect, axios)
@@ -8,20 +10,27 @@ const ChangeSignatureColor = () => {
     };
 
     return (
-        <main>
-            <h1> 시그니처 컬러 변경 </h1>
+        <main className='change-signature-color__main'>
+            <h1 className='change-signature-color__title'>
+                시그니처 컬러 변경
+            </h1>
             <div>
                 <form
+                    className='change-signature-color__form'
                     onSubmit={(e) => {
                         e.preventDefault();
                     }}
                 >
-                    <div>
+                    <div className='change-signature-color__picker'>
                         {/* // TODO: 시그니처 컬러 변경: 컬러피커 이용 */}
                     </div>
-                    <div>
-                        <button onClick={onClickSaveButton}>저장</button>
-                    </div>
+
+                    <button
+                        className='change-signature-color__button'
+                        onClick={onClickSaveButton}
+                    >
+                        저장
+                    </button>
                 </form>
             </div>
         </main>

@@ -1,9 +1,9 @@
-const { user } = require('./models');
+const { User } = require('../../models');
 
 module.exports = {
-  signUp: (req, res) => {
+  post: (req, res) => {
     const { userName, signatureColor, email, password1, password2 } = req.body;
-    user
+    User
       .findOrCreate({
         where: {
           userName: userName,
