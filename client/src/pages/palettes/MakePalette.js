@@ -51,7 +51,12 @@ const MakePalette = () => {
             </MakePaletteHexContainer>
             <section className='make-palette__palette-info'>
                 {/* bottom other desc */}
-                <form className='palette-info__form'>
+                <form
+                    className='palette-info__form'
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                    }}
+                >
                     <label className='palette-info__color-range-label'>
                         색상 갯수
                         <input
