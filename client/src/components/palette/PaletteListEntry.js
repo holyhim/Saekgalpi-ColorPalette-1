@@ -8,6 +8,25 @@ const PaletteWrapper = styled.div`
     height: 200px;
 `;
 
+const PaletteColors = styled.div`
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(${(props) => props.number}, 1fr);
+    width: 200px;
+    height: 200px;
+`;
+// TODO: 추후 데이터받아서 props.number로 넘겨주기
+
+const PaletteInfo = styled.div`
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 200px;
+    background-color: #f1f2f6;
+    padding: 5px 0;
+`;
+
 const PaletteListEntry = () => {
     //주석 나중에 제거하거나 다듬을 것
     //숫자에 맞게 div를 생성하는 헬퍼 함수를 만들어야 합니다 -> 받은 숫자에 맞게 map으로 div를 만들어주는 건 어떨까요?
