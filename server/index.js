@@ -18,23 +18,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(
-  cors({
-    origin: ['http://localhost:3000'],
-    methods: ['GET', 'POST'],
-    credentials: true,
-  })
+    cors({
+        origin: ['http://localhost:3000'],
+        methods: ['GET', 'POST'],
+        credentials: true,
+    })
 );
 
 app.use(
-  session({
-    secret: '@code',
-    resave: false,
-    saveUninitialized: true,
-  })
+    session({
+        secret: '@code',
+        resave: false,
+        saveUninitialized: true,
+    })
 );
 
 app.get('/', (req, res) => {
-  res.status(200).send('Success');
+    res.status(200).send('Success');
 });
 
 app.use('/user', userRouter);
@@ -42,7 +42,7 @@ app.use('/color', colorRouter);
 
 app.set('port', port);
 app.listen(app.get('port'), () => {
-  console.log(`app is listening in PORT ${app.get('port')}`);
+    console.log(`✅ app is listening in PORT ${app.get('port')}`);
 });
 
 module.exports = app;
