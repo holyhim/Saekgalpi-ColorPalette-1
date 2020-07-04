@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import './SignIn.scss';
 
 const SignIn = ({ history }) => {
     const onClickSignInButton = () => {
@@ -19,7 +20,7 @@ const SignIn = ({ history }) => {
     return (
         <main>
             <h1> 로그인 </h1>
-            <div>
+            <div className='formWrap'>
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
@@ -39,7 +40,7 @@ const SignIn = ({ history }) => {
                             onChange={handleInputValue}
                         />
                     </div>
-                    <div>
+                    <div className='buttonWrap'>
                         <button onClick={onClickSignUpButton}>회원가입</button>
                         <button onClick={onClickSignInButton}>로그인</button>
                     </div>

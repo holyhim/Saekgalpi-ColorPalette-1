@@ -8,6 +8,7 @@ margin: 5px;
 width: 100px;
 display: inline-block;
 `;
+
 const PaletteListEntry = () => {
     //주석 나중에 제거하거나 다듬을 것
     //숫자에 맞게 div를 생성하는 헬퍼 함수를 만들어야 합니다

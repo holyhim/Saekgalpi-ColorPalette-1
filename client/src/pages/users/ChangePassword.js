@@ -1,4 +1,5 @@
 import React from 'react';
+import './ChangePassword.scss';
 
 const ChangePassword = () => {
     // TODO: 이 페이지 들어올 때 해당 유저 GET 요청
@@ -15,7 +16,7 @@ const ChangePassword = () => {
     return (
         <main>
             <h1> 비밀번호 수정 </h1>
-            <div>
+            <div className='formWrap'>
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
@@ -42,7 +43,7 @@ const ChangePassword = () => {
                             onChange={handleInputValue}
                         />
                     </div>
-                    <div>
+                    <div className='buttonWrap'>
                         <button onClick={onClickSaveButton}>저장</button>
                     </div>
                 </form>
