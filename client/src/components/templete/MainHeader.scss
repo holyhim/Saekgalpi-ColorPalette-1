@@ -1,0 +1,33 @@
+@import '../../_variables.scss';
+
+.mainHeaderWapper {
+    background-color: #aa0033;
+    height: 400px;
+    position: relative;
+    nav {
+        float: right;
+        li {
+            display: inline-block;
+            margin: 10px 10px;
+        }
+    }
+    .mainHeader__center {
+        width: 100%;
+        position: absolute;
+        bottom: 20px;
+
+        div {
+            /*모든 색갈피 보기 및 색갈피*/
+            padding-bottom: 10px;
+            text-align: center;
+            margin: 0 auto;
+            width: 300px;
+        }
+
+        .mainHeader__logo {
+            height: 110px;
+            margin-bottom: 20px;
+            background-color: $main;
+        }
+    }
+}

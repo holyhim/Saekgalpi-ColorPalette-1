@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PaletteList from '../../components/palette/PaletteList';
+import './MyPage.scss';
 
 const MyPage = () => {
     const isAdmin = true; // 추후 state로 변경 예정 / 임시 변수
