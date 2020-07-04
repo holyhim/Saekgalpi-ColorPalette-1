@@ -1,11 +1,11 @@
-const { user } = require('../../models');
+const { User } = require('../../models');
 //const Eslintrc = require('../../.eslintrc');
 
 module.exports = {
   post: (req, res) => {
     const { password1, password2, password3 } = req.body;
     var session = req.session;
-    user
+    User
       .findOne({
         where: {
           email: session.email,

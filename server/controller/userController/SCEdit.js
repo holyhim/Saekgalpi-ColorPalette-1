@@ -1,6 +1,6 @@
 // Changed SignatureColor API
 
-const user = require('../../models/user');
+const { User } = require('../../models');
 
 /***********
  *  유저의 시그니처 컬러를 변경하는 API
@@ -19,7 +19,7 @@ module.exports = {
   post: (req, res) => {
     const { email, password, signatureColorChange } = req.body;
     if (email && password) {
-      user
+      User
         .update(
           {
             signatureColor: signatureColorChange,
