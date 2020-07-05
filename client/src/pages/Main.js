@@ -2,14 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PaletteList from '../components/palette/PaletteList';
 import RandomColorList from '../components/palette/RandomColorList';
-// import './Main.scss';
 
 const Main = () => {
     // TODO: 메인 페이지 들어오자마자 팔레트 정보 불러오기 GET 요청 (useEffect, axios)
 
     return (
         <main className='main__main-content'>
-            <h1>메인</h1>
             <button className='make-palette__link-btn'>
                 <Link to='/makePalette'>내 색갈피 만들기</Link>
             </button>
