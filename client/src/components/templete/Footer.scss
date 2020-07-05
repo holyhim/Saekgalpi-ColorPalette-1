@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Wolyeonggyo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/Wolyeonggyo.woff')
+        format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+footer {
+    .footer__LOGO {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+            font-size: 2em;
+            font-family: 'Wolyeonggyo';
+            color: #c7c7c7;
+            margin-right: 20px;
+        }
+        float: left;
+    }
+    .footer__Nav {
+        line-height: 4;
+        margin-right: 50px;
+        float: right;
+
+        li {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 0 8px;
+        }
+    }
+}
