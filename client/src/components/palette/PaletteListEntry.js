@@ -1,9 +1,10 @@
 // 낱개 팔레트 회원과 해당 팔레의 userid가 같다면 딜리트 버튼이 있어야 함
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 const PaletteWrapper = styled.div`
-    position: 'relative';
+    position: relative;
     width: 200px;
     height: 200px;
 `;
@@ -25,39 +26,40 @@ const PaletteInfo = styled.div`
     width: 200px;
     background-color: #f1f2f6;
     padding: 5px 0;
+    bottom: 0px;
 `;
 
-const PaletteListEntry = () => {
+const PaletteColor = styled.div`
+    background-color: ${(props) => props.color};
+`;
+
+const PaletteListEntry = ({ history }) => {
     //주석 나중에 제거하거나 다듬을 것
     //숫자에 맞게 div를 생성하는 헬퍼 함수를 만들어야 합니다 -> 받은 숫자에 맞게 map으로 div를 만들어주는 건 어떨까요?
     const [isMouseOver, setIsMouseOver] = useState(false);
+    const [colors, setColors] = useState(['red', 'blue', 'black']);
 
     const toggleInfo = () => {
         setIsMouseOver((prevState) => !prevState);
     };
 
+    const onClickPalette = () => {
+        history.push('/paletteDetail/:id');
+    };
+
     return (
-        <PaletteWrapper className='palette__wrapper'>
+        <PaletteWrapper className='palette__wrapper' onClick={onClickPalette}>
             {/* wrapper */}
             <PaletteColors
                 className='palette__colors'
                 onMouseOver={toggleInfo}
                 onMouseOut={toggleInfo}
-                number={2}
+                number={colors.length}
             >
                 {/* div를 묶어 줘야 됨 */}
-                <div
-                    className='palette__color'
-                    style={{ backgroundColor: '#3742fa' }}
-                >
-                    +
-                </div>
-                <div
-                    className='palette__color'
-                    style={{ backgroundColor: '#1e90ff' }}
-                >
-                    +
-                </div>
+                {colors.map((color) => (
+                    <PaletteColor className='palette__color' color={color} />
+                ))}
             </PaletteColors>
             {isMouseOver ? (
                 <PaletteInfo className='palette__info--hidden'>
@@ -77,4 +79,4 @@ const PaletteListEntry = () => {
     );
 };
 
-export default PaletteListEntry;
+export default withRouter(PaletteListEntry);

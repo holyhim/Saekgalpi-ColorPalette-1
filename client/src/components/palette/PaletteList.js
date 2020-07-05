@@ -31,7 +31,7 @@ const PaletteList = () => {
     //map 돌려서 리스트 만들기
 
     return (
-        <PalettesWrapper number={fakePalette.length}>
+        <PalettesWrapper number={4}>
             {fakePalette.map((palette, idx) => (
                 <PaletteListEntry key={idx} palette={palette} />
                 // 추후 키값은 상의해서 변경 예정
