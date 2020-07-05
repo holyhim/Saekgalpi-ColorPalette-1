@@ -1,5 +1,4 @@
 .palette-detail__main {
-    background-color: cadetblue;
     height: 75vh;
     .palette-detail__wrapper {
         display: flex;
@@ -22,11 +21,10 @@
                 .palette-detail__palette {
                     width: 400px;
                     height: 300px;
-                    background-color: darkblue;
+                    background-color: black;
                 }
                 .palette-detail__share-container {
                     width: 400px;
-                    background-color: tomato;
                     .palette-detail__share-lists {
                         display: flex;
                         justify-content: flex-end;
@@ -58,6 +56,10 @@
                     border: 1px solid black;
                 }
             }
+        }
+        .palette-detail__description {
+            width: 80%;
+            border: 1px solid black;
         }
     }
 }
