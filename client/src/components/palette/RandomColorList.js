@@ -23,7 +23,7 @@ const RandomColorList = () => {
     ];
 
     return (
-        <section className='random-colors__wrapper'>
+        <>
             <h3 className='random-colors__title'>랜덤컬러 생성기</h3>
             <RandomColorsContainer>
                 {fakeColor.map((color, idx) => (
@@ -31,7 +31,7 @@ const RandomColorList = () => {
                     // 추후 키값은 상의해서 변경 예정
                 ))}
             </RandomColorsContainer>
-        </section>
+        </>
     );
 };
 

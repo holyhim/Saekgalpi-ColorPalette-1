@@ -3,7 +3,9 @@ import styled from 'styled-components';
 // import './RandomColorListEntry.scss';
 
 const RandomColorWrapper = styled.div`
-    position: 'relative';
+    position: relative;
+    width: 200px;
+    height: 200px;
 `;
 
 const RandomColor = styled.div`
@@ -22,6 +24,7 @@ const RandomColorInfo = styled.div`
     width: 200px;
     background-color: #f1f2f6;
     padding: 5px 0;
+    bottom: 0px;
 `;
 
 const RandomColorListEntry = ({ color }) => {
