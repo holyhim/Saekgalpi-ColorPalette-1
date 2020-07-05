@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import EditPaletteListEntry from './EditPaletteListEntry';
 
 const ColorLists = styled.div`
     display: grid;
@@ -8,36 +9,37 @@ const ColorLists = styled.div`
 `;
 // TODO: 추후 데이터받아서 props.number로 넘겨주기
 
-const PaletteColor = styled.div`
-    width: 500px
-    height: 200px;
-    border: 1px solid black;
-    background-color: ${(props) => props.color || 'coral'}
-`;
-
 const EditPaletteList = () => {
+    const [colors, setColors] = useState(['#0652DD', '#0652DD', '#0652DD']);
+    // 초기값: 들어온 컬러 숫자에 맞는 길이의 배열 => 상위컴포넌트 / Edit, Make palette에서 관리하는 color state가 하나는 있어야해
     //주석 나중에 제거하거나 다듬을 것
     //컬러 api 사용
-    //숫자에 맞게 div를 생성하는 헬퍼 함수를 만들어야 합니다
-    const createDIVbox = (range) => {
-        //갯수에 맞게 div 갯수 만들거나 줄임
+
+    const setNthColor = (idx, color) => {
+        setColors((prevState) => [
+            ...prevState.slice(0, idx),
+            color,
+            ...prevState.slice(idx + 1),
+        ]);
     };
+
     return (
-        <ColorLists
-            className='edit-palette__color-lists'
-            onChange={createDIVbox}
-            number={2}
-        >
-            {/*2개부터 7개까지 div*/}
-            <PaletteColor
-                className='edit-palette__color'
-                color={'coral'}
-            ></PaletteColor>
-            <PaletteColor
-                className='edit-palette__color'
-                color={'coral'}
-            ></PaletteColor>
-        </ColorLists>
+        <>
+            <ColorLists
+                className='edit-palette__color-lists'
+                number={colors.length}
+            >
+                {/*2개부터 7개까지 div*/}
+                {colors.map((paletteColor, idx) => (
+                    <EditPaletteListEntry
+                        paletteColor={paletteColor}
+                        idx={idx}
+                        key={idx}
+                        setNthColor={setNthColor}
+                    />
+                ))}
+            </ColorLists>
+        </>
     );
 };
 
