@@ -1,16 +1,32 @@
 @import '../../_variables.scss';
+@font-face {
+    font-family: 'Wolyeonggyo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/Wolyeonggyo.woff')
+        format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
-.mainHeaderWapper {
-    background-color: #aa0033;
-    height: 400px;
+.mainHeader__Wapper {
+    height: 600px;
     position: relative;
+
     nav {
-        float: right;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        font-size: 1.2em;
+        margin-top: 20px;
         li {
             display: inline-block;
-            margin: 10px 10px;
+            margin: 5px;
         }
     }
+    background-image: url(https://k.kakaocdn.net/dn/nHZ1Z/btqFofcNIom/EAPxDV2nKa0m9o2YsTPtWk/img.png);
+    background-size: 550px;
+    background-position: center 100px;
+    background-repeat: no-repeat;
+
     .mainHeader__center {
         width: 100%;
         position: absolute;
@@ -21,13 +37,20 @@
             padding-bottom: 10px;
             text-align: center;
             margin: 0 auto;
-            width: 300px;
+            width: 400px;
         }
 
         .mainHeader__logo {
-            height: 110px;
-            margin-bottom: 20px;
-            background-color: $main;
+            .LOGO {
+                font-family: 'Wolyeonggyo';
+                font-size: 8em;
+                color: #2d2d2d;
+            }
+            height: 170px;
+            margin-bottom: 120px;
+            img {
+                width: 400px;
+            }
         }
     }
 }

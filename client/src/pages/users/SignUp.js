@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import './SignUp.scss';
 import { Space, Card } from 'antd';
 import styd from 'styled-components';
 
@@ -24,8 +23,10 @@ const SignUp = ({ history }) => {
 
     return (
         <main>
-            <span className='h1'> 회원가입 </span>
-            <div className='SignUp__wrapper'>
+            <div className='aa'>
+                <span className='h1'> 회원가입 </span>
+            </div>
+            <div className='userPageWrapper'>
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();

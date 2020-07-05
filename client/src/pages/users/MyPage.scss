@@ -1,12 +1,16 @@
-section:nth-child(2) {
-    color: black;
+.MyPage__wrapper {
+    background-color: red;
     text-align: center;
-    button {
-        margin-top: 10px;
+    section:nth-child(2) {
+        color: black;
+        text-align: center;
+        button {
+            margin-top: 10px;
+        }
     }
-}
-section:nth-child(3) {
-    border-top: 1px solid black;
-    padding-top: 100px;
-    margin: 20px;
+    section:nth-child(3) {
+        border-top: 1px solid black;
+        padding-top: 100px;
+        margin: 20px;
+    }
 }
