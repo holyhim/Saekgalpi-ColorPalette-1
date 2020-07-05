@@ -4,6 +4,7 @@ import './MainHeader.scss';
 import styd from 'styled-components';
 import { Divider } from 'antd';
 
+// TODO: 나중에 이 밑의 스타일드 컴포넌트 언더바 없는 파스칼케이스로 고칩시다!: ESLINT 오류가 납니다..
 const MainHeader__btn = styd.button`
     border: 0;
     padding: 4px 20px;
