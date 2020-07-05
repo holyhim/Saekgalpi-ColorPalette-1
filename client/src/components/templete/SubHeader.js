@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './SubHeader.scss';
+import { Button } from 'antd';
 
 const SubHeader = () => {
     //주석 나중에 제거하거나 다듬을 것
@@ -10,7 +11,7 @@ const SubHeader = () => {
             <div className='SubHeader__Logo'>
                 {/*수채화 백그라운드 넣어 봅시다*/}
                 <Link to='/'>
-                    <img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FcnAIp5%2FbtqFnOrXu4B%2F2naGmXsdhF1fwvPgWy9ALK%2Fimg.png' />
+                    <span>색갈피</span>
                 </Link>
             </div>
             <nav>
@@ -22,13 +23,18 @@ const SubHeader = () => {
                         </Link>
                     </li>
                     <li>
+                        <span className='SubHeader__divider'>l</span>
+                    </li>
+                    <li>
                         <Link to='/signIn'>
                             <span>로그인</span>
                         </Link>
                     </li>
                     <li>
                         <Link to='/signUp'>
-                            <span>회원가입</span>
+                            <Button type='primary' shape='round'>
+                                회원가입
+                            </Button>
                         </Link>
                     </li>
                     <li>
@@ -37,7 +43,9 @@ const SubHeader = () => {
                         </Link>
                     </li>
                     <li>
-                        <button>로그아웃</button>
+                        <Button type='primary' shape='round'>
+                            로그아웃
+                        </Button>
                     </li>
                 </ul>
             </nav>

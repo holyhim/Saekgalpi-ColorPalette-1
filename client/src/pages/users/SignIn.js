@@ -19,14 +19,16 @@ const SignIn = ({ history }) => {
 
     return (
         <main>
-            <h1> 로그인 </h1>
-            <div className='formWrap'>
+            <div className='aa'>
+                <span className='h1'> 로그인 </span>
+            </div>
+            <div className='userPageWrapper'>
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
                     }}
                 >
-                    <div>
+                    <div className='SignIn__input' aria-required>
                         <input
                             type='text'
                             placeholder='이메일'
@@ -34,15 +36,16 @@ const SignIn = ({ history }) => {
                             onChange={handleInputValue}
                         />
                         <input
+                            aria-required
                             type='text'
                             placeholder='비밀번호'
                             name='password'
                             onChange={handleInputValue}
                         />
                     </div>
-                    <div className='buttonWrap'>
-                        <button onClick={onClickSignUpButton}>회원가입</button>
+                    <div className='SignIn__BtnWrap'>
                         <button onClick={onClickSignInButton}>로그인</button>
+                        <button onClick={onClickSignUpButton}>회원가입</button>
                     </div>
                 </form>
             </div>

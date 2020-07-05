@@ -1,19 +1,23 @@
-.formWrap {
-    padding-top: 100px;
-    margin: 0 auto;
-    width: 300px;
-    height: 100px;
+.SignIn__input {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     input {
         width: 500px;
-        height: 50px;
-        margin-bottom: 30px;
+        height: 60px;
+        margin-bottom: 10px;
+        padding: 10px 10px 10px 15px;
+        font-size: 1.2em;
+        border: 2px solid gray;
     }
-    .buttonWrap {
-        float: right;
-        button {
-            margin-left: 20px;
-        }
+}
+.SignIn__BtnWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    button {
+        height: 50px;
+        width: 500px;
+        margin-bottom: 5px;
     }
 }

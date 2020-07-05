@@ -8,7 +8,6 @@ const Main = () => {
 
     return (
         <main>
-            <h1>메인</h1>
             <button>
                 <Link to='/makePalette'>내 색갈피 만들기</Link>
             </button>
