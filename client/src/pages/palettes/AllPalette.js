@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import PaletteList from '../../components/palette/PaletteList';
 import './AllPalette.scss';
 
