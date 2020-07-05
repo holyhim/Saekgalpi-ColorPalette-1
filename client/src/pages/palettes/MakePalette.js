@@ -6,7 +6,6 @@ import './MakePalette.scss';
 
 const MakePaletteContainer = styled.section`
     border: 1px solid black;
-    background-color: coral;
     width: 70vw;
     height: 200px;
     margin-bottom: 20px;
@@ -14,7 +13,6 @@ const MakePaletteContainer = styled.section`
 
 const MakePaletteHexContainer = styled.section`
     border: 1px solid black;
-    background-color: cornflowerblue;
     width: 70vw;
     height: 200px;
     margin-bottom: 20px;
@@ -33,6 +31,7 @@ const MakePalette = () => {
     const onClickPostButton = (e) => {
         // TODO: 서버로 팔레트 POST 요청 (axios 사용)
     };
+
     return (
         <main className='make-palette__main'>
             {/* wrapper */}

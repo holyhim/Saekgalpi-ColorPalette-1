@@ -6,7 +6,6 @@ import './EditPalette.scss';
 
 const EditPaletteContainer = styled.section`
     border: 1px solid black;
-    background-color: coral;
     width: 70vw;
     height: 200px;
     margin-bottom: 20px;
@@ -14,11 +13,11 @@ const EditPaletteContainer = styled.section`
 
 const EditPaletteHexContainer = styled.section`
     border: 1px solid black;
-    background-color: cornflowerblue;
     width: 70vw;
     height: 200px;
     margin-bottom: 20px;
 `;
+// TODO: 섹션을 고쳐주십시오..
 
 const EditPalette = () => {
     //TODO: GET 해당 팔레트에 대한 정보를 서버에서 요청
