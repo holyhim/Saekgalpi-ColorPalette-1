@@ -27,18 +27,18 @@ module.exports = {
             });
     },
     post: (req, res) => {
-        const { id, email, password, userName, signatureColor } = req.params;
+        const { id } = req.params;
         User.destroy({
             where: {
-                id: id,
-                email: email,
-                password: password,
-                userName: userName,
-                signatureColor: signatureColor,
+                id,
+                email,
+                password,
+                userName,
+                signatureColor,
             },
         })
             .then((data) => {
-                if (data === undefined) {
+                if (data === undefined) { // 머리를 굴려봅시다
                     res.status(200).send('Delete User');
                     alert('유저를 삭제하였습니다.');
                 } else {
