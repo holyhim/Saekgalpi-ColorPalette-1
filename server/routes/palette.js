@@ -7,7 +7,10 @@ const paletteController = require('../controller/paletteController');
 //router.post('/makePalette', paletteController.paletteCreate.post);
 
 // * POST /colorController/colorDrop
-//router.post(['/MyPage', '/admin'], paletteController.paletteDrop.post);
+router.post(
+  ['/MyPage', '/admin', 'paletteDetail/:id'],
+  paletteController.paletteDrop.post
+);
 
 // * POST /colorController/colorEdit
 router.post('/editPalette/:id', paletteController.paletteEdit.post);
