@@ -1,23 +1,7 @@
-.SignIn__input {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    input {
-        width: 500px;
-        height: 60px;
-        margin-bottom: 10px;
-        padding: 10px 10px 10px 15px;
-        font-size: 1.2em;
-        border: 2px solid gray;
-    }
+.SignInWrapper {
+    margin-top: 150px;
+    width: 900px;
 }
-.SignIn__BtnWrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    button {
-        height: 50px;
-        width: 500px;
-        margin-bottom: 5px;
-    }
+.SignUpWrapper {
+    margin-top: 60px;
 }

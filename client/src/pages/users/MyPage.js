@@ -2,6 +2,31 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PaletteList from '../../components/palette/PaletteList';
 import './MyPage.scss';
+import styd from 'styled-components';
+import { Button } from 'antd';
+import './MyPage.scss';
+import logos from '../../images/2.png';
+
+const MyPageBtn = styd(Button)`
+
+color: #a6a6a6;
+background-color: #e7e7e7;
+border: 1px solid #e7e7e7;
+margin: 5px;
+
+&:hover{
+    background-color: #e7e7e7;
+    border: 1px solid #e7e7e7;
+    color: #5d5d5d;
+}
+&:focus {
+    background-color: #e7e7e7;
+    border: 1px solid #e7e7e7;
+    color: #a6a6a6;
+}
+&:after {
+    --antd-wave-shadow-color: #c7c7c7;
+`;
 
 const MyPage = () => {
     const isAdmin = true; // 추후 state로 변경 예정 / 임시 변수
@@ -11,18 +36,24 @@ const MyPage = () => {
             <span className='h1'>마이페이지</span>
             <div className='userPageWrapper'>
                 <div className='MyPage__wrapper'>
-                    <section>
-                        <div>
+                    <section className='MyPage__Profile'>
+                        <img src={logos} />
+                        <span>닉네임</span>
+                        <span>hwabaek@email.com</span>
+                    </section>
+                    <section className='MyPage__BtnWrapper'>
+                        <MyPageBtn>
                             <Link to='/changeSignatureColor/:id'>
                                 시그니처 컬러 변경
                             </Link>
                             {/* 마이페이지의 내 시그니처 컬러를 누르면 이동 */}
-                        </div>
-                        <button>
+                        </MyPageBtn>
+                        <MyPageBtn>
                             <Link to='/changePassword/:id'>비밀번호 변경</Link>
-                        </button>
+                        </MyPageBtn>
                     </section>
-                    <section>
+                    <section className='MyPage__PalWrapper'>
+                        <h3 className='MyPage__AdminTitle'>내 색갈피 관리</h3>
                         <PaletteList />
                         {/* //TODO: isAdmin을 하위 컴포넌트에 props로 넘겨주고, 하위 컴포넌트에서 팔레트 삭제 버튼을 추가 */}
                     </section>

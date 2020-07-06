@@ -1,0 +1,29 @@
+.main__main-content {
+    margin-top: 50px;
+    .fav-palettes__container {
+        border-top: 1px solid hsl(0, 0%, 66%);
+        padding: 60px 0 100px 0;
+        width: 1200px;
+        .fav-palettes__title {
+            font-size: 2.5em;
+            font-weight: 300;
+            color: #4a4a4a;
+        }
+    }
+    .current-palettes__container {
+        border-top: 1px solid hsl(0, 0%, 66%);
+        padding: 60px 0 100px 0;
+        width: 1200px;
+        .current-palettes__title {
+            font-size: 2.5em;
+            font-weight: 300;
+            color: #4a4a4a;
+        }
+    }
+
+    .random-colors__container {
+        border-top: 1px solid #c7c7c7;
+        padding: 60px 0 100px 0;
+        width: 1200px;
+    }
+}

@@ -1,11 +1,52 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Space, Card } from 'antd';
+import { Space, Card, Button } from 'antd';
 import styd from 'styled-components';
 
-//앤트디와 스타일컴포 어떻게 하는지?에 대해 실험을 좀 해 보았습니다.
+const SignUpInput = styd.input`
+border: 0;
+box-sizing: border-box;
+padding: 10px;
+font-size: 1.5em;
+width: 450px;
+outline: 0;
+`;
+
 const CardWrap = styd(Card)`
-border: 1px solid black;
+border: 1px solid #d9d9d9;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 15px;
+transition: all 0.5s;
+&:hover{
+    border: 1px solid #a7a7a7;
+}
+&:focus {
+    border: 1px solid #a7a7a7;
+    box-shadow: 0 0 0 2px #e1e1e1;
+}
+`;
+
+const SubHeaderButton = styd(Button)`
+color: #a6a6a6;
+background-color: #e7e7e7;
+border: 1px solid #e7e7e7;
+margin: 10px;
+
+&:hover{
+    background-color: #e7e7e7;
+    border: 1px solid #e7e7e7;
+    color: #5d5d5d;
+}
+&:focus {
+    background-color: #e7e7e7;
+    border: 1px solid #e7e7e7;
+    color: #a6a6a6;
+}
+&:after {
+    --antd-wave-shadow-color: #c7c7c7;
+}
 `;
 
 const SignUp = ({ history }) => {
@@ -21,12 +62,13 @@ const SignUp = ({ history }) => {
         // e.target.value
     };
 
+    //div 클래스 네임 aa 바꾸세요...
     return (
         <main>
             <div className='aa'>
                 <span className='h1'> 회원가입 </span>
             </div>
-            <div className='userPageWrapper'>
+            <div className='userPageWrapper SignUpWrapper'>
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
@@ -34,43 +76,45 @@ const SignUp = ({ history }) => {
                 >
                     <div>
                         <Space direction='vertical'>
-                            <CardWrap title='닉네임' style={{ width: 500 }}>
-                                <input
+                            <CardWrap style={{ width: 500, height: 80 }}>
+                                <SignUpInput
                                     type='text'
                                     placeholder='닉네임'
                                     name='username'
                                     onChange={handleInputValue}
                                 />
                             </CardWrap>
-                            <Card title='이메일' style={{ width: 500 }}>
-                                <input
+                            <CardWrap style={{ width: 500, height: 80 }}>
+                                <SignUpInput
                                     type='text'
                                     placeholder='이메일'
                                     name='email'
                                     onChange={handleInputValue}
                                 />
-                            </Card>
-                            <Card title='비밀번호' style={{ width: 500 }}>
-                                <input
+                            </CardWrap>
+                            <CardWrap style={{ width: 500, height: 80 }}>
+                                <SignUpInput
                                     type='text'
                                     placeholder='비밀번호'
                                     name='password'
                                     onChange={handleInputValue}
                                 />
-                            </Card>
-                            <Card title='비밀번호 확인' style={{ width: 500 }}>
-                                <input
+                            </CardWrap>
+                            <CardWrap style={{ width: 500, height: 80 }}>
+                                <SignUpInput
                                     type='text'
-                                    placeholder='비밀번호를 다시 한 번 입력하세요'
+                                    placeholder='비밀번호 재입력'
                                     name='passwordCheck'
                                     onChange={handleInputValue}
                                 />
-                            </Card>
+                            </CardWrap>
                         </Space>
                         {/* // TODO : 프로필 -> 컬러피커 패키지: 피커 모양은 간단한걸로 */}
                     </div>
                     <div>
-                        <button onClick={onClickSignUpButton}>회원가입</button>
+                        <SubHeaderButton onClick={onClickSignUpButton}>
+                            회원가입
+                        </SubHeaderButton>
                     </div>
                 </form>
             </div>
