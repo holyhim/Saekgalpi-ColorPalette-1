@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Slider, Input } from 'antd';
 import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
-import './MakePalette.scss';
 
 const MakePaletteContainer = styled.section`
     border: 1px solid black;

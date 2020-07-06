@@ -2,8 +2,9 @@ import React from 'react';
 import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 import { EditPaletteContainer } from '../Pages_styd';
-
+import { Slider, Input } from 'antd';
 // TODO: 섹션을 고쳐주십시오..
+const { TextArea } = Input;
 
 const EditPalette = () => {
     //props로 넣어 주면 됩니다
