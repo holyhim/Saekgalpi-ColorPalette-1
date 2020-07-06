@@ -24,7 +24,6 @@ const RandomColorList = () => {
 
     return (
         <>
-            <h3 className='random-colors__title'>랜덤컬러 생성기</h3>
             <RandomColorsContainer>
                 {fakeColor.map((color, idx) => (
                     <RandomColorListEntry key={idx} color={color} />
