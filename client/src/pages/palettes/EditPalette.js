@@ -1,10 +1,14 @@
 import React from 'react';
+<<<<<<< HEAD
 import styled from 'styled-components';
 import { Slider, Input } from 'antd';
+=======
+>>>>>>> 6452a0601843471ac6e1b94af639766b86273dda
 import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
-import './EditPalette.scss';
+import { EditPaletteContainer } from '../Pages_styd';
 
+<<<<<<< HEAD
 const EditPaletteContainer = styled.section`
     border: 1px solid black;
     width: 60vw;
@@ -20,6 +24,9 @@ const EditPaletteHexContainer = styled.section`
 `;
 
 const { TextArea } = Input;
+=======
+// TODO: 섹션을 고쳐주십시오..
+>>>>>>> 6452a0601843471ac6e1b94af639766b86273dda
 
 const EditPalette = () => {
     //props로 넣어 주면 됩니다
@@ -46,12 +53,12 @@ const EditPalette = () => {
                     */}
                 <EditPaletteList />
             </EditPaletteContainer>
-            <EditPaletteHexContainer className='edit-palette__hex-container'>
+            <EditPaletteContainer className='edit-palette__hex-container'>
                 {/* middle hex code desc 
                     onChangeColor state 값 넘겨주기
                     */}
                 <EditPaletteHexList />
-            </EditPaletteHexContainer>
+            </EditPaletteContainer>
             <section className='edit-palette__palette-info'>
                 {/* bottom other desc */}
                 <form

@@ -1,63 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Form, Input, Button } from 'antd';
-import './SignIn.scss';
-import styd from 'styled-components';
+import { Form } from 'antd';
 
-const FormAll = styd(Form.Item)`
-width: 500px;
-margin-bottom: 30px;
-`;
-
-const FormInput = styd(Input)`
-height: 70px;
-padding: 0 27px;
-font-size: 1.5em;
-&:hover{
-    border: 1px solid #a7a7a7;
-}
-&:focus {
-    border: 1px solid #a7a7a7;
-    box-shadow: 0 0 0 2px #e1e1e1;
-}
-
-`;
-
-const FormInputPW = styd(Input.Password)`
-height: 70px;
-padding: 0 27px;
-&:hover{
-    border: 1px solid #a7a7a7;
-}
-&:focus {
-    border: 1px solid #a7a7a7;
-    box-shadow: 0 0 0 2px #e1e1e1;
-}
-.ant-input{
-    font-size: 1.5em;
-}
-`;
-
-const SubHeaderButton = styd(Button)`
-color: #a6a6a6;
-background-color: #e7e7e7;
-border: 1px solid #e7e7e7;
-margin: 10px;
-
-&:hover{
-    background-color: #e7e7e7;
-    border: 1px solid #e7e7e7;
-    color: #5d5d5d;
-}
-&:focus {
-    background-color: #e7e7e7;
-    border: 1px solid #e7e7e7;
-    color: #a6a6a6;
-}
-&:after {
-    --antd-wave-shadow-color: #c7c7c7;
-}
-`;
+import {
+    SubHeaderButton,
+    FormInput,
+    FormAll,
+    FormInputPW,
+} from '../Pages_styd';
 
 const SignIn = ({ history }) => {
     const onClickSignInButton = () => {

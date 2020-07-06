@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import styled from 'styled-components';
 import { Slider, Input } from 'antd';
 import EditPaletteList from '../../components/palette/EditPaletteList';
@@ -18,6 +19,11 @@ const MakePaletteHexContainer = styled.section`
     height: 10vh;
     margin-bottom: 20px;
 `;
+=======
+import EditPaletteList from '../../components/palette/EditPaletteList';
+import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
+import { MakePaletteContainer } from '../Pages_styd';
+>>>>>>> 6452a0601843471ac6e1b94af639766b86273dda
 
 const { TextArea } = Input;
 
@@ -45,12 +51,12 @@ const MakePalette = () => {
                     */}
                 <EditPaletteList />
             </MakePaletteContainer>
-            <MakePaletteHexContainer className='make-palette__hex-container'>
+            <MakePaletteContainer className='make-palette__hex-container'>
                 {/* middle hex code desc 
                     onChangeColor state 값 넘겨주기
                     */}
                 <EditPaletteHexList />
-            </MakePaletteHexContainer>
+            </MakePaletteContainer>
             <section className='make-palette__palette-info'>
                 {/* bottom other desc */}
                 <form
