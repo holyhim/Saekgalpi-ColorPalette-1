@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import domtoimage from 'dom-to-image';
+
 const Paltte = styled.div`
     background-color: ${(props) => props.color || 'black'};
     cursor: pointer;
@@ -41,7 +42,7 @@ const ShareBtn = styled.button`
     cursor: pointer;
     margin-right: 1rem;
 `;
-const ColorCodeContainer = styled.article``;
+
 const ColorCodeDetail = styled.div`
     display: grid;
     grid-template-columns: repeat(${(props) => props.num}, 1fr);
@@ -71,6 +72,7 @@ const PaletteDetail = () => {
             console.error('oops, something went wrong!', error);
         }
     };
+
     return (
         <main className='palette-detail__main'>
             <h1 className='palette-detail__title h1'>색갈피 상세</h1>
@@ -117,7 +119,7 @@ const PaletteDetail = () => {
                                 닉네임
                             </span>
                         </div>
-                        <ColorCodeContainer className='palette-detail__code-container'>
+                        <article className='palette-detail__code-container'>
                             <h5>HEX</h5>
                             <ColorCodeDetail
                                 className='palette-detail__hex'
@@ -129,8 +131,8 @@ const PaletteDetail = () => {
                                     </ColorCode>
                                 ))}
                             </ColorCodeDetail>
-                        </ColorCodeContainer>
-                        <ColorCodeContainer className='palette-detail__code-container'>
+                        </article>
+                        <article className='palette-detail__code-container'>
                             <h5>RGB</h5>
                             <ColorCodeDetail
                                 className='palette-detail__rgb'
@@ -142,7 +144,7 @@ const PaletteDetail = () => {
                                     </ColorCode>
                                 ))}
                             </ColorCodeDetail>
-                        </ColorCodeContainer>
+                        </article>
                     </div>
                 </div>
                 <PaletteDescription className='palette-detail__description'>

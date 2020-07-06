@@ -9,7 +9,6 @@ import {
     faShareAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
-import './PaletteListEntry.scss';
 
 const PaletteColors = styled.div`
     position: absolute;
