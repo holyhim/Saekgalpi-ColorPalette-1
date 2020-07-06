@@ -21,7 +21,25 @@ module.exports = {
       description: {
         type: Sequelize.STRING,
       },
-      colorCode: {
+      colorCode01: {
+        type: Sequelize.STRING,
+      },
+      colorCode02: {
+        type: Sequelize.STRING,
+      },
+      colorCode03: {
+        type: Sequelize.STRING,
+      },
+      colorCode04: {
+        type: Sequelize.STRING,
+      },
+      colorCode05: {
+        type: Sequelize.STRING,
+      },
+      colorCode06: {
+        type: Sequelize.STRING,
+      },
+      colorCode07: {
         type: Sequelize.STRING,
       },
       visit: {
