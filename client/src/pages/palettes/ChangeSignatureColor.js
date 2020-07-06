@@ -6,22 +6,23 @@ import './ChangeSignatureColor.scss';
 const ColorPicker = styled(BlockPicker)`
     display: ${(props) => (props.isOpen ? 'block' : 'none')};
     position: absolute;
-    left: 1rem;
+    left: 2.5rem;
     top: 10px;
 `;
 
 const SignatureColor = styled.div`
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     cursor: pointer;
-    background-color: ${(props) => props.color || 'royalblue'};
+    background-color: ${(props) => props.color || '#0652DD'};
+    border-radius: 50%;
 `;
 
 const ChangeSignatureColor = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [color, setColor] = useState('royalblue');
+    const [color, setColor] = useState('#0652DD');
 
-    const togglePicker = (e) => {
+    const togglePicker = () => {
         setIsOpen((prevState) => !prevState);
     };
 
@@ -39,37 +40,32 @@ const ChangeSignatureColor = () => {
             <h1 className='change-signature-color__title'>
                 시그니처 컬러 변경
             </h1>
-            <div>
-                <form
-                    className='change-signature-color__form'
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                    }}
+            <form
+                className='change-signature-color__form'
+                onSubmit={(e) => {
+                    e.preventDefault();
+                }}
+            >
+                <div className='change-signature-color__picker'>
+                    {/* // TODO: 시그니처 컬러 변경: 컬러피커 이용 */}
+                    <SignatureColor
+                        className='change-signature-color__color'
+                        onClick={togglePicker}
+                        color={color}
+                    />
+                    <ColorPicker
+                        color={color}
+                        isOpen={isOpen}
+                        onChangeComplete={onChangeComplete}
+                    />
+                </div>
+                <button
+                    className='change-signature-color__button'
+                    onClick={onClickSaveButton}
                 >
-                    <div className='change-signature-color__picker'>
-                        {/* // TODO: 시그니처 컬러 변경: 컬러피커 이용 */}
-                        <SignatureColor
-                            className='change-signature-color__color'
-                            onClick={togglePicker}
-                            color={color}
-                        >
-                            color 정보 받아서 background로
-                        </SignatureColor>
-                        <ColorPicker
-                            color={color}
-                            isOpen={isOpen}
-                            onChangeComplete={onChangeComplete}
-                        />
-                    </div>
-
-                    <button
-                        className='change-signature-color__button'
-                        onClick={onClickSaveButton}
-                    >
-                        저장
-                    </button>
-                </form>
-            </div>
+                    저장
+                </button>
+            </form>
         </main>
     );
 };

@@ -1,28 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Slider, Input } from 'antd';
 import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 import './MakePalette.scss';
 
 const MakePaletteContainer = styled.section`
     border: 1px solid black;
-    width: 70vw;
-    height: 200px;
+    width: 60vw;
+    height: 20vh;
     margin-bottom: 20px;
 `;
 
 const MakePaletteHexContainer = styled.section`
     border: 1px solid black;
-    width: 70vw;
-    height: 200px;
+    width: 60vw;
+    height: 10vh;
     margin-bottom: 20px;
 `;
+
+const { TextArea } = Input;
 
 const MakePalette = () => {
     const onChangeColor = (e) => {
         // 컬러 갯수에 따라서 바뀜
         // TODO: Input 값 value로 받아 state 설정
-        console.log(e.target.value);
+        // console.log(e.target.value);
     };
     const handleInputValue = (e) => {
         // TODO: Input 값 value로 받아 state 설정
@@ -35,7 +38,7 @@ const MakePalette = () => {
     return (
         <main className='make-palette__main'>
             {/* wrapper */}
-            <h1 className='make-palette__title'> 팔레트 편집 </h1>
+            <h1 className='make-palette__title'> 색갈피 만들기 </h1>
             <MakePaletteContainer className='make-palette__color-container'>
                 {/* top color choice
                     onChangeColor state 값 넘겨주기
@@ -58,23 +61,24 @@ const MakePalette = () => {
                 >
                     <label className='palette-info__color-range-label'>
                         색상 갯수
-                        <input
+                        <Slider
                             className='palette-info__color-range'
-                            type='range'
-                            min='2'
-                            max='7'
-                            name='colorRange'
+                            min={2}
+                            max={7}
+                            step={1}
+                            defaultValue={5}
+                            style={{ width: '200px' }}
                             onChange={onChangeColor}
                         />
                     </label>
-                    <input
+                    <Input
                         className='palette-info__palette-name'
                         type='text'
                         placeholder='팔레트 이름'
                         name='title'
                         onChange={handleInputValue}
                     />
-                    <textarea
+                    <TextArea
                         className='palette-info__palette-description'
                         placeholder='팔레트 설명'
                         name='description'

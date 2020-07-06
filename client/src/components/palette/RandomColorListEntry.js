@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-// import './RandomColorListEntry.scss';
 
 const RandomColorWrapper = styled.div`
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 `;
 
 const RandomColor = styled.div`
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     background-color: ${(props) => props.color || 'blue'};
 `;
 // TODO: 추후 데이터받아서 props.color로 넘겨주기
@@ -21,8 +21,8 @@ const RandomColorInfo = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    background-color: #f1f2f6;
+    width: 100px;
+    background-color: #f6f8fa;
     padding: 5px 0;
     bottom: 0px;
 `;
