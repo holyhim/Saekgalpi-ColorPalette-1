@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStickyNote, faMugHot } from '@fortawesome/free-solid-svg-icons';
 //import { faSquare } from '@fortawesome/free-regular-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
 import styd from 'styled-components';
-import './Footer.scss';
 import { Layout } from 'antd';
 let { Footer } = Layout;
 
