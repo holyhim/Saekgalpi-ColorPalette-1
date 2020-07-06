@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './PaletteDetail.scss';
+import {} from '../Pages_styd';
 
 const PaletteDetail = () => {
     //TODO: 이 페이지 들어올 때 해당 팔레트 GET 요청

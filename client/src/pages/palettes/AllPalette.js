@@ -1,6 +1,6 @@
 import React from 'react';
 import PaletteList from '../../components/palette/PaletteList';
-import './AllPalette.scss';
+import {} from '../Pages_styd';
 
 const AllPalette = () => {
     const onChangeInput = (e) => {

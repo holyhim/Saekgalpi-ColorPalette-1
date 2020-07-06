@@ -1,22 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
-import './MakePalette.scss';
-
-const MakePaletteContainer = styled.section`
-    border: 1px solid black;
-    width: 70vw;
-    height: 200px;
-    margin-bottom: 20px;
-`;
-
-const MakePaletteHexContainer = styled.section`
-    border: 1px solid black;
-    width: 70vw;
-    height: 200px;
-    margin-bottom: 20px;
-`;
+import { MakePaletteContainer } from '../Pages_styd';
 
 const MakePalette = () => {
     const onChangeColor = (e) => {
@@ -42,12 +27,12 @@ const MakePalette = () => {
                     */}
                 <EditPaletteList />
             </MakePaletteContainer>
-            <MakePaletteHexContainer className='make-palette__hex-container'>
+            <MakePaletteContainer className='make-palette__hex-container'>
                 {/* middle hex code desc 
                     onChangeColor state 값 넘겨주기
                     */}
                 <EditPaletteHexList />
-            </MakePaletteHexContainer>
+            </MakePaletteContainer>
             <section className='make-palette__palette-info'>
                 {/* bottom other desc */}
                 <form
