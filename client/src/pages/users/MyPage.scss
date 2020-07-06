@@ -1,6 +1,8 @@
 .MyPage__wrapper {
-    background-color: red;
     text-align: center;
+    margin: 50px 0;
+    width: 900px;
+
     section:nth-child(2) {
         color: black;
         text-align: center;
@@ -9,8 +11,44 @@
         }
     }
     section:nth-child(3) {
-        border-top: 1px solid black;
         padding-top: 100px;
         margin: 20px;
+    }
+    .MyPage__BtnWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+
+    .MyPage__PalWrapper {
+        border-top: 1px solid #7d7d7d;
+    }
+
+    .MyPage__AdminTitle {
+        font-size: 2em;
+        font-weight: 300;
+        color: #4a4a4a;
+        text-align: left;
+    }
+
+    .MyPage__Profile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            background-color: black;
+            margin-bottom: 20px;
+        }
+        span {
+            color: #4a4a4a;
+            font-size: 1.2em;
+        }
     }
 }
