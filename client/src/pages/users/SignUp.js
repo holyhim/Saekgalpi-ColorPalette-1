@@ -1,53 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Space, Card, Button } from 'antd';
-import styd from 'styled-components';
-
-const SignUpInput = styd.input`
-border: 0;
-box-sizing: border-box;
-padding: 10px;
-font-size: 1.5em;
-width: 450px;
-outline: 0;
-`;
-
-const CardWrap = styd(Card)`
-border: 1px solid #d9d9d9;
-display: flex;
-justify-content: center;
-align-items: center;
-margin-bottom: 15px;
-transition: all 0.5s;
-&:hover{
-    border: 1px solid #a7a7a7;
-}
-&:focus {
-    border: 1px solid #a7a7a7;
-    box-shadow: 0 0 0 2px #e1e1e1;
-}
-`;
-
-const SubHeaderButton = styd(Button)`
-color: #a6a6a6;
-background-color: #e7e7e7;
-border: 1px solid #e7e7e7;
-margin: 10px;
-
-&:hover{
-    background-color: #e7e7e7;
-    border: 1px solid #e7e7e7;
-    color: #5d5d5d;
-}
-&:focus {
-    background-color: #e7e7e7;
-    border: 1px solid #e7e7e7;
-    color: #a6a6a6;
-}
-&:after {
-    --antd-wave-shadow-color: #c7c7c7;
-}
-`;
+import { Space } from 'antd';
+import { SignUpInput, CardWrap, SubHeaderButton } from '../Pages_styd';
 
 const SignUp = ({ history }) => {
     const onClickSignUpButton = (e) => {

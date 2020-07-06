@@ -1,32 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import PaletteList from '../../components/palette/PaletteList';
-import './MyPage.scss';
-import styd from 'styled-components';
-import { Button } from 'antd';
-import './MyPage.scss';
+
 import logos from '../../images/2.png';
-
-const MyPageBtn = styd(Button)`
-
-color: #a6a6a6;
-background-color: #e7e7e7;
-border: 1px solid #e7e7e7;
-margin: 5px;
-
-&:hover{
-    background-color: #e7e7e7;
-    border: 1px solid #e7e7e7;
-    color: #5d5d5d;
-}
-&:focus {
-    background-color: #e7e7e7;
-    border: 1px solid #e7e7e7;
-    color: #a6a6a6;
-}
-&:after {
-    --antd-wave-shadow-color: #c7c7c7;
-`;
+import { MyPageBtn } from '../Pages_styd';
 
 const MyPage = () => {
     const isAdmin = true; // 추후 state로 변경 예정 / 임시 변수

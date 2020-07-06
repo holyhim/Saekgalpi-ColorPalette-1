@@ -45,12 +45,12 @@ const MakePalette = () => {
                     */}
                 <EditPaletteList />
             </MakePaletteContainer>
-            <MakePaletteHexContainer className='make-palette__hex-container'>
+            <MakePaletteContainer className='make-palette__hex-container'>
                 {/* middle hex code desc 
                     onChangeColor state 값 넘겨주기
                     */}
                 <EditPaletteHexList />
-            </MakePaletteHexContainer>
+            </MakePaletteContainer>
             <section className='make-palette__palette-info'>
                 {/* bottom other desc */}
                 <form
