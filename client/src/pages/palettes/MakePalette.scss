@@ -1,4 +1,10 @@
 .make-palette__main {
+    .make-palette__title {
+        margin-bottom: 50px;
+        font-size: 2rem;
+        font-weight: 600;
+        // TODO: 타이틀 폰트를 변경해주세요!
+    }
     .make-palette__palette-info {
         padding-top: 40px;
         .palette-info__form {
@@ -13,7 +19,7 @@
                 font-size: 1rem;
                 color: black;
                 font-weight: 600;
-                padding-bottom: 20px;
+                // TODO: 라벨 폰트를 변경해주세요!
             }
             .palette-info__palette-name {
                 margin-bottom: 20px;
