@@ -10,7 +10,7 @@ const paletteController = require('../controller/paletteController');
 //router.post(['/MyPage', '/admin'], paletteController.paletteDrop.post);
 
 // * POST /colorController/colorEdit
-//router.post('/editPalette/:id', paletteController.paletteEdit.post);
+router.post('/editPalette/:id', paletteController.paletteEdit.post);
 
 // * GET /colorController/colorInfo
 // router.get(
