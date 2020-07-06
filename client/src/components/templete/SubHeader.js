@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SubHeaderButton, AllpaleteButton } from './Templete_styd';
+import { RoundWaveButton, UnderlineButton } from './Templete_styd';
 import logos from '../../images/2.png';
 
 const SubHeader = () => {
@@ -11,7 +11,7 @@ const SubHeader = () => {
             <div className='SubHeader__Logo'>
                 {/*수채화 백그라운드 넣어 봅시다*/}
                 <Link to='/'>
-                    <img src={logos} />
+                    <img alt={prompt} src={logos} />
                 </Link>
             </div>
             <nav>
@@ -19,7 +19,7 @@ const SubHeader = () => {
                 <ul>
                     <li>
                         <Link to='/allPalette'>
-                            <AllpaleteButton>모든 색갈피 보기</AllpaleteButton>
+                            <UnderlineButton>모든 색갈피 보기</UnderlineButton>
                         </Link>
                     </li>
                     <li>
@@ -27,25 +27,25 @@ const SubHeader = () => {
                     </li>
                     <li>
                         <Link to='/signIn'>
-                            <AllpaleteButton>로그인</AllpaleteButton>
+                            <UnderlineButton>로그인</UnderlineButton>
                         </Link>
                     </li>
                     <li>
                         <Link to='/signUp'>
-                            <SubHeaderButton type='primary' shape='round'>
+                            <RoundWaveButton type='primary' shape='round'>
                                 회원가입
-                            </SubHeaderButton>
+                            </RoundWaveButton>
                         </Link>
                     </li>
                     <li>
                         <Link to='/MyPage'>
-                            <AllpaleteButton>내 색갈피</AllpaleteButton>
+                            <UnderlineButton>내 색갈피</UnderlineButton>
                         </Link>
                     </li>
                     <li>
-                        <SubHeaderButton type='primary' shape='round'>
+                        <RoundWaveButton type='primary' shape='round'>
                             로그아웃
-                        </SubHeaderButton>
+                        </RoundWaveButton>
                     </li>
                 </ul>
             </nav>

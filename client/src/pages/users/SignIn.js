@@ -3,10 +3,10 @@ import { withRouter } from 'react-router-dom';
 import { Form } from 'antd';
 
 import {
-    SubHeaderButton,
-    FormInput,
-    FormAll,
-    FormInputPW,
+    WaveButton,
+    EmailInput,
+    SignInForm,
+    SignInPWInput,
 } from '../Pages_styd';
 
 const SignIn = ({ history }) => {
@@ -26,7 +26,7 @@ const SignIn = ({ history }) => {
 
     return (
         <main>
-            <div className='aa'>
+            <div>
                 <span className='h1'> 로그인 </span>
             </div>
             <div className='userPageWrapper SignInWrapper'>
@@ -38,7 +38,7 @@ const SignIn = ({ history }) => {
                         e.preventDefault();
                     }}
                 >
-                    <FormAll
+                    <SignInForm
                         name='email'
                         rules={[
                             {
@@ -48,10 +48,10 @@ const SignIn = ({ history }) => {
                         ]}
                         onChange={handleInputValue}
                     >
-                        <FormInput placeholder='이메일' />
-                    </FormAll>
+                        <EmailInput placeholder='이메일' />
+                    </SignInForm>
 
-                    <FormAll
+                    <SignInForm
                         name='password'
                         placeholer='이메일'
                         rules={[
@@ -62,24 +62,24 @@ const SignIn = ({ history }) => {
                         ]}
                         onChange={handleInputValue}
                     >
-                        <FormInputPW placeholder='비밀번호' />
-                    </FormAll>
+                        <SignInPWInput placeholder='비밀번호' />
+                    </SignInForm>
 
                     <Form.Item>
-                        <SubHeaderButton
+                        <WaveButton
                             type='primary'
                             htmlType='submit'
                             onClick={onClickSignInButton}
                         >
                             로그인
-                        </SubHeaderButton>
-                        <SubHeaderButton
+                        </WaveButton>
+                        <WaveButton
                             type='primary'
                             htmlType='submit'
                             onClick={onClickSignUpButton}
                         >
                             회원가입
-                        </SubHeaderButton>
+                        </WaveButton>
                     </Form.Item>
                 </Form>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Input, Space, Button } from 'antd';
-import { FormInput2, SubHeaderButton } from '../Pages_styd';
+import { Space } from 'antd';
+import { PWInput, WaveButton } from '../Pages_styd';
 
 const ChangePassword = () => {
     // TODO: 이 페이지 들어올 때 해당 유저 GET 요청
@@ -16,7 +16,7 @@ const ChangePassword = () => {
 
     return (
         <main>
-            <div className='aa'>
+            <div>
                 <span className='h1'> 비밀번호 변경 </span>
             </div>
             <div className='formWrap'>
@@ -28,23 +28,23 @@ const ChangePassword = () => {
                     {/* // TODO: 시그니처 컬러 변경: 컬러피커 이용 */}
 
                     <Space direction='vertical'>
-                        <FormInput2
+                        <PWInput
                             placeholder='현재 비밀번호'
                             onChange={handleInputValue}
                         />
-                        <FormInput2
+                        <PWInput
                             placeholder='새로운 비밀번호'
                             onChange={handleInputValue}
                         />
-                        <FormInput2
+                        <PWInput
                             placeholder='새로운 비밀번호 확인'
                             onChange={handleInputValue}
                         />
                     </Space>
                     <div className='buttonWrap'>
-                        <SubHeaderButton onClick={onClickSaveButton}>
+                        <WaveButton onClick={onClickSaveButton}>
                             저장
-                        </SubHeaderButton>
+                        </WaveButton>
                     </div>
                 </form>
             </div>

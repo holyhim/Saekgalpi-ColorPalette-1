@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PaletteList from '../../components/palette/PaletteList';
 
 import logos from '../../images/2.png';
-import { MyPageBtn } from '../Pages_styd';
+import { WaveButton } from '../Pages_styd';
 
 const MyPage = () => {
     const isAdmin = true; // 추후 state로 변경 예정 / 임시 변수
@@ -15,20 +15,20 @@ const MyPage = () => {
             <div className='userPageWrapper'>
                 <div className='MyPage__wrapper'>
                     <section className='MyPage__Profile'>
-                        <img src={logos} />
+                        <img alt={prompt} src={logos} />
                         <span>닉네임</span>
                         <span>hwabaek@email.com</span>
                     </section>
                     <section className='MyPage__BtnWrapper'>
-                        <MyPageBtn>
+                        <WaveButton>
                             <Link to='/changeSignatureColor/:id'>
                                 시그니처 컬러 변경
                             </Link>
                             {/* 마이페이지의 내 시그니처 컬러를 누르면 이동 */}
-                        </MyPageBtn>
-                        <MyPageBtn>
+                        </WaveButton>
+                        <WaveButton>
                             <Link to='/changePassword/:id'>비밀번호 변경</Link>
-                        </MyPageBtn>
+                        </WaveButton>
                     </section>
                     <section className='MyPage__PalWrapper'>
                         <h3 className='MyPage__AdminTitle'>내 색갈피 관리</h3>

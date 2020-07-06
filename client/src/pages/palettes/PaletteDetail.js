@@ -75,7 +75,7 @@ const PaletteDetail = () => {
 
     return (
         <main className='palette-detail__main'>
-            <h1 className='palette-detail__title h1'>색갈피 상세</h1>
+            <span className='h1'>색갈피 상세</span>
             <div className='palette-detail__all-wrapper'>
                 <div className='palette-detail__container'>
                     <div className='palette-detail__column'>

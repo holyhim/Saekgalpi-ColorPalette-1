@@ -13,6 +13,7 @@
 @import '../users/ChangePassword.scss';
 @import '../users/MyPage.scss';
 @import '../users/SignIn.scss';
+@import '../templetes/Main.scss';
 
 html {
     body {
@@ -21,7 +22,6 @@ html {
     main {
         display: flex;
         flex-direction: column;
-        justify-content: start;
         align-items: center;
         width: 80%;
         margin: 0 auto;
@@ -47,7 +47,15 @@ html {
 
     //드래그 색상 바꿨습니다.
     ::selection {
-        background-color: #9abdf2;
+        background-color: #1f5bb5;
         color: #f6f8fa;
+    }
+
+    .no-drag {
+        -ms-user-select: none;
+        -moz-user-select: -moz-none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        user-select: none;
     }
 }

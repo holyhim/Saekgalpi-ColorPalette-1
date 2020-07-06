@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import styd from 'styled-components';
 
-export const MainHeaderBtn = styd.button`
+export const RoundButton = styd.button`
     font-size: 11pt;
     border: 0;
     padding: 4px 20px;
@@ -11,15 +11,16 @@ export const MainHeaderBtn = styd.button`
     outline: 0;
     cursor: pointer;
     transition: color 0.3s, all 0.3s;
+
     &:hover{
-        color: #5d5d5d;
         background-color: #e7e7e7;
-        //나중에 props로 랜덤 컬러 받아 오자
+        color: #5d5d5d;
+        --antd-wave-shadow-color: #c7c7c7;
     }
+
 `;
 
-//일단은 이렇게 놓고... 나중에 버튼 체인지를 하고 싶으면 하는 걸로 하자
-export const MainHeaderAllpalBtn = styd.button`
+export const NoneSquareBtn = styd.button`
     border: 0;
     border-radius: 2px;
     color: #7a7a7a;
@@ -35,7 +36,7 @@ export const MainHeaderAllpalBtn = styd.button`
     }
 `;
 
-export const MainHeaderLogoutBtn = styd(Button)`
+export const LogoutBtn = styd(Button)`
 color: #a6a6a6;
 background-color: #e7e7e7;
 border: 1px solid #e7e7e7;
@@ -55,7 +56,7 @@ border: 1px solid #e7e7e7;
 }
 `;
 
-export const SubHeaderButton = styd(Button)`
+export const RoundWaveButton = styd(Button)`
 color: #a6a6a6;
 background-color: #e7e7e7;
 border: 1px solid #e7e7e7;
@@ -75,7 +76,7 @@ border: 1px solid #e7e7e7;
 }
 `;
 
-export const AllpaleteButton = styd.div`
+export const UnderlineButton = styd.div`
 line-height: 4.5;
 padding: 0 10px;
 transition: .4s all;
