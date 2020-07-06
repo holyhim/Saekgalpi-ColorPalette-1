@@ -1,10 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-    MainHeaderBtn,
-    MainHeaderAllpalBtn,
-    MainHeaderLogoutBtn,
-} from './Templete_styd';
+import { RoundButton, NoneSquareBtn, LogoutBtn } from './Templete_styd';
 
 // TODO: 나중에 이 밑의 스타일드 컴포넌트 언더바 없는 파스칼케이스로 고칩시다!: ESLINT 오류가 납니다..
 
@@ -17,23 +13,21 @@ const MainHeader = () => {
                 <ul>
                     <li>
                         <Link to='/signIn'>
-                            <MainHeaderBtn>로그인</MainHeaderBtn>
+                            <RoundButton>로그인</RoundButton>
                         </Link>
                     </li>
                     <li>
                         <Link to='/signUp'>
-                            <MainHeaderBtn>회원가입</MainHeaderBtn>
+                            <RoundButton>회원가입</RoundButton>
                         </Link>
                     </li>
                     <li>
                         <Link to='/MyPage'>
-                            <MainHeaderBtn>내 색갈피</MainHeaderBtn>
+                            <RoundButton>내 색갈피</RoundButton>
                         </Link>
                     </li>
                     <li>
-                        <MainHeaderLogoutBtn ghost>
-                            로그아웃
-                        </MainHeaderLogoutBtn>
+                        <LogoutBtn ghost>로그아웃</LogoutBtn>
                     </li>
                 </ul>
             </nav>
@@ -42,14 +36,12 @@ const MainHeader = () => {
                 <div className='mainHeader__logo'>
                     {/*수채화 백그라운드 넣어 봅시다*/}
                     <Link to='/'>
-                        <span className='LOGO'>
-                            <span>색</span>갈피
+                        <span className='LOGO no-drag'>
+                            <span className='no-drag'>색</span>갈피
                         </span>
                     </Link>
                     <Link to='/allPalette'>
-                        <MainHeaderAllpalBtn>
-                            모든 색갈피 보기
-                        </MainHeaderAllpalBtn>
+                        <NoneSquareBtn>색갈피 모아보기</NoneSquareBtn>
                     </Link>
                 </div>
             </div>
