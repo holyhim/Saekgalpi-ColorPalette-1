@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { BlockPicker } from 'react-color';
-import styled from 'styled-components';
-import './ChangeSignatureColor.scss';
 
+<<<<<<< HEAD
 const ColorPicker = styled(BlockPicker)`
     display: ${(props) => (props.isOpen ? 'block' : 'none')};
     position: absolute;
@@ -17,6 +15,9 @@ const SignatureColor = styled.div`
     background-color: ${(props) => props.color || '#0652DD'};
     border-radius: 50%;
 `;
+=======
+import { ColorPicker, SignatureColor } from '../Pages_styd';
+>>>>>>> 6452a0601843471ac6e1b94af639766b86273dda
 
 const ChangeSignatureColor = () => {
     const [isOpen, setIsOpen] = useState(false);

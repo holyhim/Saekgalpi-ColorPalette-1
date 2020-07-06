@@ -1,11 +1,15 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import domtoimage from 'dom-to-image';
 import './PaletteDetail.scss';
+=======
+import {} from '../Pages_styd';
+>>>>>>> 6452a0601843471ac6e1b94af639766b86273dda
 
 // TODO: 클릭시 카피되는것
 const Paltte = styled.div`
