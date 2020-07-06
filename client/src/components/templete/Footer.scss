@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Wolyeonggyo';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/Wolyeonggyo.woff')
+    font-family: 'IBMPlexSansKR-ExtraLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-ExtraLight.woff')
         format('woff');
     font-weight: normal;
     font-style: normal;
@@ -11,9 +11,12 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
+        .footer__LOGO--font {
+            color: #9a9a9a;
+        }
         a {
             font-size: 2em;
-            font-family: 'Wolyeonggyo';
+            font-family: 'IBMPlexSansKR-ExtraLight';
             color: #c7c7c7;
             margin-right: 20px;
         }
