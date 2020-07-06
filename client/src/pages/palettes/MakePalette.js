@@ -11,13 +11,6 @@ const MakePaletteContainer = styled.section`
     margin-bottom: 20px;
 `;
 
-const MakePaletteHexContainer = styled.section`
-    border: 1px solid black;
-    width: 60vw;
-    height: 10vh;
-    margin-bottom: 20px;
-`;
-
 const { TextArea } = Input;
 
 const MakePalette = () => {
