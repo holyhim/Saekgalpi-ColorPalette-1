@@ -1,5 +1,16 @@
-@import '/reset.scss';
-@import '/_variables.scss';
+@import './variables';
+@import './reset.scss';
+@import '../palettes/AllPalette.scss';
+@import '../palettes/ChangeSignatureColor.scss';
+@import '../palettes/EditPalette.scss';
+@import '../palettes/MakePalette.scss';
+@import '../palettes/PaletteDetail.scss';
+@import '../templetes/Footer.scss';
+@import '../templetes/MainHeader.scss';
+@import '../templetes/SubHeader.scss';
+@import '../users/ChangePassword.scss';
+@import '../users/MyPage.scss';
+@import '../users/SignIn.scss';
 
 html {
     body {
@@ -18,13 +29,14 @@ html {
         }
     }
 
-    //유저 페이지 wrapper입니다
+    //유저 페이지의 기본 wrapper입니다
     .userPageWrapper {
         width: 900px;
         text-align: center;
         display: flex;
         justify-content: center;
     }
+
     .h1 {
         font-size: 3em;
         font-weight: 900;

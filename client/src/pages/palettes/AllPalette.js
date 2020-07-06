@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input } from 'antd';
 import PaletteList from '../../components/palette/PaletteList';
-import './AllPalette.scss';
+import {} from '../Pages_styd';
 
 const { Search } = Input;
 

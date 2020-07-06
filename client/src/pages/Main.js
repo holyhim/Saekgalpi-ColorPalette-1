@@ -43,7 +43,6 @@ const Main = () => {
                 <PaletteList />
             </section>
             <section className='random-colors__container'>
-                <h3 className='random-colors__title'>랜덤컬러 생성기</h3>
                 <RandomColorList />
             </section>
         </main>

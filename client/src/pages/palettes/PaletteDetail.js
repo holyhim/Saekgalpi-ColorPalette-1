@@ -6,26 +6,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import domtoimage from 'dom-to-image';
-import './PaletteDetail.scss';
-
 const Paltte = styled.div`
     background-color: ${(props) => props.color || 'black'};
     cursor: pointer;
 `;
-
 const PaletteWrapper = styled.div`
     width: 30vw;
     height: 30vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 `;
-
 const EditButton = styled(Button)`
     color: #a6a6a6;
     background-color: #e7e7e7;
     border: 1px solid #e7e7e7;
     margin-top: 30px;
-
     &:hover {
         background-color: #e7e7e7;
         border: 1px solid #e7e7e7;
@@ -40,38 +35,31 @@ const EditButton = styled(Button)`
         --antd-wave-shadow-color: #c7c7c7;
     }
 `;
-
 const ShareBtn = styled.button`
     all: unset;
     font-size: 1.5rem;
     cursor: pointer;
     margin-right: 1rem;
 `;
-
 const ColorCodeContainer = styled.article``;
-
 const ColorCodeDetail = styled.div`
     display: grid;
     grid-template-columns: repeat(${(props) => props.num}, 1fr);
     line-height: 6vh;
 `;
-
 const ColorCode = styled.div`
     background-color: ${(props) => props.color};
     text-align: center;
 `;
-
 const PaletteDescription = styled.div`
     margin-left: 4vw;
     height: 5vw;
 `;
-
 const PaletteDetail = () => {
     // props를 사용하여 변경
     // 상위컴포넌트에서 받아올 부분
     const fakeColors = ['#74b9ff', '#0984e3', '#70a1ff'];
     const palette = useRef(null);
-
     const onClickDownload = async () => {
         try {
             const dataUrl = await domtoimage.toPng(palette.current);
@@ -83,7 +71,6 @@ const PaletteDetail = () => {
             console.error('oops, something went wrong!', error);
         }
     };
-
     return (
         <main className='palette-detail__main'>
             <h1 className='palette-detail__title h1'>색갈피 상세</h1>
@@ -165,5 +152,4 @@ const PaletteDetail = () => {
         </main>
     );
 };
-
 export default PaletteDetail;

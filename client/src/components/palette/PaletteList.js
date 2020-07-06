@@ -10,7 +10,7 @@ const PalettesWrapper = styled.div`
         minmax(200px, 1fr)
     );
     grid-auto-rows: 1fr;
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 50px;
 `;
 // TODO: 8번째줄 개수 변수처리
