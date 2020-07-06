@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Space } from 'antd';
-import { SignUpInput, CardWrap, SubHeaderButton } from '../Pages_styd';
+import { SignUpInput, SignUpForm, WaveButton } from '../Pages_styd';
 
 const SignUp = ({ history }) => {
     const onClickSignUpButton = (e) => {
@@ -19,9 +19,7 @@ const SignUp = ({ history }) => {
     //div 클래스 네임 aa 바꾸세요...
     return (
         <main>
-            <div className='aa'>
-                <span className='h1'> 회원가입 </span>
-            </div>
+            <span className='h1'> 회원가입 </span>
             <div className='userPageWrapper SignUpWrapper'>
                 <form
                     onSubmit={(e) => {
@@ -30,45 +28,45 @@ const SignUp = ({ history }) => {
                 >
                     <div>
                         <Space direction='vertical'>
-                            <CardWrap style={{ width: 500, height: 80 }}>
+                            <SignUpForm style={{ width: 500, height: 80 }}>
                                 <SignUpInput
                                     type='text'
                                     placeholder='닉네임'
                                     name='username'
                                     onChange={handleInputValue}
                                 />
-                            </CardWrap>
-                            <CardWrap style={{ width: 500, height: 80 }}>
+                            </SignUpForm>
+                            <SignUpForm style={{ width: 500, height: 80 }}>
                                 <SignUpInput
                                     type='text'
                                     placeholder='이메일'
                                     name='email'
                                     onChange={handleInputValue}
                                 />
-                            </CardWrap>
-                            <CardWrap style={{ width: 500, height: 80 }}>
+                            </SignUpForm>
+                            <SignUpForm style={{ width: 500, height: 80 }}>
                                 <SignUpInput
                                     type='text'
                                     placeholder='비밀번호'
                                     name='password'
                                     onChange={handleInputValue}
                                 />
-                            </CardWrap>
-                            <CardWrap style={{ width: 500, height: 80 }}>
+                            </SignUpForm>
+                            <SignUpForm style={{ width: 500, height: 80 }}>
                                 <SignUpInput
                                     type='text'
                                     placeholder='비밀번호 재입력'
                                     name='passwordCheck'
                                     onChange={handleInputValue}
                                 />
-                            </CardWrap>
+                            </SignUpForm>
                         </Space>
                         {/* // TODO : 프로필 -> 컬러피커 패키지: 피커 모양은 간단한걸로 */}
                     </div>
                     <div>
-                        <SubHeaderButton onClick={onClickSignUpButton}>
+                        <WaveButton onClick={onClickSignUpButton}>
                             회원가입
-                        </SubHeaderButton>
+                        </WaveButton>
                     </div>
                 </form>
             </div>
