@@ -1,0 +1,65 @@
+.palette-detail__main {
+    height: 75vh;
+    .palette-detail__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        .palette-detail__container {
+            width: 80%;
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            height: 60%;
+            .palette-detail__column:first-child {
+                border: 1px solid black;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .palette-detail__palette {
+                    width: 400px;
+                    height: 300px;
+                    background-color: black;
+                }
+                .palette-detail__share-container {
+                    width: 400px;
+                    .palette-detail__share-lists {
+                        display: flex;
+                        justify-content: flex-end;
+                        .palette-detail__share-item {
+                            all: unset;
+                        }
+                    }
+                }
+            }
+
+            .palette-detail__column:last-child {
+                border: 1px solid black;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .palette-detail__info {
+                    width: 80%;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    border: 1px solid black;
+                }
+                .palette-detail__hex {
+                    width: 80%;
+                    border: 1px solid black;
+                }
+                .palette-detail__rgb {
+                    width: 80%;
+                    border: 1px solid black;
+                }
+            }
+        }
+        .palette-detail__description {
+            width: 80%;
+            border: 1px solid black;
+        }
+    }
+}

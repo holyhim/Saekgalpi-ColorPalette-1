@@ -1,0 +1,12 @@
+.change-signature-color__main {
+    .change-signature-color__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .change-signature-color__picker {
+            height: 50vh;
+            position: relative;
+        }
+    }
+}
