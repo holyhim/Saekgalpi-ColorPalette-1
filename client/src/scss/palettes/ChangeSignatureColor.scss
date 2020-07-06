@@ -1,0 +1,20 @@
+.change-signature-color__main {
+    .change-signature-color__title {
+        margin-bottom: 50px;
+        font-size: 2rem;
+        font-weight: 600;
+        // TODO: 타이틀 폰트를 변경해주세요!
+    }
+    .change-signature-color__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .change-signature-color__picker {
+            height: 50vh;
+            position: relative;
+        }
+
+        // TODO: 버튼의 위치를 어디에 둬야 할까요..
+    }
+}
