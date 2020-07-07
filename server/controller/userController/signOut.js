@@ -1,6 +1,6 @@
 module.exports = {
   post: (req, res) => {
-    req.destroy((err) => {
+    req.session.destroy((err) => {
       if (err) {
         console.log(err);
         res.end();
