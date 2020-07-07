@@ -63,6 +63,9 @@ const Router = () => {
     const [state, dispatch] = useReducer(paletteReducer, initialState);
     const { clickedPalette, favPalettes, currentPalettes } = state;
 
+    // TODO: 여기에서 로그인 여부 체크와 함께 인기순 팔레트, 최신순 팔레트를 가져와야 합니다.
+    //* 페이지가 렌더링 되자마자 체크하는 것은 useEffect를 사용합니다.
+
     return (
         <BrowserRouter>
             <Header isLogin={isLogin} />
