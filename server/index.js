@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 const userRouter = require('./routes/user');
-const colorRouter = require('./routes/color');
+const paletteRouter = require('./routes/palette');
 
 const app = express();
 const port = 5000;
@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/user', userRouter);
-app.use('/color', colorRouter);
+app.use('/palette', paletteRouter);
 
 app.set('port', port);
 app.listen(app.get('port'), () => {

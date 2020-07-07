@@ -16,7 +16,7 @@ router.post('/signUp', userController.signUp.post);
 router.get('/userInfo', userController.userInfo.get);
 
 // * GET /userController/SCEdit
-//router.get('/changeSignatureColor/:id', userController.SCEdit.get);
+router.post('/changeSignatureColor/:id', userController.SCEdit.post);
 
 // * POST /userController/pwdEdit
 router.post('/changePassword/:id', userController.pwdEdit.post);

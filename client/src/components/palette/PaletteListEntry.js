@@ -9,32 +9,42 @@ import {
     faShareAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
-import './PaletteListEntry.scss';
 
 const PaletteColors = styled.div`
     position: absolute;
     display: grid;
-    grid-template-columns: repeat(${(props) => props.number}, 1fr);
-    width: 200px;
-    height: 200px;
+    grid-template-columns: repeat(${(props) => props.number}, 2fr);
+    width: 280px;
+    height: 160px;
     cursor: pointer;
-    // .palette__color:first-child {
-    //     border-radius: 8px 0 0 8px;
-    // }
-    // .palette__color:last-child {
-    //     border-radius: 0 8px 8px 0;
-    // }
+    border: 2px solid white;
+    border-radius: 15px 15px 0 15px;
+    background-color: white;
 `;
 // TODO: 추후 데이터받아서 props.number로 넘겨주기
 
 const PaletteColor = styled.div`
     background-color: ${(props) => props.color};
+    &:nth-child(1) {
+        border-radius: 15px 0 0 15px;
+    }
+    &:nth-last-child(1) {
+        border-radius: 0 15px 0 0;
+    }
 `;
 
 const PaletteListEntry = ({ history }) => {
     //주석 나중에 제거하거나 다듬을 것
     //숫자에 맞게 div를 생성하는 헬퍼 함수를 만들어야 합니다 -> 받은 숫자에 맞게 map으로 div를 만들어주는 건 어떨까요?
-    const fakeColors = ['#74b9ff', '#0984e3', '#70a1ff'];
+    const fakeColors = [
+        '#55efc4',
+        '#81ecec',
+        '#74b9ff',
+        '#a29bfe',
+        '#6c5ce7',
+        '#0984e3',
+        '#00cec9',
+    ];
     const palette = useRef(null);
 
     const onClickPalette = (e) => {

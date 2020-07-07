@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Form } from 'antd';
 
 import {
-    SubHeaderButton,
-    FormInput,
-    FormAll,
-    FormInputPW,
+    WaveButton,
+    EmailInput,
+    SignInForm,
+    SignInPWInput,
 } from '../Pages_styd';
+//성공하면 isLogin을 true로 만들어 주고 세션 적용해야 하며 유저 인포가 필요함
 
-const SignIn = ({ history }) => {
+const SignIn = ({ history, userInfo }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     const onClickSignInButton = () => {
         // TODO: 서버로 로그인 POST 요청 (axios 사용)
+        // 만약에 아이디와 비밀번호가 같으면 setUserInfo
+        // email이랑 password를 서버단에 주면 됩니다
+        // 그리고 isLogin도 true로 바꿔야 됩니다
     };
 
     const onClickSignUpButton = (e) => {
@@ -21,12 +28,13 @@ const SignIn = ({ history }) => {
 
     const handleInputValue = (e) => {
         // TODO: Input 값 value로 받아 state 설정
-        // e.target.value
+        setEmail(e.target.value);
+        setPassword(e.target.value);
     };
 
     return (
         <main>
-            <div className='aa'>
+            <div>
                 <span className='h1'> 로그인 </span>
             </div>
             <div className='userPageWrapper SignInWrapper'>
@@ -38,7 +46,7 @@ const SignIn = ({ history }) => {
                         e.preventDefault();
                     }}
                 >
-                    <FormAll
+                    <SignInForm
                         name='email'
                         rules={[
                             {
@@ -47,11 +55,12 @@ const SignIn = ({ history }) => {
                             },
                         ]}
                         onChange={handleInputValue}
+                        value={email}
                     >
-                        <FormInput placeholder='이메일' />
-                    </FormAll>
+                        <EmailInput placeholder='이메일' />
+                    </SignInForm>
 
-                    <FormAll
+                    <SignInForm
                         name='password'
                         placeholer='이메일'
                         rules={[
@@ -61,25 +70,26 @@ const SignIn = ({ history }) => {
                             },
                         ]}
                         onChange={handleInputValue}
+                        value={password}
                     >
-                        <FormInputPW placeholder='비밀번호' />
-                    </FormAll>
+                        <SignInPWInput placeholder='비밀번호' />
+                    </SignInForm>
 
                     <Form.Item>
-                        <SubHeaderButton
+                        <WaveButton
                             type='primary'
                             htmlType='submit'
                             onClick={onClickSignInButton}
                         >
                             로그인
-                        </SubHeaderButton>
-                        <SubHeaderButton
+                        </WaveButton>
+                        <WaveButton
                             type='primary'
                             htmlType='submit'
                             onClick={onClickSignUpButton}
                         >
                             회원가입
-                        </SubHeaderButton>
+                        </WaveButton>
                     </Form.Item>
                 </Form>
             </div>

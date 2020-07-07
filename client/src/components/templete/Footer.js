@@ -27,7 +27,7 @@ const FooterDiv = () => {
     return (
         <Footer>
             <div className='footer__LOGO'>
-                <a>색갈피</a>
+                <a href='/'>색갈피</a>
                 <span>
                     © <span className='footer__LOGO--font'>색갈피</span>의 모든
                     권한은<span className='footer__LOGO--font'>화백</span>에게
@@ -37,17 +37,17 @@ const FooterDiv = () => {
             <nav className='footer__Nav'>
                 <ul>
                     <li>
-                        <a>
+                        <a href='/'>
                             <FontAwesomeIcon icon={faStickyNote} size='2x' />
                         </a>
                     </li>
                     <li>
-                        <a>
+                        <a href='/'>
                             <FontAwesomeIcon icon={faGithub} size='2x' />
                         </a>
                     </li>
                     <li>
-                        <a>
+                        <a href='/'>
                             <FontAwesomeIcon icon={faMugHot} size='2x' />
                         </a>
                     </li>

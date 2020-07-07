@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Header from './components/templete/Header';
@@ -13,30 +13,53 @@ import ChangePassword from './pages/users/ChangePassword';
 import PaletteDetail from './pages/palettes/PaletteDetail';
 import ChangeSignatureColor from './pages/palettes/ChangeSignatureColor';
 
+const fakeUser = {
+    id: '1',
+    username: '화백',
+    email: 'admin@co.kr',
+    signatureColor: '#000000',
+};
+
 const Router = () => {
-    // css로 제어 ->  react router는 고정되기 때문에
-    // Header로 하나 빼서 그 안에서 삼항연산자로
+    const [isLogin, setIsLogin] = useState(false);
+    const [userInfo, setUserInfo] = useState(fakeUser);
 
     return (
         <BrowserRouter>
-            <Header />
+            <Header isLogin={isLogin} />
             <Switch>
-                <Route path='/signIn' component={SignIn} />
-                <Route path='/signUp' component={SignUp} />
-                <Route path='/allPalette' component={AllPalette} />
+                <Route path='/signIn'>
+                    <SignIn userInfo={userInfo} />
+                </Route>
+                <Route path='/signUp'>
+                    <SignUp />
+                </Route>
+                <Route path='/allPalette'>
+                    <AllPalette />
+                </Route>
+                <Route path='/MyPage'>
+                    <MyPage userInfo={userInfo} />
+                </Route>
 
-                <Route path='/MyPage' component={MyPage} />
+                <Route path='/changePassword/:id'>
+                    <ChangePassword />
+                </Route>
+                <Route path='/changeSignatureColor/:id'>
+                    <ChangeSignatureColor />
+                </Route>
+                <Route path='/editPalette/:id'>
+                    <EditPalette />
+                </Route>
+                <Route path='/makePalette'>
+                    <MakePalette />
+                </Route>
+                <Route path='/paletteDetail/:id'>
+                    <PaletteDetail />
+                </Route>
 
-                <Route path='/changePassword/:id' component={ChangePassword} />
-                <Route
-                    path='/changeSignatureColor/:id'
-                    component={ChangeSignatureColor}
-                />
-                <Route path='/editPalette/:id' component={EditPalette} />
-                <Route path='/makePalette' component={MakePalette} />
-                <Route path='/paletteDetail/:id' component={PaletteDetail} />
-
-                <Route path='/' component={Main} exact />
+                <Route path='/' exact>
+                    <Main isLogin={isLogin} />
+                </Route>
             </Switch>
         </BrowserRouter>
     );

@@ -1,10 +1,8 @@
 import React from 'react';
-<<<<<<< HEAD
 import styled from 'styled-components';
 import { Slider, Input } from 'antd';
 import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
-import './MakePalette.scss';
 
 const MakePaletteContainer = styled.section`
     border: 1px solid black;
@@ -12,18 +10,6 @@ const MakePaletteContainer = styled.section`
     height: 20vh;
     margin-bottom: 20px;
 `;
-
-const MakePaletteHexContainer = styled.section`
-    border: 1px solid black;
-    width: 60vw;
-    height: 10vh;
-    margin-bottom: 20px;
-`;
-=======
-import EditPaletteList from '../../components/palette/EditPaletteList';
-import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
-import { MakePaletteContainer } from '../Pages_styd';
->>>>>>> 6452a0601843471ac6e1b94af639766b86273dda
 
 const { TextArea } = Input;
 

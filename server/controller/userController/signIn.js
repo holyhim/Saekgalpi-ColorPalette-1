@@ -3,6 +3,7 @@ const { User } = require('../../models');
 module.exports = {
   post: (req, res) => {
     const { email, password } = req.body;
+    let session = req.session;
     User.findOne({
       where: {
         email: email,
@@ -16,7 +17,10 @@ module.exports = {
         } else if (!password) {
           res.status(404).send('Password is Null');
           //alert('비밀번를 입력해주세요.');
-        } else res.status(200).send(result);
+        } else {
+          session.email = email;
+          res.status(200).send(result);
+        }
         //alert(`${result.email}님 어서오세요 !`);
       })
       .catch((err) => {

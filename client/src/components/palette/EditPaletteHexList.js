@@ -5,7 +5,7 @@ import EditPaletteHexListEntry from './EditPaletteHexListEntry';
 const HexLists = styled.div`
     display: grid;
     grid-template-columns: repeat(${(props) => props.number}, 1fr);
-    grid-template-rows: 10vh;
+    grid-template-rows: 20vh;
 `;
 // TODO: 추후 데이터받아서 props.number로 넘겨주기
 

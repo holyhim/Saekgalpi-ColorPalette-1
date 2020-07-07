@@ -1,32 +1,10 @@
 import React from 'react';
-<<<<<<< HEAD
-import styled from 'styled-components';
-import { Slider, Input } from 'antd';
-=======
->>>>>>> 6452a0601843471ac6e1b94af639766b86273dda
 import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 import { EditPaletteContainer } from '../Pages_styd';
-
-<<<<<<< HEAD
-const EditPaletteContainer = styled.section`
-    border: 1px solid black;
-    width: 60vw;
-    height: 20vh;
-    margin-bottom: 20px;
-`;
-
-const EditPaletteHexContainer = styled.section`
-    border: 1px solid black;
-    width: 60vw;
-    height: 10vh;
-    margin-bottom: 20px;
-`;
-
-const { TextArea } = Input;
-=======
+import { Slider, Input } from 'antd';
 // TODO: 섹션을 고쳐주십시오..
->>>>>>> 6452a0601843471ac6e1b94af639766b86273dda
+const { TextArea } = Input;
 
 const EditPalette = () => {
     //props로 넣어 주면 됩니다
