@@ -4,7 +4,7 @@ const router = express.Router();
 const paletteController = require('../controller/paletteController');
 
 // * POST /colorController/colorCreate
-//router.post('/makePalette', paletteController.paletteCreate.post);
+router.post('/makePalette', paletteController.paletteCreate.post);
 
 // * POST /colorController/colorDrop
 //router.post(['/MyPage', '/admin'], paletteController.paletteDrop.post);
