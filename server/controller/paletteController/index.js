@@ -1,7 +1,7 @@
 module.exports = {
-  colorCreate: require('./paletteCreate'),
-  colorDrop: require('./paletteDrop'),
-  colorEdit: require('./paletteEdit'),
-  colorInfo: require('./paletteInfo'),
+  paletteCreate: require('./paletteCreate'),
+  paletteDrop: require('./paletteDrop'),
+  paletteEdit: require('./paletteEdit'),
+  paletteInfo: require('./paletteInfo'),
   visitCheck: require('./visitCheck'),
 };

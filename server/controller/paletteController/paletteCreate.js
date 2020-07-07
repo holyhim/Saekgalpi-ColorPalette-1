@@ -1,7 +1,8 @@
-const { Palette, User } = require('../../models');
+const { Palette } = require('../../models');
 
 module.exports = {
     post: (req, res) => {
+        const id = req.params.id;
         const {
             paletteName,
             description,
@@ -13,33 +14,24 @@ module.exports = {
             colorCode06,
             colorCode07,
         } = req.body;
-        const { id } = req.params;
-        User.findOne({
-            where: {
-                id,
-            },
+        Palette.create({
+            userId: id,
+            paletteName,
+            description,
+            colorCode01,
+            colorCode02,
+            colorCode03,
+            colorCode04,
+            colorCode05,
+            colorCode06,
+            colorCode07,
         })
-            .then((data) => {
-                if (data) {
-                    Palette.create({
-                        paletteName,
-                        description,
-                        colorCode01,
-                        colorCode02,
-                        colorCode03,
-                        colorCode04,
-                        colorCode05,
-                        colorCode06,
-                        colorCode07,
-                    });
-                }
-            })
             .then((result) => {
                 if (result) {
                     res.status(200).send(result);
                 } else {
                     res.status(404).send('Bad Request');
-                    alert('잘못 된 요청입니다');
+                    alert('잘못된 요청입니다');
                 }
             })
             .catch((err) => {
