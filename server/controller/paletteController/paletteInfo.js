@@ -11,7 +11,7 @@ module.exports = {
         if (id) {
             Palette.findOne({
                 where: {
-                    userId,
+                    userId : id,
                 },
             })
                 .then((data) => {
@@ -19,7 +19,7 @@ module.exports = {
                         res.status(200).send(data);
                     } else {
                         res.status(404).send('Bad Request');
-                        alert('잘못 된 요청입니다');
+                        alert('잘못된 요청입니다');
                     }
                 })
                 .catch((err) => {
