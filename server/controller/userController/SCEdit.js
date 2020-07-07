@@ -30,7 +30,6 @@ module.exports = {
             }
         )
             .then((data) => {
-                console.log(data);
                 if (data) {
                     res.status(200).send(data);
                     alert('signatureColor가 성공적으로 변경되었습니다.');
