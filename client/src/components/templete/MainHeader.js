@@ -4,32 +4,36 @@ import { RoundButton, NoneSquareBtn, LogoutBtn } from './Templete_styd';
 
 // TODO: 나중에 이 밑의 스타일드 컴포넌트 언더바 없는 파스칼케이스로 고칩시다!: ESLINT 오류가 납니다..
 
-const MainHeader = () => {
+const MainHeader = ({ isLogin }) => {
     //주석 나중에 제거하거나 다듬을 것
     return (
         <div className='mainHeader__Wapper'>
-            {/*wrapper 전체를 감싸는 부분*/}
             <nav>
-                <ul>
-                    <li>
-                        <Link to='/signIn'>
-                            <RoundButton>로그인</RoundButton>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to='/signUp'>
-                            <RoundButton>회원가입</RoundButton>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to='/MyPage'>
-                            <RoundButton>내 색갈피</RoundButton>
-                        </Link>
-                    </li>
-                    <li>
-                        <LogoutBtn ghost>로그아웃</LogoutBtn>
-                    </li>
-                </ul>
+                {!isLogin ? (
+                    <ul>
+                        <li>
+                            <Link to='/signIn'>
+                                <RoundButton>로그인</RoundButton>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/signUp'>
+                                <RoundButton>회원가입</RoundButton>
+                            </Link>
+                        </li>
+                    </ul>
+                ) : (
+                    <ul>
+                        <li>
+                            <Link to='/MyPage'>
+                                <RoundButton>내 색갈피</RoundButton>
+                            </Link>
+                        </li>
+                        <li>
+                            <LogoutBtn ghost>로그아웃</LogoutBtn>
+                        </li>
+                    </ul>
+                )}
             </nav>
 
             <div className='mainHeader__center'>
