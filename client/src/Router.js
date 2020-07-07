@@ -21,22 +21,39 @@ const Router = () => {
         <BrowserRouter>
             <Header />
             <Switch>
-                <Route path='/signIn' component={SignIn} />
-                <Route path='/signUp' component={SignUp} />
-                <Route path='/allPalette' component={AllPalette} />
+            <Route path='/signIn'>
+                    <SignIn />
+                </Route>
+                <Route path='/signUp'>
+                    <SignUp />
+                </Route>
+                <Route path='/allPalette'>
+                    <AllPalette />
+                </Route>
 
-                <Route path='/MyPage' component={MyPage} />
+                <Route path='/MyPage'>
+                    <MyPage />
+                </Route>
 
-                <Route path='/changePassword/:id' component={ChangePassword} />
-                <Route
-                    path='/changeSignatureColor/:id'
-                    component={ChangeSignatureColor}
-                />
-                <Route path='/editPalette/:id' component={EditPalette} />
-                <Route path='/makePalette' component={MakePalette} />
-                <Route path='/paletteDetail/:id' component={PaletteDetail} />
+                <Route path='/changePassword/:id'>
+                    <ChangePassword />
+                </Route>
+                <Route path='/changeSignatureColor/:id'>
+                    <ChangeSignatureColor />
+                </Route>
+                <Route path='/editPalette/:id'>
+                    <EditPalette />
+                </Route>
+                <Route path='/makePalette'>
+                    <MakePalette />
+                </Route>
+                <Route path='/paletteDetail/:id'>
+                    <PaletteDetail />
+                </Route>
 
-                <Route path='/' component={Main} exact />
+                <Route path='/' exact>
+                    <Main />
+                </Route>
             </Switch>
         </BrowserRouter>
     );
