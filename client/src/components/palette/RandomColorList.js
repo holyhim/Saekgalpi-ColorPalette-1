@@ -10,22 +10,21 @@ const RandomColorsContainer = styled.div`
     height: 40vh;
 `;
 
-const RandomColorList = () => {
-    // TODO: Main페이지 렌더되었을 때 랜덤컬러 7개 생성하는 헬퍼함수 제작
-    const fakeColor = [
-        '#FFC312',
-        '#F79F1F',
-        '#C4E538',
-        '#0652DD',
-        '#1B1464',
-        '#9980FA',
-        '#B53471',
-    ];
+const fakeColors = [
+    '#FFC312',
+    '#F79F1F',
+    '#C4E538',
+    '#0652DD',
+    '#1B1464',
+    '#9980FA',
+    '#B53471',
+];
 
+const RandomColorList = () => {
     return (
         <>
             <RandomColorsContainer>
-                {fakeColor.map((color, idx) => (
+                {fakeColors.map((color, idx) => (
                     <RandomColorListEntry key={idx} color={color} />
                     // 추후 키값은 상의해서 변경 예정
                 ))}

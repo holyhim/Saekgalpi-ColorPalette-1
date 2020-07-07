@@ -10,6 +10,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
+import { SET_CLICKED_PALETTE } from '../../Router';
+
 const PaletteColors = styled.div`
     position: absolute;
     display: grid;
@@ -21,7 +23,6 @@ const PaletteColors = styled.div`
     border-radius: 15px 15px 0 15px;
     background-color: white;
 `;
-// TODO: 추후 데이터받아서 props.number로 넘겨주기
 
 const PaletteColor = styled.div`
     background-color: ${(props) => props.color};
@@ -33,27 +34,21 @@ const PaletteColor = styled.div`
     }
 `;
 
-const PaletteListEntry = ({ history }) => {
-    //주석 나중에 제거하거나 다듬을 것
-    //숫자에 맞게 div를 생성하는 헬퍼 함수를 만들어야 합니다 -> 받은 숫자에 맞게 map으로 div를 만들어주는 건 어떨까요?
-    const fakeColors = [
-        '#55efc4',
-        '#81ecec',
-        '#74b9ff',
-        '#a29bfe',
-        '#6c5ce7',
-        '#0984e3',
-        '#00cec9',
-    ];
-    const palette = useRef(null);
+const PaletteListEntry = ({ palette, dispatch, history }) => {
+    const { colorCode, paletteName, id } = palette;
+    const paletteColors = useRef(null);
 
     const onClickPalette = (e) => {
-        history.push('/paletteDetail/:id');
+        dispatch({
+            type: SET_CLICKED_PALETTE,
+            palette,
+        });
+        history.push(`/paletteDetail/${id}`);
     };
 
     const onClickDownload = async () => {
         try {
-            const dataUrl = await domtoimage.toPng(palette.current);
+            const dataUrl = await domtoimage.toPng(paletteColors.current);
             const link = document.createElement('a');
             link.href = dataUrl;
             link.download = '색갈피';
@@ -63,16 +58,17 @@ const PaletteListEntry = ({ history }) => {
         }
     };
 
-    //* map key 수정
+    // TODO: 팔레트를 만든 사람 ID와 현재 접속해 있는 사람 ID가 같을 때만 활성화
+
     return (
         <div className='palette__wrapper'>
             <PaletteColors
                 className='palette__colors'
-                number={fakeColors.length}
+                number={colorCode.length}
                 onClick={onClickPalette}
-                ref={palette}
+                ref={paletteColors}
             >
-                {fakeColors.map((color, idx) => (
+                {colorCode.map((color, idx) => (
                     <PaletteColor
                         className='palette__color'
                         color={color}
@@ -81,7 +77,7 @@ const PaletteListEntry = ({ history }) => {
                 ))}
             </PaletteColors>
             <div className='palette__info--hidden'>
-                <span className='palette__title'>타이틀</span>
+                <span className='palette__title'>{paletteName}</span>
                 <div className='palette__icons'>
                     <button className='palette__like'>
                         <FontAwesomeIcon icon={faHeart} />

@@ -8,8 +8,6 @@ const RandomColor = styled.div`
     height: 120px;
     background-color: ${(props) => props.color || 'blue'};
 `;
-// TODO: 추후 데이터받아서 props.color로 넘겨주기
-
 const RandomColorListEntry = ({ color }) => {
     return (
         <div className='random-color__wrapper'>
@@ -25,7 +23,6 @@ const RandomColorListEntry = ({ color }) => {
 };
 
 export default RandomColorListEntry;
-
 //모든 색갈피 페이지
 //시그니처 색상 페이지
 //팔레트 편집 페이지
