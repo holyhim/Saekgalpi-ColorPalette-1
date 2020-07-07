@@ -11,12 +11,14 @@ const Paltte = styled.div`
     background-color: ${(props) => props.color || 'black'};
     cursor: pointer;
 `;
+
 const PaletteWrapper = styled.div`
     width: 30vw;
     height: 30vh;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(${(props) => props.number}, 1fr);
 `;
+
 const EditButton = styled(Button)`
     color: #a6a6a6;
     background-color: #e7e7e7;
@@ -36,6 +38,7 @@ const EditButton = styled(Button)`
         --antd-wave-shadow-color: #c7c7c7;
     }
 `;
+
 const ShareBtn = styled.button`
     all: unset;
     font-size: 1.5rem;
@@ -48,22 +51,26 @@ const ColorCodeDetail = styled.div`
     grid-template-columns: repeat(${(props) => props.num}, 1fr);
     line-height: 6vh;
 `;
+
 const ColorCode = styled.div`
     background-color: ${(props) => props.color};
     text-align: center;
 `;
+
 const PaletteDescription = styled.div`
     margin-left: 4vw;
     height: 5vw;
 `;
-const PaletteDetail = ({ isLogin }) => {
-    // props를 사용하여 변경
-    // 상위컴포넌트에서 받아올 부분
-    const fakeColors = ['#74b9ff', '#0984e3', '#70a1ff'];
-    const palette = useRef(null);
+
+const PaletteDetail = ({ isLogin, palette }) => {
+    const paletteColors = useRef(null);
+    console.log(isLogin);
+
+    const { id, userId, paletteName, colorCode, description } = palette;
+
     const onClickDownload = async () => {
         try {
-            const dataUrl = await domtoimage.toPng(palette.current);
+            const dataUrl = await domtoimage.toPng(paletteColors.current);
             const link = document.createElement('a');
             link.href = dataUrl;
             link.download = '색갈피';
@@ -81,9 +88,10 @@ const PaletteDetail = ({ isLogin }) => {
                     <div className='palette-detail__column'>
                         <PaletteWrapper
                             className='palette-detail__palette'
-                            ref={palette}
+                            number={colorCode.length}
+                            ref={paletteColors}
                         >
-                            {fakeColors.map((color, idx) => (
+                            {colorCode.map((color, idx) => (
                                 <CopyToClipboard text={color} key={idx}>
                                     <Paltte color={color} key={idx} />
                                 </CopyToClipboard>
@@ -94,7 +102,11 @@ const PaletteDetail = ({ isLogin }) => {
                                 <></>
                             ) : (
                                 <EditButton className='palette-detail__edit-btn'>
-                                    <Link to='/editPalette/:id'>
+                                    <Link
+                                        to={{
+                                            pathname: `/editPalette/${id}`,
+                                        }}
+                                    >
                                         색갈피 편집
                                     </Link>
                                 </EditButton>
@@ -129,9 +141,9 @@ const PaletteDetail = ({ isLogin }) => {
                             <h5>HEX</h5>
                             <ColorCodeDetail
                                 className='palette-detail__hex'
-                                num={fakeColors.length}
+                                num={colorCode.length}
                             >
-                                {fakeColors.map((color, idx) => (
+                                {colorCode.map((color, idx) => (
                                     <ColorCode color={color} key={idx}>
                                         {color}
                                     </ColorCode>
@@ -142,9 +154,9 @@ const PaletteDetail = ({ isLogin }) => {
                             <h5>RGB</h5>
                             <ColorCodeDetail
                                 className='palette-detail__rgb'
-                                num={fakeColors.length}
+                                num={colorCode.length}
                             >
-                                {fakeColors.map((color, idx) => (
+                                {colorCode.map((color, idx) => (
                                     <ColorCode color={color} key={idx}>
                                         rgb
                                     </ColorCode>

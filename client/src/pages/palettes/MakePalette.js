@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect, useReducer } from 'react';
 import styled from 'styled-components';
 import { Slider, Input } from 'antd';
 import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
+import {
+    SET_PALETTE_COLORS,
+    SET_PALETTE_DESCRIPTION,
+    SET_PALETTE_NUMBER,
+    SET_PALETTE_TITLE,
+} from './EditPalette';
 
 const MakePaletteContainer = styled.section`
-    border: 1px solid black;
     width: 60vw;
     height: 20vh;
     margin-bottom: 20px;
@@ -13,38 +18,105 @@ const MakePaletteContainer = styled.section`
 
 const { TextArea } = Input;
 
+const initialState = {
+    title: '',
+    number: 5,
+    description: '',
+    colors: [...Array(5).fill('#ffffff')],
+};
+
+const paletteReducer = (state, action) => {
+    switch (action.type) {
+        case 'SET_PALETTE_TITLE': {
+            return { ...state, title: action.title };
+        }
+        case 'SET_PALETTE_NUMBER': {
+            return {
+                ...state,
+                number: action.number,
+            };
+        }
+        case 'SET_PALETTE_DESCRIPTION': {
+            return {
+                ...state,
+                description: action.description,
+            };
+        }
+        case 'SET_PALETTE_COLORS': {
+            return {
+                ...state,
+                colors: action.colors,
+            };
+        }
+        default: {
+            return state;
+        }
+    }
+};
+
 const MakePalette = () => {
-    const onChangeColor = (e) => {
-        // 컬러 갯수에 따라서 바뀜
-        // TODO: Input 값 value로 받아 state 설정
-        // console.log(e.target.value);
+    const [state, dispatch] = useReducer(paletteReducer, initialState);
+    const { title, number, description, colors } = state;
+
+    const onChangeColorNumber = (e) => {
+        dispatch({ type: SET_PALETTE_NUMBER, number: e });
     };
+
+    useEffect(() => {
+        if (number > colors.length) {
+            const diff = Array(number - colors.length).fill('#ffffff');
+            dispatch({
+                type: SET_PALETTE_COLORS,
+                colors: [...colors, ...diff],
+            });
+        } else if (number < colors.length) {
+            dispatch({
+                type: SET_PALETTE_COLORS,
+                colors: [...colors.slice(0, number)],
+            });
+        }
+    }, [number, colors.length]);
+
     const handleInputValue = (e) => {
-        // TODO: Input 값 value로 받아 state 설정
-        // e.target.value
+        if (e.target.name === 'title') {
+            dispatch({ type: SET_PALETTE_TITLE, title: e.target.value });
+        } else if (e.target.name === 'description') {
+            dispatch({
+                type: SET_PALETTE_DESCRIPTION,
+                description: e.target.value,
+            });
+        }
     };
+
+    const setNthColor = (idx, color) => {
+        dispatch({
+            type: SET_PALETTE_COLORS,
+            color: [...colors.slice(0, idx), color, ...colors.slice(idx + 1)],
+        });
+    };
+
     const onClickPostButton = (e) => {
         // TODO: 서버로 팔레트 POST 요청 (axios 사용)
     };
 
     return (
         <main className='make-palette__main'>
-            {/* wrapper */}
             <h1 className='make-palette__title'> 색갈피 만들기 </h1>
             <MakePaletteContainer className='make-palette__color-container'>
-                {/* top color choice
-                    onChangeColor state 값 넘겨주기
-                    */}
-                <EditPaletteList />
+                <EditPaletteList
+                    number={number}
+                    colors={colors}
+                    setNthColor={setNthColor}
+                />
             </MakePaletteContainer>
             <MakePaletteContainer className='make-palette__hex-container'>
-                {/* middle hex code desc 
-                    onChangeColor state 값 넘겨주기
-                    */}
-                <EditPaletteHexList />
+                <EditPaletteHexList
+                    number={number}
+                    colors={colors}
+                    setNthColor={setNthColor}
+                />
             </MakePaletteContainer>
             <section className='make-palette__palette-info'>
-                {/* bottom other desc */}
                 <form
                     className='palette-info__form'
                     onSubmit={(e) => {
@@ -58,9 +130,9 @@ const MakePalette = () => {
                             min={2}
                             max={7}
                             step={1}
-                            defaultValue={5}
+                            defaultValue={number}
                             style={{ width: '200px' }}
-                            onChange={onChangeColor}
+                            onChange={onChangeColorNumber}
                         />
                     </label>
                     <Input
