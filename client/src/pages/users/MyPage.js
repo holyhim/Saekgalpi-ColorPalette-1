@@ -6,7 +6,7 @@ import PaletteList from '../../components/palette/PaletteList';
 import logos from '../../images/2.png';
 import { WaveButton } from '../Pages_styd';
 
-const MyPage = () => {
+const MyPage = ({ userInfo }) => {
     const isAdmin = true; // 추후 state로 변경 예정 / 임시 변수
 
     return (
@@ -15,9 +15,8 @@ const MyPage = () => {
             <div className='userPageWrapper'>
                 <div className='MyPage__wrapper'>
                     <section className='MyPage__Profile'>
-                        <img alt={prompt} src={logos} />
-                        <span>닉네임</span>
-                        <span>hwabaek@email.com</span>
+                        <span>{userInfo.username}</span>
+                        <span>{userInfo.email}</span>
                     </section>
                     <section className='MyPage__BtnWrapper'>
                         <WaveButton>

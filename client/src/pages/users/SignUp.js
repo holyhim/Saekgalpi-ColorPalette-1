@@ -1,31 +1,43 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Space } from 'antd';
 import { SignUpInput, SignUpForm, WaveButton } from '../Pages_styd';
 
+const reducer = (state, action) => {
+    return {
+        ...state,
+        [action.name]: action.value,
+    };
+};
+
+//사인 업
 const SignUp = ({ history }) => {
+    const [state, dispatch] = useReducer(reducer, {
+        username: '',
+        email: '',
+        password: '',
+        passwordCheck: '',
+    });
+
+    const { username, email, password, passwordCheck } = state;
     const onClickSignUpButton = (e) => {
         e.preventDefault();
         // TODO: 서버로 회원가입 POST 요청 (axios 사용)
-
-        history.push('/');
+        history.push('/signIn');
+        //data 보낼 때 state를 보내면 됩니다.
     };
 
     const handleInputValue = (e) => {
-        // TODO: Input 값 value로 받아 state 설정
-        // e.target.value
+        dispatch(e.target);
     };
 
-    //div 클래스 네임 aa 바꾸세요...
+    //console.log(state); 스테이트가 잘 들어오는지 확인
+
     return (
         <main>
-            <span className='h1'> 회원가입 </span>
+            <span className='h1'> 회원가입</span>
             <div className='userPageWrapper SignUpWrapper'>
-                <form
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                    }}
-                >
+                <form onSubmit={(e) => {}}>
                     <div>
                         <Space direction='vertical'>
                             <SignUpForm style={{ width: 500, height: 80 }}>
@@ -33,7 +45,9 @@ const SignUp = ({ history }) => {
                                     type='text'
                                     placeholder='닉네임'
                                     name='username'
+                                    value={username}
                                     onChange={handleInputValue}
+                                    required
                                 />
                             </SignUpForm>
                             <SignUpForm style={{ width: 500, height: 80 }}>
@@ -41,22 +55,25 @@ const SignUp = ({ history }) => {
                                     type='text'
                                     placeholder='이메일'
                                     name='email'
+                                    value={email}
                                     onChange={handleInputValue}
                                 />
                             </SignUpForm>
                             <SignUpForm style={{ width: 500, height: 80 }}>
                                 <SignUpInput
-                                    type='text'
+                                    type='password'
                                     placeholder='비밀번호'
                                     name='password'
+                                    value={password}
                                     onChange={handleInputValue}
                                 />
                             </SignUpForm>
                             <SignUpForm style={{ width: 500, height: 80 }}>
                                 <SignUpInput
-                                    type='text'
+                                    type='password'
                                     placeholder='비밀번호 재입력'
                                     name='passwordCheck'
+                                    value={passwordCheck}
                                     onChange={handleInputValue}
                                 />
                             </SignUpForm>

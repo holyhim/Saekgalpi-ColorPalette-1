@@ -4,13 +4,16 @@ import PaletteList from '../components/palette/PaletteList';
 import RandomColorList from '../components/palette/RandomColorList';
 import { BigSquareButton } from './Pages_styd';
 
-const Main = () => {
-    // TODO: 메인 페이지 들어오자마자 팔레트 정보 불러오기 GET 요청 (useEffect, axios)
-
+const Main = ({ isLogin }) => {
+    // TODO: 메인 페이지 들어오자마자 팔레트 정보 불러오기 GET 요청 (useEffect, axios
     return (
         <main className='main__main-content'>
             <BigSquareButton>
-                <Link to='/makePalette'>내 색갈피 만들기</Link>
+                {!isLogin ? (
+                    <Link to='/signIn'>내 색갈피 만들기</Link>
+                ) : (
+                    <Link to='/makePalette'>내 색갈피 만들기</Link>
+                )}
             </BigSquareButton>
             <section className='fav-palettes__container'>
                 <h3 className='fav-palettes__title'>많이 찾은 색갈피</h3>

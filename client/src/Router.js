@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Header from './components/templete/Header';
@@ -13,16 +13,23 @@ import ChangePassword from './pages/users/ChangePassword';
 import PaletteDetail from './pages/palettes/PaletteDetail';
 import ChangeSignatureColor from './pages/palettes/ChangeSignatureColor';
 
+const fakeUser = {
+    id: '1',
+    username: '화백',
+    email: 'admin@co.kr',
+    signatureColor: '#000000',
+};
+
 const Router = () => {
-    // css로 제어 ->  react router는 고정되기 때문에
-    // Header로 하나 빼서 그 안에서 삼항연산자로
+    const [isLogin, setIsLogin] = useState(false);
+    const [userInfo, setUserInfo] = useState(fakeUser);
 
     return (
         <BrowserRouter>
-            <Header />
+            <Header isLogin={isLogin} />
             <Switch>
-            <Route path='/signIn'>
-                    <SignIn />
+                <Route path='/signIn'>
+                    <SignIn userInfo={userInfo} />
                 </Route>
                 <Route path='/signUp'>
                     <SignUp />
@@ -30,9 +37,8 @@ const Router = () => {
                 <Route path='/allPalette'>
                     <AllPalette />
                 </Route>
-
                 <Route path='/MyPage'>
-                    <MyPage />
+                    <MyPage userInfo={userInfo} />
                 </Route>
 
                 <Route path='/changePassword/:id'>
@@ -52,7 +58,7 @@ const Router = () => {
                 </Route>
 
                 <Route path='/' exact>
-                    <Main />
+                    <Main isLogin={isLogin} />
                 </Route>
             </Switch>
         </BrowserRouter>
