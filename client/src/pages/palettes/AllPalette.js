@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Input } from 'antd';
 import PaletteList from '../../components/palette/PaletteList';
 import styd from 'styled-components';
 
+import { fakeFavPalettes } from '../../fakeData';
+
 const { Search } = Input;
 
 const AllPalInput = styd(Search)`
-width: 400px;
-height: 40px;
+    width: 400px;
+    height: 40px;
 `;
 
-const AllPalette = () => {
+const AllPalette = ({ dispatch }) => {
+    const [keyword, setKeyWord] = useState('');
+
     const onChangeInput = (e) => {
-        // TODO: Input 값 value로 받아 state 설정
-        // e.target.value
+        setKeyWord(e.target.value);
     };
 
     return (
@@ -35,7 +38,10 @@ const AllPalette = () => {
                     />
                 </form>
                 <section className='all-palette__palettes'>
-                    <PaletteList />
+                    <PaletteList
+                        dispatch={dispatch}
+                        palettes={fakeFavPalettes}
+                    />
                 </section>
             </div>
         </main>

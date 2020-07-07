@@ -19,14 +19,12 @@ export const SignatureColor = styd.div`
 `;
 
 export const EditPaletteContainer = styd.section`
-    border: 1px solid black;
     width: 70vw;
     height: 200px;
     margin-bottom: 20px;
 `;
 
 export const MakePaletteContainer = styd.section`
-    border: 1px solid black;
     width: 70vw;
     height: 200px;
     margin-bottom: 20px;

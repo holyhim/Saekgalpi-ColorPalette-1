@@ -6,7 +6,9 @@ import PaletteList from '../../components/palette/PaletteList';
 import logos from '../../images/2.png';
 import { WaveButton } from '../Pages_styd';
 
-const MyPage = ({ userInfo }) => {
+import { fakeFavPalettes } from '../../fakeData';
+
+const MyPage = ({ userInfo, dispatch }) => {
     const isAdmin = true; // 추후 state로 변경 예정 / 임시 변수
 
     return (
@@ -31,7 +33,10 @@ const MyPage = ({ userInfo }) => {
                     </section>
                     <section className='MyPage__PalWrapper'>
                         <h3 className='MyPage__AdminTitle'>내 색갈피 관리</h3>
-                        <PaletteList />
+                        <PaletteList
+                            palettes={fakeFavPalettes}
+                            dispatch={dispatch}
+                        />
                         {/* //TODO: isAdmin을 하위 컴포넌트에 props로 넘겨주고, 하위 컴포넌트에서 팔레트 삭제 버튼을 추가 */}
                     </section>
                     {isAdmin ? (

@@ -3,7 +3,6 @@ import { SketchPicker } from 'react-color';
 import styled from 'styled-components';
 
 const PaletteColor = styled.div`
-    border: 1px solid black;
     background-color: ${(props) => props.color};
     cursor: pointer;
 `;
@@ -14,7 +13,6 @@ const ColorPickerContainer = styled.div`
     top: 200px;
     left: ${(props) => props.left}px;
     background-color: white;
-    border: 1px solid black;
     padding: 10px;
 `;
 
@@ -34,12 +32,10 @@ const useWindowSize = () => {
 };
 
 const EditPaletteListEntry = ({ paletteColor, idx, setNthColor }) => {
-    // 토글..
     const [color, setColor] = useState(paletteColor);
     const [isOpen, setIsOpen] = useState(false);
-    // useWindowSize()[0] * 0.7) / 3 + 0.5 * idx
 
-    console.log(((useWindowSize()[0] * 0.7) / 3) * (0.5 + idx));
+    // console.log(((useWindowSize()[0] * 0.7) / 3) * (0.5 + idx));
 
     const togglePicker = (e) => {
         setIsOpen((prevState) => !prevState);
@@ -47,7 +43,6 @@ const EditPaletteListEntry = ({ paletteColor, idx, setNthColor }) => {
 
     const onChange = (color) => {
         setColor(color.hex);
-        // 이걸 상위 컴포넌트에서 받아가야 함
     };
 
     return (
@@ -59,7 +54,7 @@ const EditPaletteListEntry = ({ paletteColor, idx, setNthColor }) => {
             ></PaletteColor>
             <ColorPickerContainer
                 className='color-picker__container'
-                left={((useWindowSize()[0] * 0.7) / 3) * (0.5 + idx) + 100}
+                left={200 + 100 * idx}
                 isOpen={isOpen}
             >
                 <SketchPicker
@@ -70,10 +65,8 @@ const EditPaletteListEntry = ({ paletteColor, idx, setNthColor }) => {
                 <button
                     className='color-picker__button'
                     onClick={() => {
-                        // 여기는 따로 확인 버튼을 만들자
                         setNthColor(idx, color);
                         togglePicker();
-                        // 그리고토글
                     }}
                 >
                     저장

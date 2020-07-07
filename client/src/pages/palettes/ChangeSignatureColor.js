@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ColorPicker, SignatureColor, WaveButton } from '../Pages_styd';
 
 const ChangeSignatureColor = () => {
+    // TODO: 상위 컴포넌트에서 시그니처 컬러 받기
     const [isOpen, setIsOpen] = useState(false);
     const [color, setColor] = useState('#0652DD');
 
@@ -11,7 +12,6 @@ const ChangeSignatureColor = () => {
     };
 
     const onChangeComplete = (color, e) => {
-        // console.log(color); -> rgb, hex 다 가지고 있어요
         setColor(color.hex);
     };
 
