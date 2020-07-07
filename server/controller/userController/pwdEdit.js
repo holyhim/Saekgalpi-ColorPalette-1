@@ -3,7 +3,7 @@ const { User } = require('../../models');
 
 module.exports = {
   post: (req, res) => {
-    const { id } = req.params.id;
+    const id = req.params.id;
     const { password1, password2, password3 } = req.body;
     //var session = req.session;
     User.findOne({
@@ -11,37 +11,38 @@ module.exports = {
         id: id,
         password: password1,
       },
-    }).then((result) => {
-      if (result) {
-        if (password2 === password3) {
-          User.update(
-            {
-              password: password2,
-            },
-            {
-              where: {
-                id: id,
+    })
+      .then((result) => {
+        if (result) {
+          if (password2 === password3) {
+            User.update(
+              {
+                password: password2,
               },
-            }
-          )
-            .then((result) => {
-              res.status(200).send(result);
-              console.log('ok');
-            })
-            .catch((err) => {
-              if (err) {
-                res.status(500).send('1234');
+              {
+                where: {
+                  id: id,
+                },
               }
-            });
-        } else if (password2 !== password3) {
-          res.status(500).send('notnot');
-          console.log('notnot');
+            )
+              .then((result) => {
+                res.status(200).send(result);
+              })
+              .catch((err) => {
+                if (err) {
+                  res.status(404).send(err);
+                }
+              });
+          } else if (password2 !== password3) {
+            res.status(400).send('변경할 비밀번호를 확인해주세요.');
+          }
+        } else if (!result) {
+          res.status(400).send('아이디, 패스워드를 확인해주세요.');
         }
-      } else if (!result) {
-        res.status(500).send('notnotnot');
-        console.log('notnotnot');
-      }
-    });
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
   },
 };
 
