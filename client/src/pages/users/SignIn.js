@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Form } from 'antd';
 
@@ -8,10 +8,17 @@ import {
     SignInForm,
     SignInPWInput,
 } from '../Pages_styd';
+//성공하면 isLogin을 true로 만들어 주고 세션 적용해야 하며 유저 인포가 필요함
 
-const SignIn = ({ history }) => {
+const SignIn = ({ history, userInfo }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     const onClickSignInButton = () => {
         // TODO: 서버로 로그인 POST 요청 (axios 사용)
+        // 만약에 아이디와 비밀번호가 같으면 setUserInfo
+        // email이랑 password를 서버단에 주면 됩니다
+        // 그리고 isLogin도 true로 바꿔야 됩니다
     };
 
     const onClickSignUpButton = (e) => {
@@ -21,7 +28,8 @@ const SignIn = ({ history }) => {
 
     const handleInputValue = (e) => {
         // TODO: Input 값 value로 받아 state 설정
-        // e.target.value
+        setEmail(e.target.value);
+        setPassword(e.target.value);
     };
 
     return (
@@ -47,6 +55,7 @@ const SignIn = ({ history }) => {
                             },
                         ]}
                         onChange={handleInputValue}
+                        value={email}
                     >
                         <EmailInput placeholder='이메일' />
                     </SignInForm>
@@ -61,6 +70,7 @@ const SignIn = ({ history }) => {
                             },
                         ]}
                         onChange={handleInputValue}
+                        value={password}
                     >
                         <SignInPWInput placeholder='비밀번호' />
                     </SignInForm>

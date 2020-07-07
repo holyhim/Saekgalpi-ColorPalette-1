@@ -56,7 +56,7 @@ const PaletteDescription = styled.div`
     margin-left: 4vw;
     height: 5vw;
 `;
-const PaletteDetail = () => {
+const PaletteDetail = ({ isLogin }) => {
     // props를 사용하여 변경
     // 상위컴포넌트에서 받아올 부분
     const fakeColors = ['#74b9ff', '#0984e3', '#70a1ff'];
@@ -90,9 +90,15 @@ const PaletteDetail = () => {
                             ))}
                         </PaletteWrapper>
                         <div className='palette-detail__share-container'>
-                            <EditButton className='palette-detail__edit-btn'>
-                                <Link to='/editPalette/:id'>색갈피 편집</Link>
-                            </EditButton>
+                            {!isLogin ? (
+                                <></>
+                            ) : (
+                                <EditButton className='palette-detail__edit-btn'>
+                                    <Link to='/editPalette/:id'>
+                                        색갈피 편집
+                                    </Link>
+                                </EditButton>
+                            )}
                             <ul className='palette-detail__share-lists'>
                                 <li className='palette-detail__share-item'>
                                     <ShareBtn className='palette-detail__item-link'>
