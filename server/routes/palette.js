@@ -17,16 +17,11 @@ router.get(
     ['/', '/admin', '/paletteDetail/:id', '/allPalette', '/editPalette/:id'],
     paletteController.paletteInfo.get
 );
+// * updateGet
+router.get('/', paletteController.paletteInfo.updatedGet);
 
-router.get(
-    ['/', '/paletteDetail/:id', '/allPalette', '/editPalette/:id'],
-    paletteController.paletteInfo.updatedGet
-);
-
-router.get(
-    ['/', '/paletteDetail/:id', '/allPalette', '/editPalette/:id'],
-    paletteController.paletteInfo.visitGet
-);
+// *  visitGet
+router.get('/', paletteController.paletteInfo.visitGet);
 
 // * GET /colorController/visitCheck
 router.get('/paletteDetail/:id', paletteController.visitCheck.get);

@@ -2,8 +2,8 @@ const { Palette } = require('../../models');
 
 module.exports = {
   post: (req, res) => {
-    const id = req.params.id;
     const {
+      id,
       paletteName,
       description,
       colorCode01,
