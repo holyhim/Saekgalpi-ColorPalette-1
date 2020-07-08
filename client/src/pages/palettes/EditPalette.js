@@ -71,8 +71,7 @@ const EditPalette = ({ palette }) => {
                 colors: [...colors.slice(0, number)],
             });
         }
-        console.log(colors);
-    }, [number]);
+    }, [number, colors]);
 
     // 제목, 설명 입력 / state에 저장 위한 함수
     const handleInputValue = (e) => {
