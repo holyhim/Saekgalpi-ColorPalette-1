@@ -36,6 +36,7 @@ const MyPage = ({ userInfo, dispatch }) => {
                         <PaletteList
                             palettes={fakeFavPalettes}
                             dispatch={dispatch}
+                            userInfo={userInfo}
                         />
                         {/* //TODO: isAdmin을 하위 컴포넌트에 props로 넘겨주고, 하위 컴포넌트에서 팔레트 삭제 버튼을 추가 */}
                     </section>
