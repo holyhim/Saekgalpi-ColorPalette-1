@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { RoundWaveButton, UnderlineButton } from './Templete_styd';
 import logos from '../../images/2.png';
 
-const SubHeader = ({ isLogin }) => {
+const SubHeader = ({ isLogin, isAdmin }) => {
     //주석 나중에 제거하거나 다듬을 것
     return (
         <div className='SubHeader__wrapper'>
@@ -42,7 +42,13 @@ const SubHeader = ({ isLogin }) => {
                 ) : (
                     <ul>
                         <li>
-                            <Link to='/MyPage'>
+                            <Link
+                                to={{
+                                    pathname: `${
+                                        isAdmin ? '/Admin' : '/MyPage'
+                                    }`,
+                                }}
+                            >
                                 <UnderlineButton>내 색갈피</UnderlineButton>
                             </Link>
                         </li>

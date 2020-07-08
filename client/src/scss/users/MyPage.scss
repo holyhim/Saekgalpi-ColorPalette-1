@@ -51,4 +51,9 @@
             font-size: 1.2em;
         }
     }
+
+    .MyPage__UserWrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

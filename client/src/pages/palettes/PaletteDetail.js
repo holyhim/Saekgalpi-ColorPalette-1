@@ -64,9 +64,12 @@ const PaletteDescription = styled.div`
 
 const PaletteDetail = ({ isLogin, palette }) => {
     const paletteColors = useRef(null);
-    console.log(isLogin);
 
     const { id, userId, paletteName, colorCode, description } = palette;
+
+    const onClickDeleteBtn = async () => {
+        // TODO: await axios
+    };
 
     const onClickDownload = async () => {
         try {
@@ -101,15 +104,23 @@ const PaletteDetail = ({ isLogin, palette }) => {
                             {!isLogin ? (
                                 <></>
                             ) : (
-                                <EditButton className='palette-detail__edit-btn'>
-                                    <Link
-                                        to={{
-                                            pathname: `/editPalette/${id}`,
-                                        }}
+                                <>
+                                    <EditButton
+                                        className='palette-detail__edit-btn'
+                                        onClick={onClickDeleteBtn}
                                     >
-                                        색갈피 편집
-                                    </Link>
-                                </EditButton>
+                                        색갈피 삭제
+                                    </EditButton>
+                                    <EditButton className='palette-detail__edit-btn'>
+                                        <Link
+                                            to={{
+                                                pathname: `/editPalette/${id}`,
+                                            }}
+                                        >
+                                            색갈피 편집
+                                        </Link>
+                                    </EditButton>
+                                </>
                             )}
                             <ul className='palette-detail__share-lists'>
                                 <li className='palette-detail__share-item'>
@@ -131,10 +142,10 @@ const PaletteDetail = ({ isLogin, palette }) => {
                     <div className='palette-detail__column'>
                         <div className='palette-detail__info'>
                             <span className='palette-detail__title'>
-                                팔레트 제목
+                                {paletteName}
                             </span>
                             <span className='palette-detail__username'>
-                                닉네임
+                                {userId}
                             </span>
                         </div>
                         <article className='palette-detail__code-container'>
@@ -166,7 +177,7 @@ const PaletteDetail = ({ isLogin, palette }) => {
                     </div>
                 </div>
                 <PaletteDescription className='palette-detail__description'>
-                    설명 칸
+                    {description}
                 </PaletteDescription>
             </div>
         </main>
