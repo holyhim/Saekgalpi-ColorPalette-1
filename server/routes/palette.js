@@ -7,7 +7,10 @@ const paletteController = require('../controller/paletteController');
 router.post('/makePalette', paletteController.paletteCreate.post);
 
 // * POST /colorController/paletteDrop
-router.post(['/admin', '/paletteDetail/:id'], paletteController.paletteDrop.post);
+router.post(
+    ['/admin', '/paletteDetail/:id'],
+    paletteController.paletteDrop.post
+);
 
 // * POST /colorController/paletteEdit
 router.post('/editPalette/:id', paletteController.paletteEdit.post);
@@ -17,16 +20,11 @@ router.get(
     ['/', '/admin', '/paletteDetail/:id', '/allPalette', '/editPalette/:id'],
     paletteController.paletteInfo.get
 );
+// * updateGet
+router.get('/', paletteController.paletteInfo.updatedGet);
 
-router.get(
-    ['/', '/paletteDetail/:id', '/allPalette', '/editPalette/:id'],
-    paletteController.paletteInfo.updatedGet
-);
-
-router.get(
-    ['/', '/paletteDetail/:id', '/allPalette', '/editPalette/:id'],
-    paletteController.paletteInfo.visitGet
-);
+// *  visitGet
+router.get('/', paletteController.paletteInfo.visitGet);
 
 // * GET /colorController/visitCheck
 router.get('/paletteDetail/:id', paletteController.visitCheck.get);
