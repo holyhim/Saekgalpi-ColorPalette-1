@@ -64,9 +64,12 @@ const PaletteDescription = styled.div`
 
 const PaletteDetail = ({ isLogin, palette }) => {
     const paletteColors = useRef(null);
-    console.log(isLogin);
 
     const { id, userId, paletteName, colorCode, description } = palette;
+
+    const onClickDeleteBtn = async () => {
+        // TODO: await axios
+    };
 
     const onClickDownload = async () => {
         try {
@@ -101,15 +104,23 @@ const PaletteDetail = ({ isLogin, palette }) => {
                             {!isLogin ? (
                                 <></>
                             ) : (
-                                <EditButton className='palette-detail__edit-btn'>
-                                    <Link
-                                        to={{
-                                            pathname: `/editPalette/${id}`,
-                                        }}
+                                <>
+                                    <EditButton
+                                        className='palette-detail__edit-btn'
+                                        onClick={onClickDeleteBtn}
                                     >
-                                        색갈피 편집
-                                    </Link>
-                                </EditButton>
+                                        색갈피 삭제
+                                    </EditButton>
+                                    <EditButton className='palette-detail__edit-btn'>
+                                        <Link
+                                            to={{
+                                                pathname: `/editPalette/${id}`,
+                                            }}
+                                        >
+                                            색갈피 편집
+                                        </Link>
+                                    </EditButton>
+                                </>
                             )}
                             <ul className='palette-detail__share-lists'>
                                 <li className='palette-detail__share-item'>

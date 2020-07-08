@@ -4,7 +4,7 @@ import { RoundButton, NoneSquareBtn, LogoutBtn } from './Templete_styd';
 
 // TODO: 나중에 이 밑의 스타일드 컴포넌트 언더바 없는 파스칼케이스로 고칩시다!: ESLINT 오류가 납니다..
 
-const MainHeader = ({ isLogin }) => {
+const MainHeader = ({ isLogin, isAdmin }) => {
     //주석 나중에 제거하거나 다듬을 것
     return (
         <div className='mainHeader__Wapper'>
@@ -25,7 +25,13 @@ const MainHeader = ({ isLogin }) => {
                 ) : (
                     <ul>
                         <li>
-                            <Link to='/MyPage'>
+                            <Link
+                                to={{
+                                    pathname: `${
+                                        isAdmin ? '/Admin' : '/MyPage'
+                                    }`,
+                                }}
+                            >
                                 <RoundButton>내 색갈피</RoundButton>
                             </Link>
                         </li>

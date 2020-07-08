@@ -6,6 +6,7 @@ import Main from './pages/Main';
 import SignIn from './pages/users/SignIn';
 import SignUp from './pages/users/SignUp';
 import MyPage from './pages/users/MyPage';
+import Admin from './pages/users/Admin';
 import AllPalette from './pages/palettes/AllPalette';
 import MakePalette from './pages/palettes/MakePalette';
 import EditPalette from './pages/palettes/EditPalette';
@@ -58,6 +59,8 @@ const fakeUser = {
 
 const Router = () => {
     // TODO: 초기값 설정 => 비동기 과정이므로 화면에 가져온 것들이 뿌려지기 전에 초기값 설정해줘야 함
+    const [isAdmin, setIsAdmin] = useState(true);
+
     const [isLogin, setIsLogin] = useState(true);
     const [userInfo, setUserInfo] = useState(fakeUser);
     const [state, dispatch] = useReducer(paletteReducer, initialState);
@@ -68,7 +71,7 @@ const Router = () => {
 
     return (
         <BrowserRouter>
-            <Header isLogin={isLogin} />
+            <Header isLogin={isLogin} isAdmin={isAdmin} />
             <Switch>
                 <Route path='/signIn'>
                     <SignIn userInfo={userInfo} />
@@ -78,6 +81,10 @@ const Router = () => {
                 </Route>
                 <Route path='/allPalette'>
                     <AllPalette dispatch={dispatch} />
+                </Route>
+
+                <Route path='/Admin'>
+                    <Admin dispatch={dispatch} />
                 </Route>
                 <Route path='/MyPage'>
                     <MyPage userInfo={userInfo} dispatch={dispatch} />
