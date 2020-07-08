@@ -4,20 +4,19 @@ const { User } = require('../../models');
 module.exports = {
   post: (req, res) => {
     const id = req.params.id;
-    const { password1, password2, password3 } = req.body;
-    //var session = req.session;
+    const { currentPassword, changePassword, checkChangePassword } = req.body;
     User.findOne({
       where: {
         id: id,
-        password: password1,
+        password: currentPassword,
       },
     })
-      .then((result) => {
-        if (result) {
-          if (password2 === password3) {
+      .then((data) => {
+        if (data) {
+          if (changePassword === checkChangePassword) {
             User.update(
               {
-                password: password2,
+                password: changePassword,
               },
               {
                 where: {
@@ -25,19 +24,19 @@ module.exports = {
                 },
               }
             )
-              .then((result) => {
-                res.status(200).send(result);
+              .then((data) => {
+                res.status(200).send(data);
               })
               .catch((err) => {
                 if (err) {
                   res.status(404).send(err);
                 }
               });
-          } else if (password2 !== password3) {
-            res.status(400).send('변경할 비밀번호를 확인해주세요.');
+          } else if (changePassword !== checkChangePassword) {
+            res.status(401).send('변경할 비밀번호를 확인해주세요.');
           }
-        } else if (!result) {
-          res.status(400).send('아이디, 패스워드를 확인해주세요.');
+        } else if (!data) {
+          res.status(401).send('아이디, 패스워드를 확인해주세요.');
         }
       })
       .catch((err) => {
@@ -45,10 +44,3 @@ module.exports = {
       });
   },
 };
-
-// MyPage 에서 passwd 변경 버튼을 누름
-// findOne 으로 로그인 되어 있는 유저 검색  --> ????
-// changedPassword Page에서 기존 비밀번호 확인
-// 변경할 비밀번호 입력(pwd1, pwd2)
-// 기존 비밀번호가 맞고, 변경할 비밀번호(pwd1, pwd2)가 맞으면 ok
-// let id = req.params.id

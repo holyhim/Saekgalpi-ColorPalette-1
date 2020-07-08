@@ -8,8 +8,8 @@ module.exports = {
         id: id,
       },
     })
-      .then((result) => {
-        if (result) {
+      .then((data) => {
+        if (data) {
           Palette.update(
             {
               visit: Palette.sequelize.literal('visit + 1'),
@@ -20,13 +20,13 @@ module.exports = {
               },
             }
           )
-            .then((result) => {
-              res.status(200).send(result);
+            .then((data) => {
+              res.status(200).send(data);
             })
             .catch((err) => {
-              res.status(400).send(err);
+              res.status(401).send(err);
             });
-        } else if (!result) {
+        } else if (!data) {
           res.status(404).send('Not Found');
         }
       })
