@@ -26,7 +26,6 @@ const RandomColorList = () => {
             <RandomColorsContainer>
                 {fakeColors.map((color, idx) => (
                     <RandomColorListEntry key={idx} color={color} />
-                    // 추후 키값은 상의해서 변경 예정
                 ))}
             </RandomColorsContainer>
         </>
