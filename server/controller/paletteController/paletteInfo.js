@@ -43,7 +43,7 @@ module.exports = {
         //* updatedAt으로 팔레트 요청
 
         Palette.findAll({
-            order: [['updated_at', 'DESC']],
+            order: [['updatedAt', 'DESC']],
             limit: 4,
         })
             .then((data) => {

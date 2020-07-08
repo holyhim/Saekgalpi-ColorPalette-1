@@ -7,7 +7,10 @@ const paletteController = require('../controller/paletteController');
 router.post('/makePalette', paletteController.paletteCreate.post);
 
 // * POST /colorController/paletteDrop
-router.post('/paletteDetail/:id', paletteController.paletteDrop.post);
+router.post(
+    ['/admin', '/paletteDetail/:id'],
+    paletteController.paletteDrop.post
+);
 
 // * POST /colorController/paletteEdit
 router.post('/editPalette/:id', paletteController.paletteEdit.post);
@@ -18,10 +21,10 @@ router.get(
     paletteController.paletteInfo.get
 );
 // * updateGet
-router.get('/', paletteController.paletteInfo.updatedGet);
+router.get('/updateGet', paletteController.paletteInfo.updatedGet);
 
 // *  visitGet
-router.get('/', paletteController.paletteInfo.visitGet);
+router.get('/visitGet', paletteController.paletteInfo.visitGet);
 
 // * GET /colorController/visitCheck
 router.get('/paletteDetail/:id', paletteController.visitCheck.get);
