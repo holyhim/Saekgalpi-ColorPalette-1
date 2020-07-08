@@ -54,6 +54,30 @@ module.exports = {
                 updatedAt,
             },
             order: [['updated_at', 'DESC']],
+           limit : 4
+        })
+            .then((data) => {
+                if (data) {
+                    res.status(200).send(data);
+                } else {
+                    res.status(404).send('Bad Request');
+                    alert('잘못 된 요청입니다');
+                }
+            })
+            .catch((err) => {
+                if (err) {
+                    res.status(500).send('Errror');
+                }
+            });
+    },
+    visitGet: (req, res) => {
+        //* updatedAt으로 팔레트 요청
+
+        Palette.findOne({
+            where: {
+                visit,
+            },
+            order: [['visit', 'DESC']],
            limit : 16
         })
             .then((data) => {
