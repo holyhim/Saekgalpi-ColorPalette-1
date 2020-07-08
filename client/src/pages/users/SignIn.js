@@ -11,7 +11,7 @@ import {
 } from '../Pages_styd';
 //성공하면 isLogin을 true로 만들어 주고 세션 적용해야 하며 유저 인포가 필요함
 
-const SignIn = ({ history, setUserInfo, userInfo, isLoginHandler }) => {
+const SignIn = ({ history, setUserInfo, userInfo, setIsLogin }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -19,8 +19,8 @@ const SignIn = ({ history, setUserInfo, userInfo, isLoginHandler }) => {
         SignInPostAPI({ email: email, password: password }).then((res) => {
             if (res.status === 200) {
                 alert('로그인이 되었습니다');
-                setUserInfo(res.data);
-                isLoginHandler();
+                setUserInfo({ ...res.data });
+                setIsLogin(true);
                 history.push('/');
             }
         });
