@@ -2,9 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { RoundWaveButton, UnderlineButton } from './Templete_styd';
 import logos from '../../images/2.png';
+import { LogoutPostAPI } from '../../UserAPI';
 
-const SubHeader = ({ isLogin, isAdmin }) => {
-    //주석 나중에 제거하거나 다듬을 것
+const SubHeader = ({ isLogin, isAdmin, userInfo }) => {
+    const onClickLogoutButton = () => {
+        console.log(userInfo);
+        LogoutPostAPI(userInfo).then((res) => {
+            if (res.status === 200) {
+                alert('로그아웃 되었습니다.');
+            }
+        });
+    };
+
     return (
         <div className='SubHeader__wrapper'>
             <div className='SubHeader__Logo'>
@@ -53,7 +62,11 @@ const SubHeader = ({ isLogin, isAdmin }) => {
                             </Link>
                         </li>
                         <li>
-                            <RoundWaveButton type='primary' shape='round'>
+                            <RoundWaveButton
+                                type='primary'
+                                shape='round'
+                                onClick={onClickLogoutButton}
+                            >
                                 로그아웃
                             </RoundWaveButton>
                         </li>

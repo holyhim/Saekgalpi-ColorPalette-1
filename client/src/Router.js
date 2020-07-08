@@ -50,31 +50,32 @@ const paletteReducer = (state, action) => {
     }
 };
 
-const fakeUser = {
-    id: '101010',
-    username: '화백',
-    email: 'admin@co.kr',
-    signatureColor: '#000000',
-};
-
 const Router = () => {
     // TODO: 초기값 설정 => 비동기 과정이므로 화면에 가져온 것들이 뿌려지기 전에 초기값 설정해줘야 함
     const [isAdmin, setIsAdmin] = useState(false);
 
-    const [isLogin, setIsLogin] = useState(true);
-    const [userInfo, setUserInfo] = useState(fakeUser);
+    const [isLogin, setIsLogin] = useState(false);
+    const [userInfo, setUserInfo] = useState({});
     const [state, dispatch] = useReducer(paletteReducer, initialState);
     const { clickedPalette, favPalettes, currentPalettes } = state;
 
     // TODO: 여기에서 로그인 여부 체크와 함께 인기순 팔레트, 최신순 팔레트를 가져와야 합니다.
     //* 페이지가 렌더링 되자마자 체크하는 것은 useEffect를 사용합니다.
+    const isLoginHandler = () => {
+        userInfo ? setIsLogin(true) : setIsLogin(false);
+        //로그인이 되어 있는지 확인하는 핸들러
+    };
 
     return (
         <BrowserRouter>
-            <Header isLogin={isLogin} isAdmin={isAdmin} />
+            <Header isLogin={isLogin} isAdmin={isAdmin} userInfo={userInfo} />
             <Switch>
                 <Route path='/signIn'>
-                    <SignIn userInfo={userInfo} />
+                    <SignIn
+                        userInfo={userInfo}
+                        setUserInfo={setUserInfo}
+                        isLoginHandler={isLoginHandler}
+                    />
                 </Route>
                 <Route path='/signUp'>
                     <SignUp userInfo={userInfo} />
@@ -88,7 +89,6 @@ const Router = () => {
                 <Route path='/MyPage'>
                     <MyPage userInfo={userInfo} dispatch={dispatch} />
                 </Route>
-
                 <Route path='/changePassword/:id'>
                     <ChangePassword userInfo={userInfo} />
                 </Route>
@@ -108,7 +108,6 @@ const Router = () => {
                         isLogin={isLogin}
                     />
                 </Route>
-
                 <Route path='/' exact>
                     <Main
                         isLogin={isLogin}

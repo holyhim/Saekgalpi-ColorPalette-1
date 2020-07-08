@@ -19,7 +19,7 @@ const ChangeSignatureColor = ({ userInfo, history, match }) => {
     const onClickSaveButton = () => {
         // TODO: 서버로 시그니처 컬러 수정 POST 요청 (axios 사용)
     };
-    if (id !== userInfo.id) {
+    if (id !== String(userInfo.id)) {
         history.push('/');
     }
     return (

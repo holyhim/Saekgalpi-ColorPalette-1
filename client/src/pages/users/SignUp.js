@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Space } from 'antd';
 import { SignUpInput, SignUpForm, WaveButton } from '../Pages_styd';
-
+import { SignUpPostAPI } from '../../UserAPI';
 const reducer = (state, action) => {
     return {
         ...state,
@@ -13,17 +13,21 @@ const reducer = (state, action) => {
 //사인 업
 const SignUp = ({ history }) => {
     const [state, dispatch] = useReducer(reducer, {
-        username: '',
+        userName: '',
         email: '',
         password: '',
-        passwordCheck: '',
+        checkPassword: '',
     });
 
-    const { username, email, password, passwordCheck } = state;
+    const { userName, email, password, checkPassword } = state;
     const onClickSignUpButton = (e) => {
         e.preventDefault();
-        // TODO: 서버로 회원가입 POST 요청 (axios 사용)
-        history.push('/signIn');
+        console.log(state);
+        SignUpPostAPI(state).then((res) => {
+            if (res.status === 200) {
+                history.push('/signIn');
+            }
+        });
         //data 보낼 때 state를 보내면 됩니다.
     };
 
@@ -44,8 +48,8 @@ const SignUp = ({ history }) => {
                                 <SignUpInput
                                     type='text'
                                     placeholder='닉네임'
-                                    name='username'
-                                    value={username}
+                                    name='userName'
+                                    value={userName}
                                     onChange={handleInputValue}
                                     required
                                 />
@@ -72,8 +76,8 @@ const SignUp = ({ history }) => {
                                 <SignUpInput
                                     type='password'
                                     placeholder='비밀번호 재입력'
-                                    name='passwordCheck'
-                                    value={passwordCheck}
+                                    name='checkPassword'
+                                    value={checkPassword}
                                     onChange={handleInputValue}
                                 />
                             </SignUpForm>
