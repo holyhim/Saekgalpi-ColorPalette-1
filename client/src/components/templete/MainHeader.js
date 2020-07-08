@@ -26,7 +26,7 @@ const MainHeader = ({ isLogin, isAdmin, userInfo }) => {
                             </Link>
                         </li>
                         <li>
-                            <Link to='/Logout'>
+                            <Link to='/SignUp'>
                                 <RoundButton>회원가입</RoundButton>
                             </Link>
                         </li>
