@@ -131,10 +131,10 @@ const PaletteDetail = ({ isLogin, palette }) => {
                     <div className='palette-detail__column'>
                         <div className='palette-detail__info'>
                             <span className='palette-detail__title'>
-                                팔레트 제목
+                                {paletteName}
                             </span>
                             <span className='palette-detail__username'>
-                                닉네임
+                                {userId}
                             </span>
                         </div>
                         <article className='palette-detail__code-container'>
@@ -166,7 +166,7 @@ const PaletteDetail = ({ isLogin, palette }) => {
                     </div>
                 </div>
                 <PaletteDescription className='palette-detail__description'>
-                    설명 칸
+                    {description}
                 </PaletteDescription>
             </div>
         </main>
