@@ -43,8 +43,6 @@ const paletteReducer = (state, action) => {
         }
         case DLELTE_PALETTE: {
             localStorage.setItem('PALETTE', null);
-            console.log(action.favPalettes);
-            console.log(state.favPalettes);
             return {
                 ...state,
                 favPalettes: [...action.favPalettes],
@@ -135,7 +133,7 @@ const Router = () => {
                     <EditPalette palette={clickedPalette} userInfo={userInfo} />
                 </Route>
                 <Route path='/makePalette' userInfo={userInfo}>
-                    <MakePalette />
+                    <MakePalette userInfo={userInfo} />
                 </Route>
                 <Route path='/paletteDetail/:id'>
                     <PaletteDetail
