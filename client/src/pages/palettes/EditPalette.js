@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from 'react';
+import { withRouter } from 'react-router-dom';
 import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 import { EditPaletteContainer } from '../Pages_styd';
@@ -48,7 +49,8 @@ const paletteReducer = (state, action) => {
     }
 };
 
-const EditPalette = ({ palette }) => {
+const EditPalette = ({ palette, match, userInfo, history }) => {
+    const { id } = match.params;
     const [state, dispatch] = useReducer(paletteReducer, initialState(palette));
     const { title, number, description, colors } = state;
 
@@ -97,6 +99,9 @@ const EditPalette = ({ palette }) => {
         // TODO: 서버로 팔레트 POST 요청 (axios 사용)
     };
 
+    if (id !== userInfo.id) {
+        history.push('/');
+    }
     return (
         <main className='edit-palette__main'>
             <h1 className='edit-palette__title'> 색갈피 편집 </h1>
@@ -160,4 +165,4 @@ const EditPalette = ({ palette }) => {
     );
 };
 
-export default EditPalette;
+export default withRouter(EditPalette);

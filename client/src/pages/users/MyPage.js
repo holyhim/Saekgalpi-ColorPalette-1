@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 
 import PaletteList from '../../components/palette/PaletteList';
 
-import logos from '../../images/2.png';
 import { WaveButton } from '../Pages_styd';
 
 import { fakeFavPalettes } from '../../fakeData';
 
 const MyPage = ({ userInfo, dispatch }) => {
-    const isAdmin = true; // 추후 state로 변경 예정 / 임시 변수
+    const isAdmin = false; // 추후 state로 변경 예정 / 임시 변수
 
+    // const { id } = match.params;
+    // const userRouterID = userInfo[id];
+    // console.log(userRouterID);
     return (
         <main>
             <span className='h1'>마이페이지</span>
@@ -22,13 +24,15 @@ const MyPage = ({ userInfo, dispatch }) => {
                     </section>
                     <section className='MyPage__BtnWrapper'>
                         <WaveButton>
-                            <Link to='/changeSignatureColor/:id'>
+                            <Link to={`/changeSignatureColor/${userInfo.id}`}>
                                 시그니처 컬러 변경
                             </Link>
                             {/* 마이페이지의 내 시그니처 컬러를 누르면 이동 */}
                         </WaveButton>
                         <WaveButton>
-                            <Link to='/changePassword/:id'>비밀번호 변경</Link>
+                            <Link to={`/changePassword/${userInfo.id}`}>
+                                비밀번호 변경
+                            </Link>
                         </WaveButton>
                     </section>
                     <section className='MyPage__PalWrapper'>

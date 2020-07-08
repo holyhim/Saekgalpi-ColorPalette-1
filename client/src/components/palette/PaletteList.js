@@ -13,7 +13,7 @@ const PalettesWrapper = styled.div`
     margin-bottom: 50px;
 `;
 
-const PaletteList = ({ dispatch, palettes }) => {
+const PaletteList = ({ dispatch, palettes, userInfo }) => {
     return (
         <PalettesWrapper number={4}>
             {palettes.map((palette, idx) => (
@@ -21,6 +21,7 @@ const PaletteList = ({ dispatch, palettes }) => {
                     key={idx}
                     palette={palette}
                     dispatch={dispatch}
+                    userInfo={userInfo}
                 />
             ))}
         </PalettesWrapper>

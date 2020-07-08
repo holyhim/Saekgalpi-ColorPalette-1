@@ -11,8 +11,9 @@ const reducer = (state, action) => {
 };
 
 //패스워드 바꾸기
-const ChangePassword = ({ history }) => {
+const ChangePassword = ({ history, match, userInfo }) => {
     // TODO: 이 페이지 들어올 때 해당 유저 GET 요청
+    const { id } = match.params;
     const [state, dispatch] = useReducer(reducer, {
         oldPW: '',
         newPW: '',
@@ -35,7 +36,10 @@ const ChangePassword = ({ history }) => {
     const handleInputValue = (e) => {
         dispatch(e.target);
     };
-    console.log(state);
+
+    if (id !== userInfo.id) {
+        history.push('/');
+    }
     return (
         <main>
             <div>
