@@ -9,6 +9,7 @@ import {
     SET_PALETTE_NUMBER,
     SET_PALETTE_TITLE,
 } from './EditPalette';
+import axios from 'axios';
 
 const MakePaletteContainer = styled.section`
     width: 60vw;
@@ -54,7 +55,8 @@ const paletteReducer = (state, action) => {
     }
 };
 
-const MakePalette = () => {
+const MakePalette = ({ userInfo }) => {
+    console.log(userInfo);
     const [state, dispatch] = useReducer(paletteReducer, initialState);
     const { title, number, description, colors } = state;
 
@@ -95,8 +97,21 @@ const MakePalette = () => {
         });
     };
 
-    const onClickPostButton = (e) => {
-        // TODO: 서버로 팔레트 POST 요청 (axios 사용)
+    const onClickPostButton = async () => {
+        await axios.post(`http://localhost:5000/makePalette`, {
+            id: userInfo.id,
+            paletteName: title,
+            description,
+            colorCode01: colors[0],
+            colorCode02: colors[1],
+            colorCode03: colors[2],
+            colorCode04: colors[3],
+            colorCode05: colors[4],
+            colorCode06: colors[5],
+            colorCode07: colors[6],
+        });
+        // post 요청으로 db 수정된거 확인되면 풀기
+        // history.push('/');
     };
 
     return (

@@ -96,6 +96,10 @@ const PaletteDetail = ({
         history.push('/');
     };
 
+    const onClickEditBtn = () => {
+        history.push(`/editPalette/${palette.id}`);
+    };
+
     const onClickDownload = async () => {
         try {
             const dataUrl = await domtoimage.toPng(paletteColors.current);
@@ -107,6 +111,7 @@ const PaletteDetail = ({
             console.error('oops, something went wrong!', error);
         }
     };
+
     return (
         <main className='palette-detail__main'>
             <span className='h1'>색갈피 상세</span>
@@ -135,14 +140,11 @@ const PaletteDetail = ({
                                     >
                                         색갈피 삭제
                                     </EditButton>
-                                    <EditButton className='palette-detail__edit-btn'>
-                                        <Link
-                                            to={{
-                                                pathname: `/editPalette/${userInfo.id}`,
-                                            }}
-                                        >
-                                            색갈피 편집
-                                        </Link>
+                                    <EditButton
+                                        className='palette-detail__edit-btn'
+                                        onClick={onClickEditBtn}
+                                    >
+                                        색갈피 편집
                                     </EditButton>
                                 </>
                             )}
