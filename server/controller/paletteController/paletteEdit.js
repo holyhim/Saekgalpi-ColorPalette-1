@@ -2,9 +2,8 @@ const { Palette } = require('../../models');
 
 module.exports = {
   post: (req, res) => {
-    const { id } = req.params.id;
+    const id = req.params.id;
     const {
-      userId,
       paletteName,
       description,
       colorCode01,
@@ -29,16 +28,16 @@ module.exports = {
       },
       {
         where: {
-          userId: userId,
+          userId: id,
         },
       }
     )
-      .then((result) => {
-        res.status(200).send(result);
-        console.log('Success');
+      .then((data) => {
+        res.status(200).send(data);
+        console.log('파레트가 수정되었습니다.');
       })
       .catch((err) => {
-        console.log(err);
+        res.status(500).send(err);
       });
   },
 };
