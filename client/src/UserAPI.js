@@ -29,7 +29,7 @@ export const ChangePasswordPostAPI = (data, userInfoID) => {
 };
 
 export const LogoutPostAPI = (data) => {
-    return axios.post(`http://localhost:5000/SignOut`, data, {
+    return axios.post(`http://localhost:5000/signOut`, data, {
         withCredentials: true,
     });
 };
