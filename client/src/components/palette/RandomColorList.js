@@ -2,6 +2,7 @@
 import React from 'react';
 import RandomColorListEntry from './RandomColorListEntry';
 import styled from 'styled-components';
+import { genRandomHexCode } from '../../Helper';
 
 const RandomColorsContainer = styled.div`
     display: grid;
@@ -10,23 +11,16 @@ const RandomColorsContainer = styled.div`
     height: 40vh;
 `;
 
-const fakeColors = [
-    '#FFC312',
-    '#F79F1F',
-    '#C4E538',
-    '#0652DD',
-    '#1B1464',
-    '#9980FA',
-    '#B53471',
-];
-
 const RandomColorList = () => {
+    const randomColors = Array(7)
+        .fill(0)
+        .map((color) => (color = genRandomHexCode()));
+
     return (
         <>
             <RandomColorsContainer>
-                {fakeColors.map((color, idx) => (
+                {randomColors.map((color, idx) => (
                     <RandomColorListEntry key={idx} color={color} />
-                    // 추후 키값은 상의해서 변경 예정
                 ))}
             </RandomColorsContainer>
         </>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const RandomColor = styled.div`
     position: absolute;
@@ -10,15 +11,19 @@ const RandomColor = styled.div`
 `;
 const RandomColorListEntry = ({ color }) => {
     return (
-        <div className='random-color__wrapper'>
-            <RandomColor className='random-color__color' color={color} />
-            <span className='random-color__info--span no-drag'>복사하기</span>
-            <div className='random-color__info--hidden'>
-                <span className='random-color__color-code no-drag'>
-                    컬러정보(임시)
+        <CopyToClipboard text={color}>
+            <div className='random-color__wrapper'>
+                <RandomColor className='random-color__color' color={color} />
+                <span className='random-color__info--span no-drag'>
+                    복사하기
                 </span>
+                <div className='random-color__info--hidden'>
+                    <span className='random-color__color-code no-drag'>
+                        {color}
+                    </span>
+                </div>
             </div>
-        </div>
+        </CopyToClipboard>
     );
 };
 
