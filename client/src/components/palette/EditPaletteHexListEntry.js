@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import rgbHexColorCodeConverter from 'hex-rgb-color-code-converter';
 
 const PaletteHex = styled.div`
     border: 1px solid black;
@@ -18,7 +19,9 @@ const EditPaletteHexListEntry = ({ color }) => {
     return (
         <PaletteHex className='edit-palette__hex'>
             <ColorCode className='palette__hex'>{color}</ColorCode>
-            <ColorCode className='palette__rgb'>RGB(6, 82, 221)</ColorCode>
+            <ColorCode className='palette__rgb'>
+                {rgbHexColorCodeConverter(color)}
+            </ColorCode>
         </PaletteHex>
     );
 };
