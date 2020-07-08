@@ -43,9 +43,6 @@ module.exports = {
         //* updatedAt으로 팔레트 요청
 
         Palette.findAll({
-            where: {
-                updatedAt,
-            },
             order: [['updated_at', 'DESC']],
             limit: 4,
         })
@@ -65,9 +62,6 @@ module.exports = {
         //* visit으로 팔레트 요청
 
         Palette.findAll({
-            where: {
-                visit,
-            },
             order: [['visit', 'DESC']],
             limit: 16,
         })
