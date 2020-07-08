@@ -14,8 +14,19 @@ router.post('/editPalette/:id', paletteController.paletteEdit.post);
 
 // * GET /colorController/paletteInfo
 router.get(
-  ['/', '/paletteDetail/:id', '/allPalette', '/editPalette/:id'],
- paletteController.paletteInfo.get);
+    ['/', '/paletteDetail/:id', '/allPalette', '/editPalette/:id'],
+    paletteController.paletteInfo.get
+);
+
+router.get(
+    ['/', '/paletteDetail/:id', '/allPalette', '/editPalette/:id'],
+    paletteController.paletteInfo.updatedGet
+);
+
+router.get(
+    ['/', '/paletteDetail/:id', '/allPalette', '/editPalette/:id'],
+    paletteController.paletteInfo.visitGet
+);
 
 // * GET /colorController/visitCheck
 router.get('/paletteDetail/:id', paletteController.visitCheck.get);

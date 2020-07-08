@@ -37,8 +37,8 @@ app.get('/', (req, res) => {
     res.status(200).send('Success');
 });
 
-app.use('/user', userRouter);
-app.use('/palette', paletteRouter);
+app.use('/', userRouter);
+app.use('/', paletteRouter);
 
 app.set('port', port);
 app.listen(app.get('port'), () => {

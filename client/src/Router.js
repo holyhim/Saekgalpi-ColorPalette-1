@@ -83,7 +83,7 @@ const Router = () => {
                     <AllPalette dispatch={dispatch} />
                 </Route>
 
-                <Route path='/Admin'>
+                <Route path='/admin'>
                     <Admin dispatch={dispatch} />
                 </Route>
                 <Route path='/MyPage'>
