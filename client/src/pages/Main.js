@@ -25,6 +25,7 @@ const Main = ({
             const currentPalettesData = await axios.get(
                 'http://localhost:5000/updateGet'
             );
+            console.log(favPalettesData);
             dispatch({
                 type: LOADING_END,
                 favPalettes: favPalettesData.data,

@@ -3,13 +3,19 @@ import { Link } from 'react-router-dom';
 import { RoundButton, NoneSquareBtn, LogoutBtn } from './Templete_styd';
 import { LogoutPostAPI } from '../../UserAPI';
 
-// TODO: 나중에 이 밑의 스타일드 컴포넌트 언더바 없는 파스칼케이스로 고칩시다!: ESLINT 오류가 납니다..
-
-const MainHeader = ({ isLogin, isAdmin, userInfo }) => {
+const MainHeader = ({
+    isLogin,
+    isAdmin,
+    userInfo,
+    setIsLogin,
+    setUserInfo,
+}) => {
     const onClickLogoutButton = () => {
         console.log(userInfo);
         LogoutPostAPI(userInfo).then((res) => {
             if (res.status === 200) {
+                setUserInfo({});
+                setIsLogin(false);
                 alert('로그아웃 되었습니다.');
             }
         });

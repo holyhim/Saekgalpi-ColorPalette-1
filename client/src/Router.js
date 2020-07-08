@@ -79,20 +79,26 @@ const Router = () => {
     const [state, dispatch] = useReducer(paletteReducer, initialState);
     const { clickedPalette, favPalettes, currentPalettes, isLoading } = state;
 
-    const isLoginHandler = () => {
-        userInfo ? setIsLogin(true) : setIsLogin(false);
-        //로그인이 되어 있는지 확인하는 핸들러
-    };
+    // const isLoginHandler = () => {
+    //     userInfo ? setIsLogin(true) : setIsLogin(false);
+    //     //로그인이 되어 있는지 확인하는 핸들러
+    // };
 
     return (
         <BrowserRouter>
-            <Header isLogin={isLogin} isAdmin={isAdmin} userInfo={userInfo} />
+            <Header
+                isLogin={isLogin}
+                isAdmin={isAdmin}
+                userInfo={userInfo}
+                setIsLogin={setIsLogin}
+                setUserInfo={setUserInfo}
+            />
             <Switch>
                 <Route path='/signIn'>
                     <SignIn
                         userInfo={userInfo}
                         setUserInfo={setUserInfo}
-                        isLoginHandler={isLoginHandler}
+                        setIsLogin={setIsLogin}
                     />
                 </Route>
                 <Route path='/signUp'>
