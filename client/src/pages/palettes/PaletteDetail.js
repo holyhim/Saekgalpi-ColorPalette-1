@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -62,9 +62,8 @@ const PaletteDescription = styled.div`
     height: 5vw;
 `;
 
-const PaletteDetail = ({ isLogin, palette }) => {
+const PaletteDetail = ({ isLogin, palette, userInfo, match, history }) => {
     const paletteColors = useRef(null);
-
     const { id, userId, paletteName, colorCode, description } = palette;
 
     const onClickDeleteBtn = async () => {
@@ -82,7 +81,9 @@ const PaletteDetail = ({ isLogin, palette }) => {
             console.error('oops, something went wrong!', error);
         }
     };
-
+    if (match.params.id !== userInfo.id) {
+        history.push('/');
+    }
     return (
         <main className='palette-detail__main'>
             <span className='h1'>색갈피 상세</span>
@@ -114,7 +115,7 @@ const PaletteDetail = ({ isLogin, palette }) => {
                                     <EditButton className='palette-detail__edit-btn'>
                                         <Link
                                             to={{
-                                                pathname: `/editPalette/${id}`,
+                                                pathname: `/editPalette/${userInfo.id}`,
                                             }}
                                         >
                                             색갈피 편집
@@ -183,4 +184,4 @@ const PaletteDetail = ({ isLogin, palette }) => {
         </main>
     );
 };
-export default PaletteDetail;
+export default withRouter(PaletteDetail);

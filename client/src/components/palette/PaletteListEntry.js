@@ -34,7 +34,7 @@ const PaletteColor = styled.div`
     }
 `;
 
-const PaletteListEntry = ({ palette, dispatch, history }) => {
+const PaletteListEntry = ({ palette, dispatch, history, userInfo }) => {
     const { colorCode, paletteName, id } = palette;
     const paletteColors = useRef(null);
 
@@ -43,7 +43,7 @@ const PaletteListEntry = ({ palette, dispatch, history }) => {
             type: SET_CLICKED_PALETTE,
             palette,
         });
-        history.push(`/paletteDetail/${id}`);
+        history.push(`/paletteDetail/${userInfo.id}`);
     };
 
     const onClickDownload = async () => {

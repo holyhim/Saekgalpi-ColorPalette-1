@@ -51,7 +51,7 @@ const paletteReducer = (state, action) => {
 };
 
 const fakeUser = {
-    id: '1',
+    id: '101010',
     username: '화백',
     email: 'admin@co.kr',
     signatureColor: '#000000',
@@ -59,7 +59,7 @@ const fakeUser = {
 
 const Router = () => {
     // TODO: 초기값 설정 => 비동기 과정이므로 화면에 가져온 것들이 뿌려지기 전에 초기값 설정해줘야 함
-    const [isAdmin, setIsAdmin] = useState(true);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const [isLogin, setIsLogin] = useState(true);
     const [userInfo, setUserInfo] = useState(fakeUser);
@@ -77,33 +77,36 @@ const Router = () => {
                     <SignIn userInfo={userInfo} />
                 </Route>
                 <Route path='/signUp'>
-                    <SignUp />
+                    <SignUp userInfo={userInfo} />
                 </Route>
                 <Route path='/allPalette'>
-                    <AllPalette dispatch={dispatch} />
+                    <AllPalette dispatch={dispatch} userInfo={userInfo} />
                 </Route>
-
                 <Route path='/admin'>
-                    <Admin dispatch={dispatch} />
+                    <Admin dispatch={dispatch} userInfo={userInfo} />
                 </Route>
                 <Route path='/MyPage'>
                     <MyPage userInfo={userInfo} dispatch={dispatch} />
                 </Route>
 
                 <Route path='/changePassword/:id'>
-                    <ChangePassword />
+                    <ChangePassword userInfo={userInfo} />
                 </Route>
                 <Route path='/changeSignatureColor/:id'>
-                    <ChangeSignatureColor />
+                    <ChangeSignatureColor userInfo={userInfo} />
                 </Route>
                 <Route path='/editPalette/:id'>
-                    <EditPalette palette={clickedPalette} />
+                    <EditPalette palette={clickedPalette} userInfo={userInfo} />
                 </Route>
-                <Route path='/makePalette'>
+                <Route path='/makePalette' userInfo={userInfo}>
                     <MakePalette />
                 </Route>
                 <Route path='/paletteDetail/:id'>
-                    <PaletteDetail palette={clickedPalette} isLogin={isLogin} />
+                    <PaletteDetail
+                        userInfo={userInfo}
+                        palette={clickedPalette}
+                        isLogin={isLogin}
+                    />
                 </Route>
 
                 <Route path='/' exact>
@@ -112,6 +115,7 @@ const Router = () => {
                         favPalettes={favPalettes}
                         currentPalettes={currentPalettes}
                         dispatch={dispatch}
+                        userInfo={userInfo}
                     />
                 </Route>
             </Switch>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-
+import { withRouter } from 'react-router-dom';
 import { ColorPicker, SignatureColor, WaveButton } from '../Pages_styd';
 
-const ChangeSignatureColor = () => {
+const ChangeSignatureColor = ({ userInfo, history, match }) => {
     // TODO: 상위 컴포넌트에서 시그니처 컬러 받기
+    const { id } = match.params;
     const [isOpen, setIsOpen] = useState(false);
     const [color, setColor] = useState('#0652DD');
 
@@ -18,11 +19,13 @@ const ChangeSignatureColor = () => {
     const onClickSaveButton = () => {
         // TODO: 서버로 시그니처 컬러 수정 POST 요청 (axios 사용)
     };
-
+    if (id !== userInfo.id) {
+        history.push('/');
+    }
     return (
         <main className='change-signature-color__main'>
             <span className='h1'>시그니처 컬러 변경</span>
-            <div class='CGPalWarpper'>
+            <div className='CGPalWarpper'>
                 <form
                     className='change-signature-color__form'
                     onSubmit={(e) => {
@@ -54,4 +57,4 @@ const ChangeSignatureColor = () => {
     );
 };
 
-export default ChangeSignatureColor;
+export default withRouter(ChangeSignatureColor);
