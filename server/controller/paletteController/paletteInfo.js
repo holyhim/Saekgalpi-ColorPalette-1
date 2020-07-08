@@ -1,17 +1,14 @@
-/***********
- * 팔레트의 정보를 가져오는 API
- * ***********/
 const { Palette } = require('../../models');
 
 module.exports = {
     get: (req, res) => {
-        const { id } = req.params;
+        const id = req.params.id;
 
         //* user 당 팔레트 요청
         if (id) {
             Palette.findOne({
                 where: {
-                    userId : id,
+                    userId: id,
                 },
             })
                 .then((data) => {
@@ -23,9 +20,7 @@ module.exports = {
                     }
                 })
                 .catch((err) => {
-                    if (err) {
-                        res.status(500).send('Errror');
-                    }
+                    res.status(500).send(err);
                 });
         }
         //* 전체 팔레트 요청
@@ -40,9 +35,7 @@ module.exports = {
                     }
                 })
                 .catch((err) => {
-                    if (err) {
-                        res.status(500).send('Errror');
-                    }
+                    res.status(500).send(err);
                 });
         }
     },
@@ -54,7 +47,7 @@ module.exports = {
                 updatedAt,
             },
             order: [['updated_at', 'DESC']],
-           limit : 4
+            limit: 4,
         })
             .then((data) => {
                 if (data) {
@@ -65,9 +58,7 @@ module.exports = {
                 }
             })
             .catch((err) => {
-                if (err) {
-                    res.status(500).send('Errror');
-                }
+                res.status(500).send(err);
             });
     },
     visitGet: (req, res) => {
@@ -78,7 +69,7 @@ module.exports = {
                 visit,
             },
             order: [['visit', 'DESC']],
-           limit : 16
+            limit: 16,
         })
             .then((data) => {
                 if (data) {

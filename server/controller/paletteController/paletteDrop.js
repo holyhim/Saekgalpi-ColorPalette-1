@@ -8,8 +8,8 @@ module.exports = {
         id: id,
       },
     })
-      .then((result) => {
-        res.status(200).json(result);
+      .then((data) => {
+        res.status(200).json(data);
       })
       .catch((err) => {
         res.status(500).send(err);

@@ -4,7 +4,7 @@ import MainHeader from './MainHeader';
 import SubHeader from './SubHeader';
 
 //메인과 서브 헤더를 바꾸는 구간입니다.
-const Header = ({ isLogin }) => {
+const Header = ({ isLogin, isAdmin }) => {
     let location = useLocation();
     const [path, setPath] = useState(location.pathname);
     const changeLocation = (path) => {
@@ -18,9 +18,9 @@ const Header = ({ isLogin }) => {
     return (
         <header>
             {path === '/' ? (
-                <MainHeader isLogin={isLogin} />
+                <MainHeader isLogin={isLogin} isAdmin={isAdmin} />
             ) : (
-                <SubHeader isLogin={isLogin} />
+                <SubHeader isLogin={isLogin} isAdmin={isAdmin} />
             )}
         </header>
     );

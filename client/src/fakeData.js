@@ -305,3 +305,30 @@ export const fakeCurrentPalettes = [
         description: '색갈피설명',
     },
 ];
+
+export const fakeAllUsers = [
+    {
+        id: 1,
+        username: '화백',
+        email: 'admin@co.kr',
+        signatureColor: '#000000',
+    },
+    {
+        id: 2,
+        username: '유저1',
+        email: 'user1@co.kr',
+        signatureColor: '#000000',
+    },
+    {
+        id: 3,
+        username: '유저2',
+        email: 'user2@co.kr',
+        signatureColor: '#000000',
+    },
+    {
+        id: 4,
+        username: '유저3',
+        email: 'user3@co.kr',
+        signatureColor: '#000000',
+    },
+];
