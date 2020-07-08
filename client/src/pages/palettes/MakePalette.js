@@ -75,7 +75,7 @@ const MakePalette = () => {
                 colors: [...colors.slice(0, number)],
             });
         }
-    }, [number, colors.length]);
+    }, [number, colors]);
 
     const handleInputValue = (e) => {
         if (e.target.name === 'title') {
@@ -91,7 +91,7 @@ const MakePalette = () => {
     const setNthColor = (idx, color) => {
         dispatch({
             type: SET_PALETTE_COLORS,
-            color: [...colors.slice(0, idx), color, ...colors.slice(idx + 1)],
+            colors: [...colors.slice(0, idx), color, ...colors.slice(idx + 1)],
         });
     };
 

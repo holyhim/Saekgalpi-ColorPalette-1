@@ -35,7 +35,7 @@ const EditPaletteListEntry = ({ paletteColor, idx, setNthColor }) => {
     const [color, setColor] = useState(paletteColor);
     const [isOpen, setIsOpen] = useState(false);
 
-    // console.log(((useWindowSize()[0] * 0.7) / 3) * (0.5 + idx));
+    // console.log(((useWindowSize()[0] * 0.7) / ${paletteColor.lentgth}) * (0.5 + idx));
 
     const togglePicker = (e) => {
         setIsOpen((prevState) => !prevState);
@@ -54,7 +54,11 @@ const EditPaletteListEntry = ({ paletteColor, idx, setNthColor }) => {
             ></PaletteColor>
             <ColorPickerContainer
                 className='color-picker__container'
-                left={200 + 100 * idx}
+                left={
+                    ((useWindowSize()[0] * 0.7) / paletteColor.length) *
+                        (0.5 + idx) +
+                    100
+                }
                 isOpen={isOpen}
             >
                 <SketchPicker
