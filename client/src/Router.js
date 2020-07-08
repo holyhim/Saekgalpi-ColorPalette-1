@@ -14,34 +14,55 @@ import ChangePassword from './pages/users/ChangePassword';
 import PaletteDetail from './pages/palettes/PaletteDetail';
 import ChangeSignatureColor from './pages/palettes/ChangeSignatureColor';
 
-import { fakeFavPalettes, fakeCurrentPalettes } from './fakeData';
-
 export const SET_CLICKED_PALETTE = 'SET_CLICKED_PALETTE';
-export const GET_FAV_PALETTES = 'GET_FAV_PALETTES';
-export const GET_CURRENT_PALETTES = 'GET_CURRENT_PALETTES';
+export const DLELTE_PALETTE = 'DLELTE_PALETTE';
+export const LOADING_START = 'LOADING_START';
+export const LOADING_END = 'LOADING_END';
 
-const initialState = {
-    clickedPalette: JSON.parse(localStorage.getItem('PALETTE')) || null,
-    favPalettes: fakeFavPalettes,
-    currentPalettes: fakeCurrentPalettes,
+const initializePalette = () => {
+    if (localStorage.getItem('PALETTE')) {
+        return JSON.parse(localStorage.getItem('PALETTE'));
+    } else {
+        return null;
+    }
 };
 
+const initialState = {
+    clickedPalette: initializePalette(),
+    favPalettes: [],
+    currentPalettes: [],
+    isLoading: true,
+};
+
+// TODO: 마이페이지 팔레트도 갖고 있어야 함
 const paletteReducer = (state, action) => {
     switch (action.type) {
-        case 'SET_CLICKED_PALETTE': {
+        case SET_CLICKED_PALETTE: {
             localStorage.setItem('PALETTE', JSON.stringify(action.palette));
             return { ...state, clickedPalette: action.palette };
         }
-        case 'GET_FAV_PALETTES': {
+        case DLELTE_PALETTE: {
+            localStorage.setItem('PALETTE', null);
+            console.log(action.favPalettes);
+            console.log(state.favPalettes);
             return {
                 ...state,
-                favPalettes: action.palettes,
+                favPalettes: [...action.favPalettes],
+                currentPalettes: [...action.currentPalettes],
             };
         }
-        case 'GET_CURRENT_PALETTES': {
+        case LOADING_START: {
             return {
                 ...state,
-                currentPalettes: action.palettes,
+                isLoading: true,
+            };
+        }
+        case LOADING_END: {
+            return {
+                ...state,
+                isLoading: false,
+                favPalettes: [...action.favPalettes],
+                currentPalettes: [...action.currentPalettes],
             };
         }
         default: {
@@ -51,16 +72,13 @@ const paletteReducer = (state, action) => {
 };
 
 const Router = () => {
-    // TODO: 초기값 설정 => 비동기 과정이므로 화면에 가져온 것들이 뿌려지기 전에 초기값 설정해줘야 함
     const [isAdmin, setIsAdmin] = useState(false);
 
     const [isLogin, setIsLogin] = useState(false);
     const [userInfo, setUserInfo] = useState({});
     const [state, dispatch] = useReducer(paletteReducer, initialState);
-    const { clickedPalette, favPalettes, currentPalettes } = state;
+    const { clickedPalette, favPalettes, currentPalettes, isLoading } = state;
 
-    // TODO: 여기에서 로그인 여부 체크와 함께 인기순 팔레트, 최신순 팔레트를 가져와야 합니다.
-    //* 페이지가 렌더링 되자마자 체크하는 것은 useEffect를 사용합니다.
     const isLoginHandler = () => {
         userInfo ? setIsLogin(true) : setIsLogin(false);
         //로그인이 되어 있는지 확인하는 핸들러
@@ -81,13 +99,25 @@ const Router = () => {
                     <SignUp userInfo={userInfo} />
                 </Route>
                 <Route path='/allPalette'>
-                    <AllPalette dispatch={dispatch} userInfo={userInfo} />
+                    <AllPalette
+                        dispatch={dispatch}
+                        userInfo={userInfo}
+                        isLoading={isLoading}
+                    />
                 </Route>
                 <Route path='/admin'>
-                    <Admin dispatch={dispatch} userInfo={userInfo} />
+                    <Admin
+                        dispatch={dispatch}
+                        userInfo={userInfo}
+                        isLoading={isLoading}
+                    />
                 </Route>
                 <Route path='/MyPage'>
-                    <MyPage userInfo={userInfo} dispatch={dispatch} />
+                    <MyPage
+                        userInfo={userInfo}
+                        dispatch={dispatch}
+                        isLoading={isLoading}
+                    />
                 </Route>
                 <Route path='/changePassword/:id'>
                     <ChangePassword userInfo={userInfo} />
@@ -105,6 +135,9 @@ const Router = () => {
                     <PaletteDetail
                         userInfo={userInfo}
                         palette={clickedPalette}
+                        favPalettes={favPalettes}
+                        currentPalettes={currentPalettes}
+                        dispatch={dispatch}
                         isLogin={isLogin}
                     />
                 </Route>
@@ -113,6 +146,7 @@ const Router = () => {
                         isLogin={isLogin}
                         favPalettes={favPalettes}
                         currentPalettes={currentPalettes}
+                        isLoading={isLoading}
                         dispatch={dispatch}
                         userInfo={userInfo}
                     />

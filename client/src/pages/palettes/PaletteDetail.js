@@ -7,6 +7,9 @@ import { faArrowDown, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import domtoimage from 'dom-to-image';
 import rgbHexColorCodeConverter from 'hex-rgb-color-code-converter';
+import axios from 'axios';
+
+import DELETE_PALETTE from '../../Router';
 
 const Paltte = styled.div`
     background-color: ${(props) => props.color || 'black'};
@@ -64,12 +67,33 @@ const PaletteDescription = styled.div`
     height: 5vw;
 `;
 
-const PaletteDetail = ({ isLogin, palette, userInfo, match, history }) => {
+const PaletteDetail = ({
+    isLogin,
+    palette,
+    favPalettes,
+    currentPalettes,
+    dispatch,
+    userInfo,
+    history,
+}) => {
     const paletteColors = useRef(null);
     const { id, userId, paletteName, colorCode, description } = palette;
 
     const onClickDeleteBtn = async () => {
-        // TODO: await axios
+        await axios.post(`http://localhost:5000/paletteDetail/${id}`);
+        const favPalettesData = await axios.get(
+            'http://localhost:5000/visitGet'
+        );
+        const currentPalettesData = await axios.get(
+            'http://localhost:5000/updateGet'
+        );
+
+        dispatch({
+            type: DELETE_PALETTE,
+            favPalettes: [...favPalettesData.data],
+            currentPalettes: [...currentPalettesData.data],
+        });
+        history.push('/');
     };
 
     const onClickDownload = async () => {
@@ -83,9 +107,6 @@ const PaletteDetail = ({ isLogin, palette, userInfo, match, history }) => {
             console.error('oops, something went wrong!', error);
         }
     };
-    if (match.params.id !== userInfo.id) {
-        history.push('/');
-    }
     return (
         <main className='palette-detail__main'>
             <span className='h1'>색갈피 상세</span>

@@ -1,4 +1,3 @@
-// 낱개 팔레트 회원과 해당 팔레의 userid가 같다면 딜리트 버튼이 있어야 함
 import React, { useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 import domtoimage from 'dom-to-image';
@@ -35,15 +34,43 @@ const PaletteColor = styled.div`
 `;
 
 const PaletteListEntry = ({ palette, dispatch, history, userInfo }) => {
-    const { colorCode, paletteName, id } = palette;
+    const {
+        id,
+        userId,
+        paletteName,
+        description,
+        colorCode01,
+        colorCode02,
+        colorCode03,
+        colorCode04,
+        colorCode05,
+        colorCode06,
+        colorCode07,
+    } = palette;
+
+    const colorCode = [
+        colorCode01,
+        colorCode02,
+        colorCode03,
+        colorCode04,
+        colorCode05,
+        colorCode06,
+        colorCode07,
+    ].filter((code) => code !== null);
     const paletteColors = useRef(null);
 
     const onClickPalette = (e) => {
         dispatch({
             type: SET_CLICKED_PALETTE,
-            palette,
+            palette: {
+                id,
+                userId,
+                paletteName,
+                colorCode: [...colorCode],
+                description,
+            },
         });
-        history.push(`/paletteDetail/${userInfo.id}`);
+        history.push(`/paletteDetail/${id}`);
     };
 
     const onClickDownload = async () => {
