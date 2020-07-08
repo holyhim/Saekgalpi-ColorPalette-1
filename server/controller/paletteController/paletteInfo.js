@@ -42,7 +42,7 @@ module.exports = {
     updatedGet: (req, res) => {
         //* updatedAt으로 팔레트 요청
 
-        Palette.findOne({
+        Palette.findAll({
             where: {
                 updatedAt,
             },
@@ -64,7 +64,7 @@ module.exports = {
     visitGet: (req, res) => {
         //* visit으로 팔레트 요청
 
-        Palette.findOne({
+        Palette.findAll({
             where: {
                 visit,
             },
