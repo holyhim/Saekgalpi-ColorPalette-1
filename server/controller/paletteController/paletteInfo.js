@@ -62,7 +62,7 @@ module.exports = {
             });
     },
     visitGet: (req, res) => {
-        //* updatedAt으로 팔레트 요청
+        //* visit으로 팔레트 요청
 
         Palette.findOne({
             where: {
@@ -80,9 +80,7 @@ module.exports = {
                 }
             })
             .catch((err) => {
-                if (err) {
-                    res.status(500).send('Errror');
-                }
+                res.status(500).send(err);
             });
     },
 };
