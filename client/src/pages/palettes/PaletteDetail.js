@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import domtoimage from 'dom-to-image';
+import rgbHexColorCodeConverter from 'hex-rgb-color-code-converter';
 
 const Paltte = styled.div`
     background-color: ${(props) => props.color || 'black'};
@@ -49,12 +50,13 @@ const ShareBtn = styled.button`
 const ColorCodeDetail = styled.div`
     display: grid;
     grid-template-columns: repeat(${(props) => props.num}, 1fr);
-    line-height: 6vh;
 `;
 
 const ColorCode = styled.div`
     background-color: ${(props) => props.color};
     text-align: center;
+    padding: 5px;
+    font-size: 0.8em;
 `;
 
 const PaletteDescription = styled.div`
@@ -164,16 +166,16 @@ const PaletteDetail = ({ isLogin, palette, userInfo, match, history }) => {
                         </article>
                         <article className='palette-detail__code-container'>
                             <h5>RGB</h5>
-                            <ColorCodeDetail
+                            <div
                                 className='palette-detail__rgb'
                                 num={colorCode.length}
                             >
                                 {colorCode.map((color, idx) => (
                                     <ColorCode color={color} key={idx}>
-                                        rgb
+                                        {rgbHexColorCodeConverter(color)}
                                     </ColorCode>
                                 ))}
-                            </ColorCodeDetail>
+                            </div>
                         </article>
                     </div>
                 </div>
