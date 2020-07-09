@@ -4,8 +4,27 @@ import { Link, withRouter } from 'react-router-dom';
 import PaletteList from '../../components/palette/PaletteList';
 import { UniquePaletteGetAPI } from '../../PaletteAPI';
 import { WaveButton } from '../Pages_styd';
+import styd from 'styled-components';
 
 const MyPage = ({ userInfo, dispatch, history, match }) => {
+    const MypageSig = styd.div`
+width: 120px;
+height: 150px;
+background-color: ${userInfo.signatureColor};
+margin-bottom: 10px;
+border-radius: 5px;
+box-shadow: 0 0 20px 3px #d7d7d7;
+position: relative;
+div {
+    width: 120px;
+    heigth: 10px;
+    border-radius: 0 0 5px 5px;
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+
+    }
+`;
     const { id } = match.params;
     if (id !== String(userInfo.id)) {
         history.push('/');
@@ -25,11 +44,14 @@ const MyPage = ({ userInfo, dispatch, history, match }) => {
                 <div className='MyPage__wrapper'>
                     <section className='MyPage__Profile'>
                         <div>
-                            <div>여기에 색상</div>시그니처 컬러
-                            {userInfo.signatureColor}
+                            <MypageSig>
+                                <div>{userInfo.signatureColor}</div>
+                            </MypageSig>
                         </div>
-                        <span>{userInfo.userName}</span>
-                        <span>{userInfo.email}</span>
+                        <span className='Mypage__username'>
+                            {userInfo.userName}
+                        </span>
+                        <span className='Mypage__email'>{userInfo.email}</span>
                     </section>
                     <section className='MyPage__BtnWrapper'>
                         <WaveButton>
