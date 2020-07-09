@@ -52,14 +52,15 @@ Or
 
 배포 된 url : (추후 추가 예정)에서 사용하십시오.
 
-## About Server (링크 추가, 하단 내용을 링크 안에!)
+## About Server
 
 ## 🎨 Server
 
-<img src="https://img.shields.io/badge/database-mysql-blue"> 를 이용해 구현된 색갈피의 server 파일입니다.
+<img src="https://img.shields.io/badge/database-mysql-blue?style=flat-square&logo=appveyor"> 를 이용해 구현된 색갈피의 server 파일입니다.
 
-### :sparkles: API DOCS​
-
+### :sparkles: API DOCS
+하단의 하이퍼링크를 클릭하시면 API DOCS로 연결됩니다.   
+<a href="https://hwabaek.gitbook.io/hwabaek/">색갈피 API DOCS</a>
 
 
 ### 📦 Dependencies
@@ -69,16 +70,16 @@ Or
 -   Sequelize-cli
 -   express
 -   express-session
+-   cors
+-   body parser
+-   cookie parser
 
 
-
-
-
-## About Client (링크 추가) (하단 내용 링크로 삽입)
+## About Client
 
 ## 🎨 Client
 
-<img src="https://img.shields.io/badge/create-react-blue">로 구현된 색갈피의 client 파일입니다.
+<img src="https://img.shields.io/badge/create-react-blue?style=flat-square&logo=appveyor"> 로 구현된 색갈피의 client 파일입니다.
 
 ### ✨ Features
 
