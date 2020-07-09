@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { ColorPicker, SignatureColor, WaveButton } from '../Pages_styd';
+import axios from 'axios';
 
-const ChangeSignatureColor = ({ userInfo, history, match }) => {
-    // TODO: 상위 컴포넌트에서 시그니처 컬러 받기
+const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
     const { id } = match.params;
     const [isOpen, setIsOpen] = useState(false);
-    const [color, setColor] = useState('#0652DD');
+    const [color, setColor] = useState(userInfo.signatureColor);
 
     const togglePicker = () => {
         setIsOpen((prevState) => !prevState);
@@ -16,9 +16,21 @@ const ChangeSignatureColor = ({ userInfo, history, match }) => {
         setColor(color.hex);
     };
 
-    const onClickSaveButton = () => {
-        // TODO: 서버로 시그니처 컬러 수정 POST 요청 (axios 사용)
+    const onClickSaveButton = async () => {
+        try {
+            await axios.post(
+                `http://localhost:5000/changeSignatureColor/${userInfo.id}`,
+                {
+                    signatureColor: color,
+                }
+            );
+            setUserInfo({ signatureColor: color });
+            history.push('/');
+        } catch (error) {
+            console.log(error);
+        }
     };
+
     if (id !== String(userInfo.id)) {
         history.push('/');
     }
