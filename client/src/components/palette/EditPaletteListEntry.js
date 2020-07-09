@@ -2,10 +2,16 @@ import React, { useLayoutEffect, useState } from 'react';
 import { SketchPicker } from 'react-color';
 import styled from 'styled-components';
 
-
 const PaletteColor = styled.div`
     background-color: ${(props) => props.color};
     cursor: pointer;
+    box-shadow: 
+    1px 0 0 0 #c7c7c7, 
+    0 1px 0 0 #c7c7c7, 
+    1px 1px 0 0 #c7c7c7,
+    1px 0 0 0 #c7c7c7 inset, 
+    0 1px 0 0 #c7c7c7 inset;
+}
 `;
 
 const ColorPickerContainer = styled.div`
@@ -13,8 +19,22 @@ const ColorPickerContainer = styled.div`
     position: absolute;
     top: 200px;
     left: ${(props) => props.left}px;
-    background-color: white;
     padding: 10px;
+
+    .color-picker__button {
+        margin-top: 10px;
+        width: 220px;
+        text-align: center;
+        border: 1px solid #c7c7c7;
+        background-color: white;
+        outline: none;
+        cursor: pointer;
+        color: #c7c7c7;
+        border-radius: 5px;
+        &:active {
+            color: #2a2a2a;
+        }
+    }
 `;
 
 // window 창의 리사이징을 검사하는 Hook

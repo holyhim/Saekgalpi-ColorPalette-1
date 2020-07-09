@@ -40,6 +40,9 @@ const MainHeader = ({
                 ) : (
                     <ul>
                         <li>
+                            <span>{userInfo.userName} 님 안녕하세요</span>
+                        </li>
+                        <li>
                             <Link
                                 to={{
                                     pathname: `${
