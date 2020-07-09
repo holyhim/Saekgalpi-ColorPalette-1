@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import PaletteList from '../../components/palette/PaletteList';
 
 import { WaveButton } from '../Pages_styd';
@@ -6,7 +7,7 @@ import { WaveButton } from '../Pages_styd';
 import { AllPaletteGetAPI } from '../../PaletteAPI';
 import { AdminGetAPI, AdminPostAPI } from '../../UserAPI';
 
-const MyPage = ({ dispatch, isAdmin }) => {
+const MyPage = ({ dispatch, isAdmin, isLogin }) => {
     const [palleteData, setPalleteData] = useState([]);
     const [userData, setUserData] = useState([]);
 
@@ -14,6 +15,11 @@ const MyPage = ({ dispatch, isAdmin }) => {
         let id = user.id;
         AdminPostAPI(user, id).then((res) => {
             if (res.status === 200) {
+                const userIdx = userData.indexOf(user);
+                setUserData([
+                    ...userData.slice(0, userIdx),
+                    ...userData.slice(userIdx + 1),
+                ]);
                 alert('유저가 삭제되었습니다.');
             }
         });
@@ -21,14 +27,14 @@ const MyPage = ({ dispatch, isAdmin }) => {
 
     useEffect(() => {
         AdminGetAPI().then((res) => {
-            setUserData(res.data);
+            setUserData([...res.data]);
         });
         AllPaletteGetAPI().then((res) => {
-            setPalleteData(res.data);
+            setPalleteData([...res.data]);
         });
     }, []);
 
-    return isAdmin ? (
+    return isAdmin || isLogin ? (
         <main>
             <span className='h1'>관리자 페이지</span>
             <div className='userPageWrapper'>
@@ -84,7 +90,7 @@ const MyPage = ({ dispatch, isAdmin }) => {
             </div>
         </main>
     ) : (
-        ''
+        <Redirect to='/' />
     );
 };
 
