@@ -67,15 +67,7 @@ const PaletteDescription = styled.div`
     height: 5vw;
 `;
 
-const PaletteDetail = ({
-    isLogin,
-    palette,
-    favPalettes,
-    currentPalettes,
-    dispatch,
-    userInfo,
-    history,
-}) => {
+const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
     const paletteColors = useRef(null);
     const { id, userId, paletteName, colorCode, description } = palette;
 

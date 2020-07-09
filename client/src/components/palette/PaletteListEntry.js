@@ -82,7 +82,7 @@ const PaletteListEntry = ({ palette, dispatch, history }) => {
             link.download = '색갈피';
             link.click();
         } catch (error) {
-            console.error('oops, something went wrong!', error);
+            console.error('다운로드 과정에서 오류가 발생했습니다', error);
         }
     };
 
