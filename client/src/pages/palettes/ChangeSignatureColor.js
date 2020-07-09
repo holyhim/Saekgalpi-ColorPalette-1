@@ -17,6 +17,9 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
     };
 
     const onClickSaveButton = async () => {
+        if (id !== String(userInfo.id)) {
+            history.push('/');
+        }
         try {
             await axios.post(
                 `http://localhost:5000/changeSignatureColor/${userInfo.id}`,
@@ -31,9 +34,6 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
         }
     };
 
-    if (id !== String(userInfo.id)) {
-        history.push('/');
-    }
     return (
         <main className='change-signature-color__main'>
             <span className='h1'>시그니처 컬러 변경</span>

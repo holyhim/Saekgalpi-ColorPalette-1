@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 import { Slider, Input } from 'antd';
 import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
@@ -55,8 +56,7 @@ const paletteReducer = (state, action) => {
     }
 };
 
-const MakePalette = ({ userInfo }) => {
-    console.log(userInfo);
+const MakePalette = ({ userInfo, isLogin }) => {
     const [state, dispatch] = useReducer(paletteReducer, initialState);
     const { title, number, description, colors } = state;
 
@@ -110,12 +110,11 @@ const MakePalette = ({ userInfo }) => {
             colorCode06: colors[5],
             colorCode07: colors[6],
         });
-        // post 요청으로 db 수정된거 확인되면 풀기
-        // history.push('/');
     };
 
     return (
         <main className='make-palette__main'>
+            {!isLogin ? <Redirect to='/' /> : ''}
             <h1 className='make-palette__title'> 색갈피 만들기 </h1>
             <MakePaletteContainer className='make-palette__color-container'>
                 <EditPaletteList
