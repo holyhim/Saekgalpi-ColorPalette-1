@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import PaletteList from '../components/palette/PaletteList';
@@ -41,11 +40,11 @@ const Main = ({
         } catch (error) {
             console.log(error);
         }
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         getPalettes();
-    }, []);
+    }, [getPalettes]);
 
     return (
         <main className='main__main-content'>
