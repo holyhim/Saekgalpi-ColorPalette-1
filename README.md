@@ -1,10 +1,10 @@
+
+![색갈피 로고](https://user-images.githubusercontent.com/61039975/87063594-8bad1a00-c249-11ea-8514-3e6411c6b979.png)
+
 <a href="https://gitmoji.carloscuesta.me"> <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji?style=flat-square&logo=appveyor"> </a> <a href="https://github.com/codestates/Saekgalpi-ColorPalette"><img src ="https://img.shields.io/badge/github-Saekgalpi-lightgrey?style=flat-square&logo=appveyor"></a> <img src="https://img.shields.io/badge/npm-v6.14.4-important?style=flat-square&logo=appveyor"> <img src="https://img.shields.io/badge/node.js-v12.16.11-important?style=flat-square&logo=appveyor"> 
-
-
-
 # 🎨 색갈피
 
-한국어가 지원되는 컬러 팔레트 웹페이지, <a href="http://hwabaek.s3-website.ap-northeast-2.amazonaws.com/">색갈피</a>입니다.
+한국어가 지원되는 컬러 팔레트 웹페이지, <a href="http://hwabaek.s3-website.ap-northeast-2.amazonaws.com">색갈피</a>입니다.
 
 이 웹페이지는 디자이너와 프로그래머에게 훌륭한 컬러팔레트를 제공하고, 저장할 수 있게 해줍니다.
 
@@ -85,11 +85,15 @@ url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용�
       - 유저 삭제 
       - 팔레트 삭제
 ## Flow Chart
+<details>
+<summary>기능 플로우 펼쳐보기</summary>
+<div markdown="1">
 
-<div>
-<img width=600 src="https://user-images.githubusercontent.com/59815596/86088603-9f39e180-bae1-11ea-9583-6ba707aacdc2.png"></img>
-<div>
-   
+![](https://user-images.githubusercontent.com/59815596/86088603-9f39e180-bae1-11ea-9583-6ba707aacdc2.png)
+
+</div>
+</details>
+
 ## 🎨 Server
 
 ### :sparkles: API DOCS
@@ -99,14 +103,14 @@ url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용�
 
 ### 📦 Dependencies
 
--   mysql
--   Sequelize
--   Sequelize-cli
--   express
--   express-session
--   cors
--   body parser
--   cookie parser
+   -   mysql
+   -   Sequelize
+   -   Sequelize-cli
+   -   express
+   -   express-session
+   -   cors
+   -   body parser
+   -   cookie parser
 
 ## 🗃 Schema
 
@@ -118,21 +122,21 @@ url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용�
 
 ### ✨ Features
 
--   팔레트 조회  
--   팔레트 편집 및 생성  
--   팔레트 공유 및 다운로드  
--   회원가입  
--   로그인  
--   로그아웃  
--   회원 정보 수정  
+   -   팔레트 조회  
+   -   팔레트 편집 및 생성  
+   -   팔레트 공유 및 다운로드  
+   -   회원가입  
+   -   로그인  
+   -   로그아웃  
+   -   회원 정보 수정  
 
 ### 📦 Dependencies
 
--   React
--   React-Router
--   React-Hooks
--   SASS
--   Styled-Component
+   -   React
+   -   React-Router
+   -   React-Hooks
+   -   SASS
+   -   Styled-Component
 
 ## About Team
 
@@ -141,23 +145,23 @@ url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용�
 <img width=200 src="https://user-images.githubusercontent.com/61039975/86037840-f193e780-ba7a-11ea-99c8-697e4152dbfb.jpg">
 </div>
 
-- TeamLeader, BackEnd
-- 📧 Gmail : Nayeong.T.Park@gmail.com
-- 🆔 Github Id : @Trisha-Park
-- 💡 Blog : https://medium.com/@nayeong.t.park
+**Team Leader, BackEnd**  
+📧 Gmail : Nayeong.T.Park@gmail.com  
+🆔 Github Id : @Trisha-Park  
+💡 Blog : https://medium.com/@nayeong.t.park  
 
 # 이승연
-- Team members, FrontEnd
-- 📧 Gmail : lsy26499@gmail.com
-- 🆔 Github Id : @lsy26499
-- 💡 Blog : https://lsy26499.tistory.com/
-
+**Team members, FrontEnd**  
+📧 Gmail : lsy26499@gmail.com  
+🆔 Github Id : @lsy26499  
+💡 Blog : https://lsy26499.tistory.com/  
+   
 
 # 이유정
-- Team members, FrontEnd
-- 📧 Gmail : idoasisay.yc@gmail.com
-- 🆔 Github Id : @idoasisay
-- 💡 Blog : https://velog.io/@riceintheramen
+**Team members, FrontEnd**  
+📧 Gmail : idoasisay.yc@gmail.com  
+🆔 Github Id : @idoasisay  
+💡 Blog : https://velog.io/@riceintheramen  
 
 
 # 허지성
@@ -165,10 +169,10 @@ url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용�
 <img width=180 src ="https://img1.daumcdn.net/thumb/C428x428/?scode=mtistory2&fname=https%3A%2F%2Ftistory2.daumcdn.net%2Ftistory%2F3810709%2Fattach%2F31d458b15a464f96a3db02028490061c">
 <div>
 
-- Team members, BackEnd
-- 📧 Gmail : heojiseong0811@gmail.com
-- 🆔 Github Id : @Heo-JiSeong
-- 💡 Blog : https://dreamheoji.tistory.com/
+**Team members, BackEnd**  
+📧 Gmail : heojiseong0811@gmail.com  
+🆔 Github Id : @Heo-JiSeong  
+💡 Blog : https://dreamheoji.tistory.com/  
 
 ## License
 
