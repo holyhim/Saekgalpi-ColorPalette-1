@@ -103,19 +103,21 @@ margin: 10px;
 `;
 
 export const BigSquareButton = styd(Button)`
-color: #a6a6a6;
-background-color: #e7e7e7;
-border: 1px solid #e7e7e7;
+color: #7a7a7a;
+background-color: #e2e2e2;
+border: 1px solid #d2d2d2;
 margin: 10px;
 margin-bottom: 120px;
+border-radius: 20px;
 width: 840px;
 height: 100px;
 font-size: 3em;
-transition: all .3s;
+transition: all .5s liner;
 &:hover{
-    background-color: #e7e7e7;
-    border: 1px solid #e7e7e7;
-    color: #5d5d5d;
+    background-color: #d2d2d2;
+    border: 1px solid #d2d2d2;
+    color: #7a7a7a;
+    box-shadow: 0 0 10px 3px #e9e9e9;
 }
 
 `;

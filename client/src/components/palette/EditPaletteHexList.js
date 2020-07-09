@@ -5,7 +5,6 @@ import EditPaletteHexListEntry from './EditPaletteHexListEntry';
 const HexLists = styled.div`
     display: grid;
     grid-template-columns: repeat(${(props) => props.number}, 1fr);
-    grid-template-rows: 20vh;
 `;
 
 const EditPaletteHexList = ({ number, colors }) => {

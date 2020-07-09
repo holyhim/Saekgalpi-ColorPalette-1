@@ -14,12 +14,21 @@ import DELETE_PALETTE from '../../Router';
 const Paltte = styled.div`
     background-color: ${(props) => props.color || 'black'};
     cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+        transform: scale(1.1);
+    }
+    &:active {
+        transform: scale(1);
+    }
 `;
 
 const PaletteWrapper = styled.div`
-    width: 30vw;
-    height: 30vh;
+    width: 500px;
+    height: 250px;
+    margin-bottom: 20px;
     display: grid;
+
     grid-template-columns: repeat(${(props) => props.number}, 1fr);
 `;
 
@@ -27,7 +36,8 @@ const EditButton = styled(Button)`
     color: #a6a6a6;
     background-color: #e7e7e7;
     border: 1px solid #e7e7e7;
-    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-right: 10px;
     &:hover {
         background-color: #e7e7e7;
         border: 1px solid #e7e7e7;
@@ -47,7 +57,7 @@ const ShareBtn = styled.button`
     all: unset;
     font-size: 1.5rem;
     cursor: pointer;
-    margin-right: 1rem;
+    margin-left: 20px;
 `;
 
 const ColorCodeDetail = styled.div`
@@ -63,11 +73,15 @@ const ColorCode = styled.div`
 `;
 
 const PaletteDescription = styled.div`
-    margin-left: 4vw;
+    width: 90%;
+    margin: 0 auto;
     height: 5vw;
+    border-top: 1px solid #c7c7c7;
+    padding: 10px;
+    font-size: 1.5em;
 `;
 
-const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
+const PaletteDetail = ({ isLogin, palette, dispatch, history, userInfo }) => {
     const paletteColors = useRef(null);
     const { id, userId, paletteName, colorCode, description } = palette;
 
@@ -129,23 +143,26 @@ const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
                                 </CopyToClipboard>
                             ))}
                         </PaletteWrapper>
+                        <span>색상을 클릭하면 HEX 코드가 복사됩니다</span>
                         <div className='palette-detail__share-container'>
                             {!isLogin ? (
                                 <></>
                             ) : (
                                 <>
-                                    <EditButton
-                                        className='palette-detail__edit-btn'
-                                        onClick={onClickDeleteBtn}
-                                    >
-                                        색갈피 삭제
-                                    </EditButton>
-                                    <EditButton
-                                        className='palette-detail__edit-btn'
-                                        onClick={onClickEditBtn}
-                                    >
-                                        색갈피 편집
-                                    </EditButton>
+                                    <div>
+                                        <EditButton
+                                            className='palette-detail__edit-btn'
+                                            onClick={onClickDeleteBtn}
+                                        >
+                                            색갈피 삭제
+                                        </EditButton>
+                                        <EditButton
+                                            className='palette-detail__edit-btn'
+                                            onClick={onClickEditBtn}
+                                        >
+                                            색갈피 편집
+                                        </EditButton>
+                                    </div>
                                 </>
                             )}
                             <ul className='palette-detail__share-lists'>
@@ -177,7 +194,7 @@ const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
                                 {paletteName}
                             </span>
                             <span className='palette-detail__username'>
-                                {userId}
+                                {userInfo.userName}
                             </span>
                         </div>
                         <article className='palette-detail__code-container'>

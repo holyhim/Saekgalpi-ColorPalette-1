@@ -1,9 +1,16 @@
 .change-signature-color__main {
     .CGPalWarpper {
         margin-top: 30px;
+        width: 680px;
+        height: 400px;
+        background-color: #f9f9f9;
+        border: 1px solid #e7e7e7;
+        border-radius: 10px;
     }
 
     .change-signature-color__form {
+        padding: 10px;
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -13,5 +20,14 @@
         }
 
         // TODO: 버튼의 위치를 어디에 둬야 할까요..
+    }
+    .change-signature-color__st {
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+    .change-signature-color__color {
+        border-radius: 10px;
+        border: 1px solid #e4e4e4;
+        box-shadow: 0 2px 0 0 #e4e4e4;
     }
 }

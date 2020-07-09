@@ -42,7 +42,10 @@ const FooterDiv = () => {
                         </a>
                     </li>
                     <li>
-                        <a href='/'>
+                        <a
+                            target='_blank'
+                            href='https://github.com/codestates/Saekgalpi-ColorPalette'
+                        >
                             <FontAwesomeIcon icon={faGithub} size='2x' />
                         </a>
                     </li>

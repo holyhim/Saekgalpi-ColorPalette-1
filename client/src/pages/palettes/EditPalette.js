@@ -119,64 +119,66 @@ const EditPalette = ({ palette, isLogin, history }) => {
     };
 
     return (
-        <main className='edit-palette__main'>
-            <h1 className='edit-palette__title'> 색갈피 편집 </h1>
-            <EditPaletteContainer className='edit-palette__color-container'>
-                <EditPaletteList
-                    number={number}
-                    colors={colors}
-                    setNthColor={setNthColor}
-                />
-            </EditPaletteContainer>
-            <EditPaletteContainer className='edit-palette__hex-container'>
-                <EditPaletteHexList
-                    number={number}
-                    colors={colors}
-                    setNthColor={setNthColor}
-                />
-            </EditPaletteContainer>
-            <section className='edit-palette__palette-info'>
-                <form
-                    className='palette-info__form'
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                    }}
-                >
-                    <label className='palette-info__color-range-label'>
-                        색상 갯수
-                        <Slider
-                            className='palette-info__color-range'
-                            min={2}
-                            max={7}
-                            step={1}
-                            defaultValue={number}
-                            style={{ width: '200px' }}
-                            onChange={onChangeColorNumber}
-                        />
-                    </label>
-                    <Input
-                        className='palette-info__palette-name'
-                        type='text'
-                        placeholder='팔레트 이름'
-                        name='title'
-                        onChange={handleInputValue}
-                        value={title}
+        <main>
+            <span className='h1'>색갈피 편집</span>
+            <div className='makePageWrapper'>
+                <EditPaletteContainer className='make-palette__color-container'>
+                    <EditPaletteList
+                        number={number}
+                        colors={colors}
+                        setNthColor={setNthColor}
                     />
-                    <TextArea
-                        className='palette-info__palette-description'
-                        placeholder='팔레트 설명'
-                        name='description'
-                        onChange={handleInputValue}
-                        value={description}
+                </EditPaletteContainer>
+                <EditPaletteContainer className='edit-palette__hex-container'>
+                    <EditPaletteHexList
+                        number={number}
+                        colors={colors}
+                        setNthColor={setNthColor}
                     />
-                    <button
-                        className='edit-palette__button'
-                        onClick={onClickPostButton}
+                </EditPaletteContainer>
+                <section className='edit-palette__palette-info'>
+                    <form
+                        className='palette-info__form'
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                        }}
                     >
-                        저장
-                    </button>
-                </form>
-            </section>
+                        <label className='palette-info__color-range-label'>
+                            색상 갯수
+                            <Slider
+                                className='palette-info__color-range'
+                                min={2}
+                                max={7}
+                                step={1}
+                                defaultValue={number}
+                                style={{ width: '200px' }}
+                                onChange={onChangeColorNumber}
+                            />
+                        </label>
+                        <Input
+                            className='palette-info__palette-name'
+                            type='text'
+                            placeholder='팔레트 이름'
+                            name='title'
+                            onChange={handleInputValue}
+                            value={title}
+                        />
+                        <TextArea
+                            className='palette-info__palette-description'
+                            placeholder='팔레트 설명'
+                            name='description'
+                            onChange={handleInputValue}
+                            value={description}
+                        />
+                        <button
+                            className='edit-palette__button'
+                            onClick={onClickPostButton}
+                        >
+                            저장
+                        </button>
+                    </form>
+                </section>
+            </div>
         </main>
     );
 };

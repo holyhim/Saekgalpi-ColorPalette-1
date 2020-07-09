@@ -3,13 +3,17 @@ import styled from 'styled-components';
 import rgbHexColorCodeConverter from 'hex-rgb-color-code-converter';
 
 const PaletteHex = styled.div`
-    border: 1px solid black;
+    border: 1px solid #c7c7c7;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
     display: grid;
     grid-template-rows: repeat(2, 1fr);
 `;
 
 const ColorCode = styled.span`
     place-self: center center;
+    color: #7a7a7a;
 `;
 
 const EditPaletteHexListEntry = ({ color }) => {

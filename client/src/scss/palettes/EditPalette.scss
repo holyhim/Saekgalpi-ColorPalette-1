@@ -1,36 +1,54 @@
-.edit-palette__main {
-    .edit-palette__title {
-        margin-bottom: 50px;
-        font-size: 2rem;
-        font-weight: 600;
-        // TODO: 타이틀 폰트를 변경해주세요!
-    }
+.makePageWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
     .edit-palette__palette-info {
-        padding-top: 40px;
+        padding-top: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #e7e7e7;
+        border-radius: 10px;
+        padding: 30px;
+        width: 1000px;
+        margin-top: -100px;
+        margin-bottom: 50px;
         .palette-info__form {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-
+            align-items: flex-start;
+            margin-left: 30px;
             .palette-info__color-range-label {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                font-size: 1rem;
-                color: black;
+                font-size: 1.1rem;
+                color: #a1a1a1;
                 font-weight: 600;
-                // TODO: 라벨 폰트를 변경해주세요!
-                .palette-info__color-range {
-                    margin: 20px 0 30px 0;
-                }
             }
             .palette-info__palette-name {
                 margin-bottom: 20px;
+                border-radius: 5px;
+                width: 200px;
             }
             .palette-info__palette-description {
                 margin-bottom: 20px;
+                border-radius: 5px;
+                width: 800px;
+                font-size: 1.3em;
             }
         }
+    }
+    .edit-palette__button {
+        width: 80px;
+        height: 30px;
+        background-color: #f1f1f1;
+        border: 1px solid #c7c7c7;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+        color: #7a7a7a;
+    }
+    .eidt-palette__hex-container {
+        margin-bottom: 20px;
     }
 }

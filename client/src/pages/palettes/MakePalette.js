@@ -13,8 +13,7 @@ import {
 import axios from 'axios';
 
 const MakePaletteContainer = styled.section`
-    width: 60vw;
-    height: 20vh;
+    width: 70vw;
     margin-bottom: 20px;
 `;
 
@@ -120,63 +119,65 @@ const MakePalette = ({ userInfo, isLogin, history }) => {
     };
 
     return (
-        <main className='make-palette__main'>
+        <main>
             {!isLogin ? <Redirect to='/' /> : ''}
-            <h1 className='make-palette__title'> 색갈피 만들기 </h1>
-            <MakePaletteContainer className='make-palette__color-container'>
-                <EditPaletteList
-                    number={number}
-                    colors={colors}
-                    setNthColor={setNthColor}
-                />
-            </MakePaletteContainer>
-            <MakePaletteContainer className='make-palette__hex-container'>
-                <EditPaletteHexList
-                    number={number}
-                    colors={colors}
-                    setNthColor={setNthColor}
-                />
-            </MakePaletteContainer>
-            <section className='make-palette__palette-info'>
-                <form
-                    className='palette-info__form'
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                    }}
-                >
-                    <label className='palette-info__color-range-label'>
-                        색상 갯수
-                        <Slider
-                            className='palette-info__color-range'
-                            min={2}
-                            max={7}
-                            step={1}
-                            defaultValue={number}
-                            style={{ width: '200px' }}
-                            onChange={onChangeColorNumber}
-                        />
-                    </label>
-                    <Input
-                        className='palette-info__palette-name'
-                        type='text'
-                        placeholder='팔레트 이름'
-                        name='title'
-                        onChange={handleInputValue}
+            <span className='h1'>색갈피 만들기</span>
+            <div className='makePageWrapper'>
+                <MakePaletteContainer className='make-palette__color-container'>
+                    <EditPaletteList
+                        number={number}
+                        colors={colors}
+                        setNthColor={setNthColor}
                     />
-                    <TextArea
-                        className='palette-info__palette-description'
-                        placeholder='팔레트 설명'
-                        name='description'
-                        onChange={handleInputValue}
+                </MakePaletteContainer>
+                <MakePaletteContainer className='make-palette__hex-container'>
+                    <EditPaletteHexList
+                        number={number}
+                        colors={colors}
+                        setNthColor={setNthColor}
                     />
-                    <button
-                        className='make-palette__button'
-                        onClick={onClickPostButton}
+                </MakePaletteContainer>
+                <section className='make-palette__palette-info'>
+                    <form
+                        className='palette-info__form'
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                        }}
                     >
-                        저장
-                    </button>
-                </form>
-            </section>
+                        <label className='palette-info__color-range-label'>
+                            색상 갯수
+                            <Slider
+                                className='palette-info__color-range'
+                                min={2}
+                                max={7}
+                                step={1}
+                                defaultValue={number}
+                                style={{ width: '200px' }}
+                                onChange={onChangeColorNumber}
+                            />
+                        </label>
+                        <Input
+                            className='palette-info__palette-name'
+                            type='text'
+                            placeholder='팔레트 이름'
+                            name='title'
+                            onChange={handleInputValue}
+                        />
+                        <TextArea
+                            className='palette-info__palette-description'
+                            placeholder='팔레트 설명'
+                            name='description'
+                            onChange={handleInputValue}
+                        />
+                        <button
+                            className='make-palette__button'
+                            onClick={onClickPostButton}
+                        >
+                            저장
+                        </button>
+                    </form>
+                </section>
+            </div>
         </main>
     );
 };

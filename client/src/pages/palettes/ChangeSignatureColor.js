@@ -39,7 +39,7 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
         <Redirect to={'/'} />
     ) : (
         <main className='change-signature-color__main'>
-            <span className='h1'>시그니처 컬러 변경</span>
+            <span className='h1'>나만의 색 변경</span>
             <div className='CGPalWarpper'>
                 <form
                     className='change-signature-color__form'
@@ -60,6 +60,7 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
                             color={color}
                         />
                         <ColorPicker
+                            className='change-signature-color__st'
                             color={color}
                             isOpen={isOpen}
                             onChangeComplete={onChangeComplete}
