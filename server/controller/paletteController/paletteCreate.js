@@ -28,11 +28,11 @@ module.exports = {
         })
             .then((data) => {
                 if (data) {
-                    console.log('팔레트 생성');
                     res.status(200).send(data);
+                    console.log('팔레트가 생성되었습니다.');
                 } else {
                     res.status(404).send('Bad Request');
-                    alert('잘못된 요청입니다');
+                    console.log('404 Error');
                 }
             })
             .catch((err) => {

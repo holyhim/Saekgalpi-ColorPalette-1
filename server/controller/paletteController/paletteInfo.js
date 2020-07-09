@@ -6,7 +6,7 @@ module.exports = {
 
         //* user 당 팔레트 요청
         if (id) {
-            Palette.findOne({
+            Palette.findAll({
                 where: {
                     userId: id,
                 },
@@ -14,13 +14,15 @@ module.exports = {
                 .then((data) => {
                     if (data) {
                         res.status(200).send(data);
+                        console.log(`${id}의 유저 팔레트입니다.`);
                     } else {
                         res.status(404).send('Bad Request');
-                        alert('잘못된 요청입니다');
+                        console.log('404 Error');
                     }
                 })
                 .catch((err) => {
                     res.status(500).send(err);
+                    console.log('500 Error');
                 });
         }
         //* 전체 팔레트 요청
@@ -29,13 +31,15 @@ module.exports = {
                 .then((data) => {
                     if (data) {
                         res.status(200).send(data);
+                        console.log('모든 팔레트가 요청되었습니다.');
                     } else {
                         res.status(404).send('Bad Request');
-                        alert('잘못 된 요청입니다');
+                        console.log('404 Error');
                     }
                 })
                 .catch((err) => {
                     res.status(500).send(err);
+                    console.log('500 Error');
                 });
         }
     },
@@ -49,13 +53,15 @@ module.exports = {
             .then((data) => {
                 if (data) {
                     res.status(200).send(data);
+                    console.log('최신순으로 팔레트를 불러옵니다.');
                 } else {
                     res.status(404).send('Bad Request');
-                    alert('잘못 된 요청입니다');
+                    console.log('404 Error');
                 }
             })
             .catch((err) => {
                 res.status(500).send(err);
+                console.log('500 Error');
             });
     },
     visitGet: (req, res) => {
@@ -68,13 +74,15 @@ module.exports = {
             .then((data) => {
                 if (data) {
                     res.status(200).send(data);
+                    console.log('인기순으로 팔레트를 불러옵니다.');
                 } else {
                     res.status(404).send('Bad Request');
-                    alert('잘못 된 요청입니다');
+                    console.log('404 Error');
                 }
             })
             .catch((err) => {
                 res.status(500).send(err);
+                console.log('500 Error');
             });
     },
 };
