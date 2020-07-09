@@ -6,12 +6,11 @@ import { LogoutPostAPI } from '../../UserAPI';
 
 const SubHeader = ({ isLogin, isAdmin, userInfo, setIsLogin, setUserInfo }) => {
     const onClickLogoutButton = () => {
-        console.log(userInfo);
         LogoutPostAPI(userInfo).then((res) => {
             if (res.status === 200) {
                 setUserInfo({});
                 setIsLogin(false);
-                localStorage.remove('loggedInfo');
+                localStorage.removeItem('user');
                 alert('로그아웃 되었습니다.');
             }
         });
@@ -70,7 +69,10 @@ const SubHeader = ({ isLogin, isAdmin, userInfo, setIsLogin, setUserInfo }) => {
                                     }`,
                                 }}
                             >
-                                <UnderlineButton>내 색갈피</UnderlineButton>
+                                <UnderlineButton>
+                                    {' '}
+                                    {isAdmin ? '관리자 페이지' : '내 색갈피'}
+                                </UnderlineButton>
                             </Link>
                         </li>
                         <li>
