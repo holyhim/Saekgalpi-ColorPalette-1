@@ -53,7 +53,11 @@ const paletteReducer = (state, action) => {
     }
 };
 
-const EditPalette = ({ palette, userInfo, history }) => {
+const EditPalette = ({ palette, isLogin, history }) => {
+    if (!isLogin || !palette.id) {
+        history.push('/');
+    }
+
     const [state, dispatch] = useReducer(paletteReducer, initialState(palette));
     const { title, number, description, colors, id } = state;
 

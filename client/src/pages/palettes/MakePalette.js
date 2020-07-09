@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 import styled from 'styled-components';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { Slider, Input } from 'antd';
 import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
@@ -56,7 +56,7 @@ const paletteReducer = (state, action) => {
     }
 };
 
-const MakePalette = ({ userInfo, isLogin }) => {
+const MakePalette = ({ userInfo, isLogin, history }) => {
     const [state, dispatch] = useReducer(paletteReducer, initialState);
     const { title, number, description, colors } = state;
 
@@ -98,18 +98,25 @@ const MakePalette = ({ userInfo, isLogin }) => {
     };
 
     const onClickPostButton = async () => {
-        await axios.post(`http://localhost:5000/makePalette`, {
-            id: userInfo.id,
-            paletteName: title,
-            description,
-            colorCode01: colors[0],
-            colorCode02: colors[1],
-            colorCode03: colors[2],
-            colorCode04: colors[3],
-            colorCode05: colors[4],
-            colorCode06: colors[5],
-            colorCode07: colors[6],
-        });
+        const makePaletteData = await axios.post(
+            `http://localhost:5000/makePalette`,
+            {
+                id: userInfo.id,
+                paletteName: title,
+                description,
+                colorCode01: colors[0],
+                colorCode02: colors[1],
+                colorCode03: colors[2],
+                colorCode04: colors[3],
+                colorCode05: colors[4],
+                colorCode06: colors[5],
+                colorCode07: colors[6],
+            }
+        );
+
+        if (makePaletteData.status === 200) {
+            history.push('/');
+        }
     };
 
     return (
@@ -174,4 +181,4 @@ const MakePalette = ({ userInfo, isLogin }) => {
     );
 };
 
-export default MakePalette;
+export default withRouter(MakePalette);

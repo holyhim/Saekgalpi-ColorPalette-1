@@ -3,23 +3,26 @@ import { withRouter, Redirect } from 'react-router-dom';
 import { Space } from 'antd';
 import { SignUpInput, SignUpForm, WaveButton } from '../Pages_styd';
 import { SignUpPostAPI } from '../../UserAPI';
+
+const initialState = {
+    userName: '',
+    email: '',
+    password: '',
+    checkPassword: '',
+};
+
 const reducer = (state, action) => {
     return {
         ...state,
-        [action.name]: action.value,
+        [action.type]: action.value,
     };
 };
 
 //사인 업
-const SignUp = ({ history }) => {
-    const [state, dispatch] = useReducer(reducer, {
-        userName: '',
-        email: '',
-        password: '',
-        checkPassword: '',
-    });
+const SignUp = ({ isLogin, history }) => {
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const { userName, email, password, checkPassword } = state;
 
-    const { userName, email, password, checkPassword, isLogin } = state;
     const onClickSignUpButton = (e) => {
         e.preventDefault();
         SignUpPostAPI(state).then((res) => {
@@ -31,19 +34,19 @@ const SignUp = ({ history }) => {
     };
 
     const handleInputValue = (e) => {
-        dispatch(e.target);
+        dispatch({ type: e.target.name, value: e.target.value });
     };
-
-    if (isLogin) {
-        history.push('/');
-    }
 
     return (
         <main>
             {isLogin ? <Redirect to='/' /> : ''}
             <span className='h1'> 회원가입</span>
             <div className='userPageWrapper SignUpWrapper'>
-                <form onSubmit={(e) => {}}>
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                    }}
+                >
                     <div>
                         <Space direction='vertical'>
                             <SignUpForm style={{ width: 500, height: 80 }}>
@@ -84,7 +87,6 @@ const SignUp = ({ history }) => {
                                 />
                             </SignUpForm>
                         </Space>
-                        {/* // TODO : 프로필 -> 컬러피커 패키지: 피커 모양은 간단한걸로 */}
                     </div>
                     <div>
                         <WaveButton onClick={onClickSignUpButton}>

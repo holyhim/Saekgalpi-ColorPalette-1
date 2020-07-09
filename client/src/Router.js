@@ -34,7 +34,6 @@ const initialState = {
     isLoading: true,
 };
 
-// TODO: 마이페이지 팔레트도 갖고 있어야 함
 const paletteReducer = (state, action) => {
     switch (action.type) {
         case SET_CLICKED_PALETTE: {
@@ -134,10 +133,15 @@ const Router = ({
                     <ChangeSignatureColor
                         userInfo={userInfo}
                         setUserInfo={setUserInfo}
+                        isLogin={isLogin}
                     />
                 </Route>
                 <Route path='/editPalette/:id'>
-                    <EditPalette palette={clickedPalette} userInfo={userInfo} />
+                    <EditPalette
+                        palette={clickedPalette}
+                        userInfo={userInfo}
+                        isLogin={isLogin}
+                    />
                 </Route>
                 <Route path='/makePalette' userInfo={userInfo}>
                     <MakePalette userInfo={userInfo} isLogin={isLogin} />
