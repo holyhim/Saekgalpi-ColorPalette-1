@@ -24,7 +24,7 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
     const onClickSaveButton = async () => {
         try {
             await axios.post(
-                `http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/${userInfo.id}`,
+                `http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/changeSignatureColor/${userInfo.id}`,
                 {
                     signatureColor: color,
                 }

@@ -104,7 +104,7 @@ const EditPalette = ({ palette, isLogin, history }) => {
 
     const onClickPostButton = async () => {
         await axios.post(
-            `http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/${id}`,
+            `http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/editPalette/${id}`,
             {
                 paletteName: title,
                 description,
