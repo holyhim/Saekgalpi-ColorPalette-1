@@ -4,6 +4,8 @@ import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 import { EditPaletteContainer } from '../Pages_styd';
 import { Slider, Input } from 'antd';
+import axios from 'axios';
+
 const { TextArea } = Input;
 
 export const SET_PALETTE_TITLE = 'SET_PALETTE_TITLE';
@@ -11,8 +13,10 @@ export const SET_PALETTE_NUMBER = 'SET_PALETTE_NUMBER';
 export const SET_PALETTE_DESCRIPTION = 'SET_PALETTE_DESCRIPTION';
 export const SET_PALETTE_COLORS = 'SET_PALETTE_COLORS';
 
-const initialState = ({ paletteName, colorCode, description }) => {
+const initialState = ({ paletteName, colorCode, description, id, userId }) => {
     return {
+        id,
+        userId,
         title: paletteName,
         number: colorCode.length,
         description: description,
@@ -49,10 +53,9 @@ const paletteReducer = (state, action) => {
     }
 };
 
-const EditPalette = ({ palette, match, userInfo, history }) => {
-    const { id } = match.params;
+const EditPalette = ({ palette, userInfo, history }) => {
     const [state, dispatch] = useReducer(paletteReducer, initialState(palette));
-    const { title, number, description, colors } = state;
+    const { title, number, description, colors, id } = state;
 
     // range에 따라 number값을 변화 (화면에 표시할 색깔 개수)
     const onChangeColorNumber = (e) => {
@@ -95,13 +98,22 @@ const EditPalette = ({ palette, match, userInfo, history }) => {
         });
     };
 
-    const onClickPostButton = (e) => {
-        // TODO: 서버로 팔레트 POST 요청 (axios 사용)
+    const onClickPostButton = async () => {
+        await axios.post(`http://localhost:5000/editPalette/${id}`, {
+            paletteName: title,
+            description,
+            colorCode01: colors[0],
+            colorCode02: colors[1],
+            colorCode03: colors[2],
+            colorCode04: colors[3],
+            colorCode05: colors[4],
+            colorCode06: colors[5],
+            colorCode07: colors[6],
+        });
+        // post 요청으로 db 수정된거 확인되면 풀기
+        // history.push('/');
     };
 
-    if (id !== userInfo.id) {
-        history.push('/');
-    }
     return (
         <main className='edit-palette__main'>
             <h1 className='edit-palette__title'> 색갈피 편집 </h1>

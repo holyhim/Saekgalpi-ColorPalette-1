@@ -13,9 +13,6 @@ const ColorCode = styled.span`
 `;
 
 const EditPaletteHexListEntry = ({ color }) => {
-    // props로 color를 받아옵니다
-    // 여기에서 color를 받아오려면 상위의 상위인 edit / make palette에서 color state가 있어야 합니다
-    // 리덕스가 있으면 좋겠어요..
     return (
         <PaletteHex className='edit-palette__hex'>
             <ColorCode className='palette__hex'>{color}</ColorCode>

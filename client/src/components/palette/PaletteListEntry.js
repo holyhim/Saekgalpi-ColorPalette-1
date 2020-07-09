@@ -33,7 +33,7 @@ const PaletteColor = styled.div`
     }
 `;
 
-const PaletteListEntry = ({ palette, dispatch, history, userInfo }) => {
+const PaletteListEntry = ({ palette, dispatch, history }) => {
     const {
         id,
         userId,
@@ -57,6 +57,7 @@ const PaletteListEntry = ({ palette, dispatch, history, userInfo }) => {
         colorCode06,
         colorCode07,
     ].filter((code) => code !== null);
+
     const paletteColors = useRef(null);
 
     const onClickPalette = (e) => {
@@ -84,8 +85,6 @@ const PaletteListEntry = ({ palette, dispatch, history, userInfo }) => {
             console.error('oops, something went wrong!', error);
         }
     };
-
-    // TODO: 팔레트를 만든 사람 ID와 현재 접속해 있는 사람 ID가 같을 때만 활성화
 
     return (
         <div className='palette__wrapper'>
