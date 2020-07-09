@@ -19,7 +19,7 @@ const SignUp = ({ history }) => {
         checkPassword: '',
     });
 
-    const { userName, email, password, checkPassword } = state;
+    const { userName, email, password, checkPassword, isLogin } = state;
     const onClickSignUpButton = (e) => {
         e.preventDefault();
         console.log(state);
@@ -35,7 +35,9 @@ const SignUp = ({ history }) => {
         dispatch(e.target);
     };
 
-    //console.log(state); 스테이트가 잘 들어오는지 확인
+    if (isLogin) {
+        history.push('/');
+    }
 
     return (
         <main>
