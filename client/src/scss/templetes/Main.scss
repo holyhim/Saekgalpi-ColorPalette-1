@@ -1,5 +1,21 @@
 .main__main-content {
     margin-top: 50px;
+    .main__main-button {
+        width: 840px;
+        height: 100px;
+        color: #a6a6a6;
+        background-color: #e7e7e7;
+        border: 1px solid #e7e7e7;
+        margin: 10px;
+        margin-bottom: 120px;
+        font-size: 3em;
+        transition: all 0.3s;
+        &:hover {
+            background-color: #a1a1a1;
+            border: 1px solid #e7e7e7;
+            color: #5d5d5d;
+        }
+    }
     .fav-palettes__container {
         border-top: 1px solid hsl(0, 0%, 66%);
         padding: 60px 0 100px 0;
