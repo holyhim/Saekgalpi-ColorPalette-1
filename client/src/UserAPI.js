@@ -33,3 +33,15 @@ export const LogoutPostAPI = (data) => {
         withCredentials: true,
     });
 };
+
+export const AdminPostAPI = (data, id) => {
+    return axios.post(`http://localhost:5000/adminPost/${id}`, data, {
+        withCredentials: true,
+    });
+};
+
+export const AdminGetAPI = () => {
+    return axios.get(`http://localhost:5000/adminGet`, {
+        withCredentials: true,
+    });
+};

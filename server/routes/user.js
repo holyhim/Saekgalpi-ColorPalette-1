@@ -22,10 +22,10 @@ router.post('/changeSignatureColor/:id', userController.SCEdit.post);
 router.post('/changePassword/:id', userController.pwdEdit.post);
 
 // * GET /userController/admin
-router.get('/admin', userController.admin.get);
+router.get('/adminGet', userController.admin.get);
 
 // * POST /userController/admin
-router.post('/admin', userController.admin.post);
+router.post('/adminPost/:id', userController.admin.post);
 
 // admin 관련 url은 admin page가 존재하지 않아서 공란으로 두었습니다.
 

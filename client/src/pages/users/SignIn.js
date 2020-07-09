@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import { Form } from 'antd';
 import { SignInPostAPI } from '../../UserAPI';
 
@@ -11,7 +11,7 @@ import {
 } from '../Pages_styd';
 //성공하면 isLogin을 true로 만들어 주고 세션 적용해야 하며 유저 인포가 필요함
 
-const SignIn = ({ history, setUserInfo, setIsLogin, isLogin }) => {
+const SignIn = ({ history, setUserInfo, setIsLogin, isLogin, setIsAdmin }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -19,9 +19,12 @@ const SignIn = ({ history, setUserInfo, setIsLogin, isLogin }) => {
         SignInPostAPI({ email: email, password: password }).then((res) => {
             if (res.status === 200) {
                 alert('로그인이 되었습니다');
-                setUserInfo({ ...res.data });
-                setIsLogin(true);
                 localStorage.setItem('user', JSON.stringify(res.data));
+                setUserInfo(res.data);
+                setIsLogin(true);
+                if (res.data.id === 1) {
+                    setIsAdmin(true);
+                }
                 history.push('/');
             }
         });
@@ -40,12 +43,9 @@ const SignIn = ({ history, setUserInfo, setIsLogin, isLogin }) => {
         setPassword(e.target.value);
     };
 
-    if (isLogin) {
-        history.push('/');
-    }
-
     return (
         <main>
+            {isLogin ? <Redirect to='/' /> : ''}
             <div>
                 <span className='h1'> 로그인</span>
             </div>

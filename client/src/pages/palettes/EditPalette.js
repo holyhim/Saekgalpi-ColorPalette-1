@@ -99,7 +99,6 @@ const EditPalette = ({ palette, userInfo, history }) => {
     };
 
     const onClickPostButton = async () => {
-        console.log(colors);
         await axios.post(`http://localhost:5000/editPalette/${id}`, {
             paletteName: title,
             description,

@@ -9,7 +9,6 @@ const AllPalette = ({ dispatch }) => {
     useEffect(() => {
         AllPaletteGetAPI().then((res) => {
             setPalleteData(res.data);
-            console.log(res.data);
         });
     }, []);
 

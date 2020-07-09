@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import { Space } from 'antd';
 import { SignUpInput, SignUpForm, WaveButton } from '../Pages_styd';
 import { SignUpPostAPI } from '../../UserAPI';
@@ -22,7 +22,6 @@ const SignUp = ({ history }) => {
     const { userName, email, password, checkPassword, isLogin } = state;
     const onClickSignUpButton = (e) => {
         e.preventDefault();
-        console.log(state);
         SignUpPostAPI(state).then((res) => {
             if (res.status === 200) {
                 history.push('/signIn');
@@ -41,6 +40,7 @@ const SignUp = ({ history }) => {
 
     return (
         <main>
+            {isLogin ? <Redirect to='/' /> : ''}
             <span className='h1'> 회원가입</span>
             <div className='userPageWrapper SignUpWrapper'>
                 <form onSubmit={(e) => {}}>
