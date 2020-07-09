@@ -1,128 +1,74 @@
-import React, { useRef } from 'react';
-import { withRouter } from 'react-router-dom';
-import domtoimage from 'dom-to-image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faHeart,
-    faArrowDown,
-    faShareAlt,
-} from '@fortawesome/free-solid-svg-icons';
+import React, { useLayoutEffect, useState } from 'react';
+import { SketchPicker } from 'react-color';
 import styled from 'styled-components';
-
-import { SET_CLICKED_PALETTE } from '../../Router';
-
-const PaletteColors = styled.div`
-    position: absolute;
-    display: grid;
-    grid-template-columns: repeat(${(props) => props.number}, 2fr);
-    width: 280px;
-    height: 160px;
-    cursor: pointer;
-    border: 2px solid white;
-    border-radius: 15px 15px 0 15px;
-    background-color: white;
-`;
-
 const PaletteColor = styled.div`
     background-color: ${(props) => props.color};
-    &:nth-child(1) {
-        border-radius: 15px 0 0 15px;
-    }
-    &:nth-last-child(1) {
-        border-radius: 0 15px 0 0;
-    }
+    cursor: pointer;
 `;
-
-const PaletteListEntry = ({ palette, dispatch, history, userInfo }) => {
-    const {
-        id,
-        userId,
-        paletteName,
-        description,
-        colorCode01,
-        colorCode02,
-        colorCode03,
-        colorCode04,
-        colorCode05,
-        colorCode06,
-        colorCode07,
-    } = palette;
-
-    const colorCode = [
-        colorCode01,
-        colorCode02,
-        colorCode03,
-        colorCode04,
-        colorCode05,
-        colorCode06,
-        colorCode07,
-    ].filter((code) => code !== null);
-    const paletteColors = useRef(null);
-
-    const onClickPalette = (e) => {
-        dispatch({
-            type: SET_CLICKED_PALETTE,
-            palette: {
-                id,
-                userId,
-                paletteName,
-                colorCode: [...colorCode],
-                description,
-            },
-        });
-        history.push(`/paletteDetail/${id}`);
+const ColorPickerContainer = styled.div`
+    display: ${(props) => (props.isOpen ? 'block' : 'none')};
+    position: absolute;
+    top: 200px;
+    left: ${(props) => props.left}px;
+    background-color: white;
+    padding: 10px;
+`;
+// window 창의 리사이징을 검사하는 Hook
+// 출처: https://stackoverflow.com/questions/19014250/rerender-view-on-browser-resize-with-react
+const useWindowSize = () => {
+    const [size, setSize] = useState([0, 0]);
+    useLayoutEffect(() => {
+        const updateSize = () => {
+            setSize([window.innerWidth, window.innerHeight]);
+        };
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    return size;
+};
+const EditPaletteListEntry = ({ paletteColor, idx, setNthColor }) => {
+    const [color, setColor] = useState(paletteColor);
+    const [isOpen, setIsOpen] = useState(false);
+    // console.log(((useWindowSize()[0] * 0.7) / ${paletteColor.lentgth}) * (0.5 + idx));
+    const togglePicker = (e) => {
+        setIsOpen((prevState) => !prevState);
     };
-
-    const onClickDownload = async () => {
-        try {
-            const dataUrl = await domtoimage.toPng(paletteColors.current);
-            const link = document.createElement('a');
-            link.href = dataUrl;
-            link.download = '색갈피';
-            link.click();
-        } catch (error) {
-            console.error('oops, something went wrong!', error);
-        }
+    const onChange = (color) => {
+        setColor(color.hex);
     };
-
-    // TODO: 팔레트를 만든 사람 ID와 현재 접속해 있는 사람 ID가 같을 때만 활성화
-
     return (
-        <div className='palette__wrapper'>
-            <PaletteColors
-                className='palette__colors'
-                number={colorCode.length}
-                onClick={onClickPalette}
-                ref={paletteColors}
+        <>
+            <PaletteColor
+                className='edit-palette__color'
+                color={color}
+                onClick={togglePicker}
+            ></PaletteColor>
+            <ColorPickerContainer
+                className='color-picker__container'
+                left={
+                    ((useWindowSize()[0] * 0.7) / paletteColor.length) *
+                        (0.5 + idx) +
+                    100
+                }
+                isOpen={isOpen}
             >
-                {colorCode.map((color, idx) => (
-                    <PaletteColor
-                        className='palette__color'
-                        color={color}
-                        key={idx}
-                    />
-                ))}
-            </PaletteColors>
-            <div className='palette__info--hidden'>
-                <span className='palette__title'>{paletteName}</span>
-                <div className='palette__icons'>
-                    <button className='palette__like'>
-                        <FontAwesomeIcon icon={faHeart} />
-                    </button>
-                    <button className='palette__save'>
-                        <FontAwesomeIcon
-                            icon={faArrowDown}
-                            onClick={onClickDownload}
-                        />
-                    </button>
-                    <button className='palette__share'>
-                        <FontAwesomeIcon icon={faShareAlt} />
-                    </button>
-                </div>
-            </div>
-            <button className='palette__delete--hidden'>삭제</button>
-        </div>
+                <SketchPicker
+                    className='color-picker'
+                    color={color}
+                    onChange={onChange}
+                />
+                <button
+                    className='color-picker__button'
+                    onClick={() => {
+                        setNthColor(idx, color);
+                        togglePicker();
+                    }}
+                >
+                    저장
+                </button>
+            </ColorPickerContainer>
+        </>
     );
 };
-
-export default withRouter(PaletteListEntry);
+export default EditPaletteListEntry;
