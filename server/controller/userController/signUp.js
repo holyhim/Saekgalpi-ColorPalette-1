@@ -18,7 +18,7 @@ module.exports = {
           } else if (password === checkPassword) {
             User.create({
               userName,
-              signatureColor: '#f7f7f7',
+              signatureColor: '#2CCCE4',
               email,
               password,
             })
