@@ -1,25 +1,36 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useEffect, useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import PaletteList from '../../components/palette/PaletteList';
-
+import { UniquePaletteGetAPI } from '../../PaletteAPI';
 import { WaveButton } from '../Pages_styd';
 
-import { fakeFavPalettes } from '../../fakeData';
-
-const MyPage = ({ userInfo, dispatch }) => {
+const MyPage = ({ userInfo, dispatch, isLogin, history, match }) => {
+    // TODO: 이 페이지 들어올 때 해당 유저 GET 요청
+    const { id } = match.params;
     const isAdmin = false; // 추후 state로 변경 예정 / 임시 변수
+    const [userPalleteData, setUserPalleteData] = useState([]);
+    useEffect(() => {
+        UniquePaletteGetAPI(userInfo.id).then((res) => {
+            setUserPalleteData(res.data);
+            console.log(res);
+        });
+    }, []);
 
-    // const { id } = match.params;
-    // const userRouterID = userInfo[id];
-    // console.log(userRouterID);
+    if (id !== String(userInfo.id)) {
+        history.push('/');
+    }
     return (
+        //그리고 내 컬러 팔레트만 어떻게 가지고 올 수 있게 하는지? 그것도 물어봐야 되고
         <main>
             <span className='h1'>마이페이지</span>
             <div className='userPageWrapper'>
                 <div className='MyPage__wrapper'>
                     <section className='MyPage__Profile'>
-                        <span>{userInfo.username}</span>
+                        <div>
+                            <div>여기에 색상</div>시그니처 컬러
+                            {userInfo.signatureColor}
+                        </div>
+                        <span>{userInfo.userName}</span>
                         <span>{userInfo.email}</span>
                     </section>
                     <section className='MyPage__BtnWrapper'>
@@ -27,7 +38,6 @@ const MyPage = ({ userInfo, dispatch }) => {
                             <Link to={`/changeSignatureColor/${userInfo.id}`}>
                                 시그니처 컬러 변경
                             </Link>
-                            {/* 마이페이지의 내 시그니처 컬러를 누르면 이동 */}
                         </WaveButton>
                         <WaveButton>
                             <Link to={`/changePassword/${userInfo.id}`}>
@@ -38,7 +48,7 @@ const MyPage = ({ userInfo, dispatch }) => {
                     <section className='MyPage__PalWrapper'>
                         <h3 className='MyPage__AdminTitle'>내 색갈피 관리</h3>
                         <PaletteList
-                            palettes={fakeFavPalettes}
+                            palettes={userPalleteData}
                             dispatch={dispatch}
                             userInfo={userInfo}
                         />
@@ -58,4 +68,4 @@ const MyPage = ({ userInfo, dispatch }) => {
     );
 };
 
-export default MyPage;
+export default withRouter(MyPage);

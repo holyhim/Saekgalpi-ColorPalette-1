@@ -11,6 +11,7 @@ const SubHeader = ({ isLogin, isAdmin, userInfo, setIsLogin, setUserInfo }) => {
             if (res.status === 200) {
                 setUserInfo({});
                 setIsLogin(false);
+                localStorage.remove('loggedInfo');
                 alert('로그아웃 되었습니다.');
             }
         });
@@ -53,10 +54,19 @@ const SubHeader = ({ isLogin, isAdmin, userInfo, setIsLogin, setUserInfo }) => {
                 ) : (
                     <ul>
                         <li>
+                            <Link to='/allPalette'>
+                                <UnderlineButton>
+                                    모든 색갈피 보기
+                                </UnderlineButton>
+                            </Link>
+                        </li>
+                        <li>
                             <Link
                                 to={{
                                     pathname: `${
-                                        isAdmin ? '/Admin' : '/MyPage'
+                                        isAdmin
+                                            ? '/Admin'
+                                            : `/MyPage/${userInfo.id}`
                                     }`,
                                 }}
                             >
