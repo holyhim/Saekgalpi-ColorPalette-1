@@ -4,7 +4,7 @@
 
 # 🎨 색갈피
 
-한국어가 지원되는 컬러 팔레트 웹페이지, 색갈피(링크 )입니다.
+한국어가 지원되는 컬러 팔레트 웹페이지, <a href="http://hwabaek.s3-website.ap-northeast-2.amazonaws.com/">색갈피</a>입니다.
 
 이 웹페이지는 디자이너와 프로그래머에게 훌륭한 컬러팔레트를 제공하고, 저장할 수 있게 해줍니다.
 
@@ -50,36 +50,42 @@
 
    or
 
-배포 된 url : (추후 추가 예정)에서 사용하십시오.
+url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com/** 에서 사용하십시오.
 
-## About Service
+## About Service (움짤 첨부 예정)
    1. main page 
       - 조회수 순서로 16개의 색갈피 정렬
       - 최신순으로 4개의 색갈피 정렬
+   
    2. login / logout
       - 로그인
       - 로그아웃
+   
    3. signatureColor
       - 자신의 고유 색상을 지정, 편집
+   
    4. password edit
       - 비밀번호 변경
+   
    5. Create Palette
       - 색갈피 생성
       - 2 ~ 7개의 색을 설정
       - 색갈피 이름과 설명 설정
+   
    6. Edit Palette
       - 색갈피 변경
       - 색 개수 변경
       - 이름과 설명 변경
+   
    7. Delete Palette
       - 사용자 개인이 생성한 색갈피 삭제
+   
    8. admin 
       - 전체 유저 조회
       - 유저 삭제 
       - 팔레트 삭제
 
 ## 🎨 Server
-색갈피의 server 파일입니다.
 
 ### :sparkles: API DOCS
 하단의 하이퍼링크를 클릭하시면 API DOCS로 연결됩니다.   
@@ -99,8 +105,6 @@
 
 
 ## 🎨 Client
-
-색갈피의 client 파일입니다.
 
 ### ✨ Features
 
