@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 import domtoimage from 'dom-to-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {
     faHeart,
     faArrowDown,
@@ -114,9 +115,11 @@ const PaletteListEntry = ({ palette, dispatch, history }) => {
                             onClick={onClickDownload}
                         />
                     </button>
-                    <button className='palette__share'>
-                        <FontAwesomeIcon icon={faShareAlt} />
-                    </button>
+                    <CopyToClipboard text={`http://localhost:5000/${id}`}>
+                        <button className='palette__share'>
+                            <FontAwesomeIcon icon={faShareAlt} />
+                        </button>
+                    </CopyToClipboard>
                 </div>
             </div>
             <button className='palette__delete--hidden'>삭제</button>

@@ -150,9 +150,15 @@ const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
                             )}
                             <ul className='palette-detail__share-lists'>
                                 <li className='palette-detail__share-item'>
-                                    <ShareBtn className='palette-detail__item-link'>
-                                        <FontAwesomeIcon icon={faShareAlt} />
-                                    </ShareBtn>
+                                    <CopyToClipboard
+                                        text={`http://localhost:5000/${id}`}
+                                    >
+                                        <ShareBtn className='palette-detail__item-link'>
+                                            <FontAwesomeIcon
+                                                icon={faShareAlt}
+                                            />
+                                        </ShareBtn>
+                                    </CopyToClipboard>
                                 </li>
                                 <li className='palette-detail__share-item'>
                                     <ShareBtn
