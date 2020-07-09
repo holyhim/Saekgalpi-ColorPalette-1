@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import PaletteList from '../components/palette/PaletteList';
 import RandomColorList from '../components/palette/RandomColorList';
@@ -15,7 +15,7 @@ const Main = ({
     dispatch,
     userInfo,
 }) => {
-    const getPalettes = async () => {
+    const getPalettes = useCallback(async () => {
         dispatch({ type: LOADING_START });
         try {
             const favPalettesData = await axios.get(
@@ -32,11 +32,11 @@ const Main = ({
         } catch (error) {
             console.log(error);
         }
-    };
+    }, [dispatch]);
 
     useEffect(() => {
         getPalettes();
-    }, []);
+    }, [getPalettes]);
 
     return (
         <main className='main__main-content'>
