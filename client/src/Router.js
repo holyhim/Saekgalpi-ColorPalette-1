@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Header from './components/templete/Header';
@@ -69,8 +69,14 @@ const paletteReducer = (state, action) => {
     }
 };
 
-const Router = ({ isLogin, setIsLogin, userInfo, setUserInfo }) => {
-    const [isAdmin, setIsAdmin] = useState(true);
+const Router = ({
+    isAdmin,
+    setIsAdmin,
+    isLogin,
+    setIsLogin,
+    userInfo,
+    setUserInfo,
+}) => {
     const [state, dispatch] = useReducer(paletteReducer, initialState);
     const { clickedPalette, favPalettes, currentPalettes, isLoading } = state;
 
@@ -81,6 +87,7 @@ const Router = ({ isLogin, setIsLogin, userInfo, setUserInfo }) => {
                 isAdmin={isAdmin}
                 userInfo={userInfo}
                 setIsLogin={setIsLogin}
+                setIsAdmin={setIsAdmin}
                 setUserInfo={setUserInfo}
             />
             <Switch>
@@ -90,6 +97,7 @@ const Router = ({ isLogin, setIsLogin, userInfo, setUserInfo }) => {
                         setUserInfo={setUserInfo}
                         setIsLogin={setIsLogin}
                         isLogin={isLogin}
+                        setIsAdmin={setIsAdmin}
                     />
                 </Route>
                 <Route path='/signUp'>
@@ -107,6 +115,7 @@ const Router = ({ isLogin, setIsLogin, userInfo, setUserInfo }) => {
                         dispatch={dispatch}
                         userInfo={userInfo}
                         isLoading={isLoading}
+                        isAdmin={isAdmin}
                     />
                 </Route>
                 <Route path='/MyPage/:id'>
@@ -115,6 +124,7 @@ const Router = ({ isLogin, setIsLogin, userInfo, setUserInfo }) => {
                         dispatch={dispatch}
                         isLoading={isLoading}
                         isLogin={isLogin}
+                        isAdmin={isAdmin}
                     />
                 </Route>
                 <Route path='/changePassword/:id'>
@@ -130,7 +140,7 @@ const Router = ({ isLogin, setIsLogin, userInfo, setUserInfo }) => {
                     <EditPalette palette={clickedPalette} userInfo={userInfo} />
                 </Route>
                 <Route path='/makePalette' userInfo={userInfo}>
-                    <MakePalette userInfo={userInfo} />
+                    <MakePalette userInfo={userInfo} isLogin={isLogin} />
                 </Route>
                 <Route path='/paletteDetail/:id'>
                     <PaletteDetail
