@@ -50,7 +50,7 @@
 
    or
 
-url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com/** 에서 사용하십시오.
+url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용하십시오.
 
 ## About Service (움짤 첨부 예정)
    1. main page 
