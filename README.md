@@ -140,7 +140,7 @@ url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용�
 
 ## About Team
 
-# 박나영
+### 박나영
 <div>
 <img width=200 src="https://user-images.githubusercontent.com/61039975/86037840-f193e780-ba7a-11ea-99c8-697e4152dbfb.jpg">
 </div>
@@ -150,21 +150,21 @@ url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용�
 🆔 Github Id : @Trisha-Park  
 💡 Blog : https://medium.com/@nayeong.t.park  
 
-# 이승연
+### 이승연
 **Team members, FrontEnd**  
 📧 Gmail : lsy26499@gmail.com  
 🆔 Github Id : @lsy26499  
 💡 Blog : https://lsy26499.tistory.com/  
    
 
-# 이유정
+### 이유정
 **Team members, FrontEnd**  
 📧 Gmail : idoasisay.yc@gmail.com  
 🆔 Github Id : @idoasisay  
 💡 Blog : https://velog.io/@riceintheramen  
 
 
-# 허지성
+### 허지성
 <div>
 <img width=180 src ="https://img1.daumcdn.net/thumb/C428x428/?scode=mtistory2&fname=https%3A%2F%2Ftistory2.daumcdn.net%2Ftistory%2F3810709%2Fattach%2F31d458b15a464f96a3db02028490061c">
 <div>
