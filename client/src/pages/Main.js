@@ -19,10 +19,10 @@ const Main = ({
         dispatch({ type: LOADING_START });
         try {
             const favPalettesData = await axios.get(
-                'http://localhost:5000/visitGet'
+                'http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/visitGet'
             );
             const currentPalettesData = await axios.get(
-                'http://localhost:5000/updateGet'
+                'http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/updateGet'
             );
 
             if (!favPalettesData || !currentPalettesData) {
