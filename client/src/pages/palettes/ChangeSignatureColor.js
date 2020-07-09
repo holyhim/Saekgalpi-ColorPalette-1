@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import { ColorPicker, SignatureColor, WaveButton } from '../Pages_styd';
 import axios from 'axios';
 
 const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
     const { id } = match.params;
 
+    if (userInfo && id !== String(userInfo.id)) {
+        history.push('/');
+    }
+
     const [isOpen, setIsOpen] = useState(false);
-    const [color, setColor] = useState(userInfo.signatureColor);
+    const [color, setColor] = useState(userInfo && userInfo.signatureColor);
 
     const togglePicker = () => {
         setIsOpen((prevState) => !prevState);
     };
 
-    const onChangeComplete = (color, e) => {
-        setColor(color.hex);
+    const onChangeComplete = (color) => {
+        setColor(userInfo && color.hex);
     };
 
     const onClickSaveButton = async () => {
-        if (id !== String(userInfo.id)) {
-            history.push('/');
-        }
         try {
             await axios.post(
                 `http://localhost:5000/changeSignatureColor/${userInfo.id}`,
@@ -35,7 +36,9 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
         }
     };
 
-    return (
+    return !userInfo ? (
+        <Redirect to={'/'} />
+    ) : (
         <main className='change-signature-color__main'>
             <span className='h1'>시그니처 컬러 변경</span>
             <div className='CGPalWarpper'>
