@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import PaletteList from '../components/palette/PaletteList';
@@ -11,7 +12,6 @@ const Main = ({
     isLogin,
     favPalettes,
     currentPalettes,
-    isLoading,
     dispatch,
     userInfo,
 }) => {
@@ -24,19 +24,28 @@ const Main = ({
             const currentPalettesData = await axios.get(
                 'http://localhost:5000/updateGet'
             );
-            dispatch({
-                type: LOADING_END,
-                favPalettes: favPalettesData.data,
-                currentPalettes: currentPalettesData.data,
-            });
+
+            if (!favPalettesData || !currentPalettesData) {
+                dispatch({
+                    type: LOADING_END,
+                    favPalettes: [],
+                    currentPalettes: [],
+                });
+            } else {
+                dispatch({
+                    type: LOADING_END,
+                    favPalettes: favPalettesData.data,
+                    currentPalettes: currentPalettesData.data,
+                });
+            }
         } catch (error) {
             console.log(error);
         }
-    }, [dispatch]);
+    }, []);
 
     useEffect(() => {
         getPalettes();
-    }, [getPalettes]);
+    }, []);
 
     return (
         <main className='main__main-content'>

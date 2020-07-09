@@ -13,11 +13,11 @@ const reducer = (state, action) => {
 
 //패스워드 바꾸기
 const ChangePassword = ({ history, match, userInfo }) => {
+    const { id } = match.params;
     if (id !== String(userInfo.id)) {
         history.push('/');
     }
 
-    const { id } = match.params;
     const [state, dispatch] = useReducer(reducer, {
         currentPassword: '',
         changePassword: '',

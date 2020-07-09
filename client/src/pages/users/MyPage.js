@@ -6,12 +6,11 @@ import { UniquePaletteGetAPI } from '../../PaletteAPI';
 import { WaveButton } from '../Pages_styd';
 
 const MyPage = ({ userInfo, dispatch, history, match }) => {
+    const { id } = match.params;
     if (id !== String(userInfo.id)) {
         history.push('/');
     }
 
-    const { id } = match.params;
-    const isAdmin = false; // 추후 state로 변경 예정 / 임시 변수
     const [userPalleteData, setUserPalleteData] = useState([]);
     useEffect(() => {
         UniquePaletteGetAPI(userInfo.id).then((res) => {
@@ -51,16 +50,7 @@ const MyPage = ({ userInfo, dispatch, history, match }) => {
                             dispatch={dispatch}
                             userInfo={userInfo}
                         />
-                        {/* //TODO: isAdmin을 하위 컴포넌트에 props로 넘겨주고, 하위 컴포넌트에서 팔레트 삭제 버튼을 추가 */}
                     </section>
-                    {isAdmin ? (
-                        <section>
-                            관리자가 들어왔을 때(isAdmin === true) 모든 유저
-                            목록을 화면에 뿌려줄 예정입니다 & 삭제 버튼도 존재
-                        </section>
-                    ) : (
-                        <></>
-                    )}
                 </div>
             </div>
         </main>

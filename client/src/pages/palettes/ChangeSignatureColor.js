@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
     const { id } = match.params;
+
     const [isOpen, setIsOpen] = useState(false);
     const [color, setColor] = useState(userInfo.signatureColor);
 
@@ -27,7 +28,7 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
                     signatureColor: color,
                 }
             );
-            setUserInfo({ signatureColor: color });
+            setUserInfo({ ...userInfo, signatureColor: color });
             history.push('/');
         } catch (error) {
             console.log(error);
@@ -51,7 +52,6 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
                         저장
                     </WaveButton>
                     <div className='change-signature-color__picker'>
-                        {/* // TODO: 시그니처 컬러 변경: 컬러피커 이용 */}
                         <SignatureColor
                             className='change-signature-color__color'
                             onClick={togglePicker}
