@@ -13,10 +13,10 @@ const SignIn = ({ history, setUserInfo, setIsLogin, isLogin, setIsAdmin }) => {
     const onClickSignInButton = () => {
         SignInPostAPI({ email: email, password: password }).then((res) => {
             if (res.status === 200) {
-                alert('로그인이 되었습니다');
                 localStorage.setItem('user', JSON.stringify(res.data));
                 setUserInfo(res.data);
                 setIsLogin(true);
+                alert('로그인이 되었습니다');
                 if (res.data.id === 1) {
                     setIsAdmin(true);
                 }
@@ -30,11 +30,9 @@ const SignIn = ({ history, setUserInfo, setIsLogin, isLogin, setIsAdmin }) => {
         history.push('/signUp');
     };
     const handleInputEMAILValue = (e) => {
-        // TODO: Input 값 value로 받아 state 설정
         setEmail(e.target.value);
     };
     const handleInputPWValue = (e) => {
-        // TODO: Input 값 value로 받아 state 설정
         setPassword(e.target.value);
     };
 

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from 'antd';
@@ -70,6 +70,14 @@ const PaletteDescription = styled.div`
 const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
     const paletteColors = useRef(null);
     const { id, userId, paletteName, colorCode, description } = palette;
+
+    const countVisit = async () => {
+        await axios.get(`http://localhost:5000/paletteDetailVisit/${id}`);
+    };
+
+    useEffect(() => {
+        countVisit();
+    });
 
     const onClickDeleteBtn = async () => {
         await axios.post(`http://localhost:5000/paletteDetail/${id}`);

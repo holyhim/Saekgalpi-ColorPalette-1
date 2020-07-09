@@ -4,12 +4,20 @@ import { RoundWaveButton, UnderlineButton } from './Templete_styd';
 import logos from '../../images/2.png';
 import { LogoutPostAPI } from '../../UserAPI';
 
-const SubHeader = ({ isLogin, isAdmin, userInfo, setIsLogin, setUserInfo }) => {
+const SubHeader = ({
+    isLogin,
+    isAdmin,
+    userInfo,
+    setIsAdmin,
+    setIsLogin,
+    setUserInfo,
+}) => {
     const onClickLogoutButton = () => {
         LogoutPostAPI(userInfo).then((res) => {
             if (res.status === 200) {
                 setUserInfo({});
                 setIsLogin(false);
+                setIsAdmin(false);
                 localStorage.removeItem('user');
                 alert('로그아웃 되었습니다.');
             }

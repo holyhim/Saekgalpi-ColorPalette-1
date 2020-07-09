@@ -7,6 +7,7 @@ const MainHeader = ({
     isLogin,
     isAdmin,
     userInfo,
+    setIsAdmin,
     setIsLogin,
     setUserInfo,
 }) => {
@@ -15,6 +16,7 @@ const MainHeader = ({
             if (res.status === 200) {
                 setUserInfo({});
                 setIsLogin(false);
+                setIsAdmin(false);
                 localStorage.removeItem('user');
                 alert('로그아웃 되었습니다.');
             }

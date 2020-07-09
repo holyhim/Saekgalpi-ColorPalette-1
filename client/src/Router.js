@@ -115,6 +115,7 @@ const Router = ({
                         userInfo={userInfo}
                         isLoading={isLoading}
                         isAdmin={isAdmin}
+                        isLogin={isLogin}
                     />
                 </Route>
                 <Route path='/MyPage/:id'>

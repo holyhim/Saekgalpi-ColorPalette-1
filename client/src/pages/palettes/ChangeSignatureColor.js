@@ -30,7 +30,6 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
                 }
             );
             setUserInfo({ ...userInfo, signatureColor: color });
-            history.push('/');
         } catch (error) {
             console.log(error);
         }

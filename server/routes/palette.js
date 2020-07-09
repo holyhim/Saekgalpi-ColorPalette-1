@@ -33,6 +33,6 @@ router.get('/updateGet', paletteController.paletteInfo.updatedGet);
 router.get('/visitGet', paletteController.paletteInfo.visitGet);
 
 // * GET /colorController/visitCheck
-router.get('/paletteDetail/:id', paletteController.visitCheck.get);
+router.get('/paletteDetailVisit/:id', paletteController.visitCheck.get);
 
 module.exports = router;
