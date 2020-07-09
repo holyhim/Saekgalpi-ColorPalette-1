@@ -84,7 +84,12 @@ url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용�
       - 전체 유저 조회
       - 유저 삭제 
       - 팔레트 삭제
+## Flow Chart
 
+<div>
+<img width=600 src="https://user-images.githubusercontent.com/59815596/86088603-9f39e180-bae1-11ea-9583-6ba707aacdc2.png"></img>
+<div>
+   
 ## 🎨 Server
 
 ### :sparkles: API DOCS
@@ -103,6 +108,11 @@ url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용�
 -   body parser
 -   cookie parser
 
+## 🗃 Schema
+
+<div>
+<img width="500" src="https://user-images.githubusercontent.com/61039975/86808411-cbdb9380-c0b5-11ea-9e5e-813a35606e08.png">
+</div>
 
 ## 🎨 Client
 
@@ -123,6 +133,42 @@ url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용�
 -   React-Hooks
 -   SASS
 -   Styled-Component
+
+## About Team
+
+# 박나영
+<div>
+<img width=200 src="https://user-images.githubusercontent.com/61039975/86037840-f193e780-ba7a-11ea-99c8-697e4152dbfb.jpg">
+</div>
+
+- TeamLeader, BackEnd
+- 📧 Gmail : Nayeong.T.Park@gmail.com
+- 🆔 Github Id : @Trisha-Park
+- 💡 Blog : https://medium.com/@nayeong.t.park
+
+# 이승연
+- Team members, FrontEnd
+- 📧 Gmail : lsy26499@gmail.com
+- 🆔 Github Id : @lsy26499
+- 💡 Blog : https://lsy26499.tistory.com/
+
+
+# 이유정
+- Team members, FrontEnd
+- 📧 Gmail : idoasisay.yc@gmail.com
+- 🆔 Github Id : @idoasisay
+- 💡 Blog : https://velog.io/@riceintheramen
+
+
+# 허지성
+<div>
+<img width=180 src ="https://img1.daumcdn.net/thumb/C428x428/?scode=mtistory2&fname=https%3A%2F%2Ftistory2.daumcdn.net%2Ftistory%2F3810709%2Fattach%2F31d458b15a464f96a3db02028490061c">
+<div>
+
+- Team members, BackEnd
+- 📧 Gmail : heojiseong0811@gmail.com
+- 🆔 Github Id : @Heo-JiSeong
+- 💡 Blog : https://dreamheoji.tistory.com/
 
 ## License
 
