@@ -28,16 +28,17 @@ module.exports = {
             },
             {
                 where: {
-                    userId: id,
+                    id: id,
                 },
             }
         )
             .then((data) => {
                 res.status(200).send(data);
-                console.log('파레트가 수정되었습니다.');
+                console.log('팔레트가 수정되었습니다.');
             })
             .catch((err) => {
                 res.status(500).send(err);
+                console.log('500 Error');
             });
     },
 };
