@@ -127,7 +127,10 @@ const Router = () => {
                     <ChangePassword userInfo={userInfo} />
                 </Route>
                 <Route path='/changeSignatureColor/:id'>
-                    <ChangeSignatureColor userInfo={userInfo} />
+                    <ChangeSignatureColor
+                        userInfo={userInfo}
+                        setUserInfo={setUserInfo}
+                    />
                 </Route>
                 <Route path='/editPalette/:id'>
                     <EditPalette palette={clickedPalette} userInfo={userInfo} />
