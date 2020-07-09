@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { ColorPicker, SignatureColor, WaveButton } from '../Pages_styd';
 import axios from 'axios';
 
-const ChangeSignatureColor = ({ userInfo, history, match }) => {
+const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
     const { id } = match.params;
     const [isOpen, setIsOpen] = useState(false);
     const [color, setColor] = useState(userInfo.signatureColor);
@@ -17,10 +17,20 @@ const ChangeSignatureColor = ({ userInfo, history, match }) => {
     };
 
     const onClickSaveButton = async () => {
-        await axios.post(`http://localhost:5000/changeSignatureColor/${id}`, {
-            signatureColor: userInfo.signatureColor,
-        });
+        try {
+            await axios.post(
+                `http://localhost:5000/changeSignatureColor/${userInfo.id}`,
+                {
+                    signatureColor: color,
+                }
+            );
+            setUserInfo({ signatureColor: color });
+            history.push('/');
+        } catch (error) {
+            console.log(error);
+        }
     };
+
     if (id !== String(userInfo.id)) {
         history.push('/');
     }

@@ -99,19 +99,20 @@ const EditPalette = ({ palette, userInfo, history }) => {
     };
 
     const onClickPostButton = async () => {
+        console.log(colors);
         await axios.post(`http://localhost:5000/editPalette/${id}`, {
             paletteName: title,
             description,
-            colorCode01: colors[0],
-            colorCode02: colors[1],
-            colorCode03: colors[2],
-            colorCode04: colors[3],
-            colorCode05: colors[4],
-            colorCode06: colors[5],
-            colorCode07: colors[6],
+            colorCode01: colors[0] || null,
+            colorCode02: colors[1] || null,
+            colorCode03: colors[2] || null,
+            colorCode04: colors[3] || null,
+            colorCode05: colors[4] || null,
+            colorCode06: colors[5] || null,
+            colorCode07: colors[6] || null,
         });
         // post 요청으로 db 수정된거 확인되면 풀기
-        // history.push('/');
+        history.push('/');
     };
 
     return (

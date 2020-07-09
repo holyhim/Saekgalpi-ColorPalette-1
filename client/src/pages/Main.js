@@ -35,10 +35,8 @@ const Main = ({
     };
 
     useEffect(() => {
-        if (favPalettes.length === 0 || currentPalettes.length === 0) {
-            getPalettes();
-        }
-    }, [favPalettes, currentPalettes]);
+        getPalettes();
+    }, []);
 
     return (
         <main className='main__main-content'>
