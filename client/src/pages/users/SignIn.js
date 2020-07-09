@@ -3,12 +3,7 @@ import { withRouter, Redirect } from 'react-router-dom';
 import { Form } from 'antd';
 import { SignInPostAPI } from '../../UserAPI';
 
-import {
-    WaveButton,
-    EmailInput,
-    SignInForm,
-    SignInPWInput,
-} from '../Pages_styd';
+import { WaveButton, EmailInput, SignForm, SignInPWInput } from '../Pages_styd';
 //성공하면 isLogin을 true로 만들어 주고 세션 적용해야 하며 유저 인포가 필요함
 
 const SignIn = ({ history, setUserInfo, setIsLogin, isLogin, setIsAdmin }) => {
@@ -51,14 +46,13 @@ const SignIn = ({ history, setUserInfo, setIsLogin, isLogin, setIsAdmin }) => {
             </div>
             <div className='userPageWrapper SignInWrapper'>
                 <Form
-                    name='basic'
+                    name='signIn'
                     initialValues={{ remember: true }}
-                    //이거..뭔지모르겠는데일단킵
                     onSubmit={(e) => {
                         e.preventDefault();
                     }}
                 >
-                    <SignInForm
+                    <SignForm
                         name='email'
                         rules={[
                             {
@@ -70,9 +64,9 @@ const SignIn = ({ history, setUserInfo, setIsLogin, isLogin, setIsAdmin }) => {
                         value={email}
                     >
                         <EmailInput placeholder='이메일' />
-                    </SignInForm>
+                    </SignForm>
 
-                    <SignInForm
+                    <SignForm
                         name='password'
                         placeholer='이메일'
                         rules={[
@@ -85,7 +79,7 @@ const SignIn = ({ history, setUserInfo, setIsLogin, isLogin, setIsAdmin }) => {
                         value={password}
                     >
                         <SignInPWInput placeholder='비밀번호' />
-                    </SignInForm>
+                    </SignForm>
 
                     <Form.Item>
                         <WaveButton

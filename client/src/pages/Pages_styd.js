@@ -1,4 +1,4 @@
-import { Card, Button, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { BlockPicker } from 'react-color';
 import styd from 'styled-components';
 
@@ -32,37 +32,12 @@ export const MakePaletteContainer = styd.section`
 
 ///////////////////폼/////////////////////
 
-export const SignInForm = styd(Form.Item)`
+export const SignForm = styd(Form.Item)`
 width: 500px;
 margin-bottom: 30px;
 `;
 
-export const SignUpForm = styd(Card)`
-border: 1px solid #d9d9d9;
-display: flex;
-justify-content: center;
-align-items: center;
-margin-bottom: 15px;
-transition: all 0.5s;
-&:hover{
-    border: 1px solid #a7a7a7;
-}
-&:focus {
-    border: 1px solid #a7a7a7;
-    box-shadow: 0 0 0 2px #e1e1e1;
-}
-`;
-
 ///////////////////인풋/////////////////////
-
-export const SignUpInput = styd.input`
-border: 0;
-box-sizing: border-box;
-padding: 10px;
-font-size: 1.5em;
-width: 450px;
-outline: 0;
-`;
 
 export const PWInput = styd(Input.Password)`
 margin-bottom: 20px;
