@@ -29,11 +29,6 @@ const ChangePassword = ({ history, match, userInfo }) => {
         ChangePasswordPostAPI(state, userID).then((res) => {
             console.log(state);
             if (res.status === 200) {
-                // if (!currentPassword) {
-                //     alert('현재 비밀번호가 맞지 않습니다.');
-                // } else if (changePassword !== checkChangePassword) {
-                //     alert('새로운 비밀번호와 비밀번호 확인이 맞지 않습니다.');
-                // }
                 alert('비밀번호가 변경되었습니다.');
                 history.push('/');
             }
