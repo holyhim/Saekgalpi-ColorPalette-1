@@ -16,6 +16,7 @@ const MainHeader = ({
             if (res.status === 200) {
                 setUserInfo({});
                 setIsLogin(false);
+                localStorage.remove('loggedInfo');
                 alert('로그아웃 되었습니다.');
             }
         });
@@ -43,7 +44,9 @@ const MainHeader = ({
                             <Link
                                 to={{
                                     pathname: `${
-                                        isAdmin ? '/Admin' : '/MyPage'
+                                        isAdmin
+                                            ? '/Admin'
+                                            : `/MyPage/${userInfo.id}`
                                     }`,
                                 }}
                             >

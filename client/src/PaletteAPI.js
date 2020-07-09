@@ -1,7 +1,13 @@
 import axios from 'axios';
 
-const PaletteGetAPI = () => {
-    return axios.get('http://localhost:4000/signin', {
+export const AllPaletteGetAPI = () => {
+    return axios.get('http://localhost:5000/allPalette', {
+        withCredentials: true,
+    });
+};
+
+export const UniquePaletteGetAPI = (userInfoID) => {
+    return axios.get(`http://localhost:5000/MyPage/${userInfoID}`, {
         withCredentials: true,
     });
 };

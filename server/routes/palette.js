@@ -17,7 +17,13 @@ router.post('/editPalette/:id', paletteController.paletteEdit.post);
 
 // * GET /colorController/paletteInfo
 router.get(
-    ['/', '/admin', '/paletteDetail/:id', '/allPalette', '/editPalette/:id'],
+    [
+        '/MyPage/:id',
+        '/admin',
+        '/paletteDetail/:id',
+        '/allPalette',
+        '/editPalette/:id',
+    ],
     paletteController.paletteInfo.get
 );
 // * updateGet

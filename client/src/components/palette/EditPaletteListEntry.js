@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import { SketchPicker } from 'react-color';
 import styled from 'styled-components';
 
+
 const PaletteColor = styled.div`
     background-color: ${(props) => props.color};
     cursor: pointer;
@@ -77,5 +78,4 @@ const EditPaletteListEntry = ({ paletteColor, idx, setNthColor }) => {
         </>
     );
 };
-
 export default EditPaletteListEntry;

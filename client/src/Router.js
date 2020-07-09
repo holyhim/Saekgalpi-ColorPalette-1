@@ -69,18 +69,10 @@ const paletteReducer = (state, action) => {
     }
 };
 
-const Router = () => {
-    const [isAdmin, setIsAdmin] = useState(false);
-
-    const [isLogin, setIsLogin] = useState(false);
-    const [userInfo, setUserInfo] = useState({});
+const Router = ({ isLogin, setIsLogin, userInfo, setUserInfo }) => {
+    const [isAdmin, setIsAdmin] = useState(true);
     const [state, dispatch] = useReducer(paletteReducer, initialState);
     const { clickedPalette, favPalettes, currentPalettes, isLoading } = state;
-
-    // const isLoginHandler = () => {
-    //     userInfo ? setIsLogin(true) : setIsLogin(false);
-    //     //로그인이 되어 있는지 확인하는 핸들러
-    // };
 
     return (
         <BrowserRouter>
@@ -97,10 +89,11 @@ const Router = () => {
                         userInfo={userInfo}
                         setUserInfo={setUserInfo}
                         setIsLogin={setIsLogin}
+                        isLogin={isLogin}
                     />
                 </Route>
                 <Route path='/signUp'>
-                    <SignUp userInfo={userInfo} />
+                    <SignUp userInfo={userInfo} isLogin={isLogin} />
                 </Route>
                 <Route path='/allPalette'>
                     <AllPalette
@@ -116,11 +109,12 @@ const Router = () => {
                         isLoading={isLoading}
                     />
                 </Route>
-                <Route path='/MyPage'>
+                <Route path='/MyPage/:id'>
                     <MyPage
                         userInfo={userInfo}
                         dispatch={dispatch}
                         isLoading={isLoading}
+                        isLogin={isLogin}
                     />
                 </Route>
                 <Route path='/changePassword/:id'>

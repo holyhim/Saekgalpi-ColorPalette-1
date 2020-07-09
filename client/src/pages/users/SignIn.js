@@ -11,7 +11,7 @@ import {
 } from '../Pages_styd';
 //성공하면 isLogin을 true로 만들어 주고 세션 적용해야 하며 유저 인포가 필요함
 
-const SignIn = ({ history, setUserInfo, userInfo, setIsLogin }) => {
+const SignIn = ({ history, setUserInfo, setIsLogin, isLogin }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -21,6 +21,7 @@ const SignIn = ({ history, setUserInfo, userInfo, setIsLogin }) => {
                 alert('로그인이 되었습니다');
                 setUserInfo({ ...res.data });
                 setIsLogin(true);
+                localStorage.setItem('user', JSON.stringify(res.data));
                 history.push('/');
             }
         });
@@ -38,6 +39,10 @@ const SignIn = ({ history, setUserInfo, userInfo, setIsLogin }) => {
         // TODO: Input 값 value로 받아 state 설정
         setPassword(e.target.value);
     };
+
+    if (isLogin) {
+        history.push('/');
+    }
 
     return (
         <main>
