@@ -81,7 +81,7 @@ const PaletteDescription = styled.div`
     font-size: 1.5em;
 `;
 
-const PaletteDetail = ({ isLogin, palette, dispatch, history, userInfo }) => {
+const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
     const paletteColors = useRef(null);
     const { id, userId, paletteName, colorCode, description } = palette;
 
@@ -198,7 +198,7 @@ const PaletteDetail = ({ isLogin, palette, dispatch, history, userInfo }) => {
                                 {paletteName}
                             </span>
                             <span className='palette-detail__username'>
-                                {userInfo.userName}
+                                {userId}
                             </span>
                         </div>
                         <article className='palette-detail__code-container'>
