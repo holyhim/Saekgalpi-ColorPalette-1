@@ -39,7 +39,7 @@ div {
     return (
         //그리고 내 컬러 팔레트만 어떻게 가지고 올 수 있게 하는지? 그것도 물어봐야 되고
         <main>
-            <span className='h1'>마이페이지</span>
+            <span className='h1'>내 색갈피</span>
             <div className='userPageWrapper'>
                 <div className='MyPage__wrapper'>
                     <section className='MyPage__Profile'>
@@ -56,7 +56,7 @@ div {
                     <section className='MyPage__BtnWrapper'>
                         <WaveButton>
                             <Link to={`/changeSignatureColor/${userInfo.id}`}>
-                                시그니처 컬러 변경
+                                나만의 색 변경
                             </Link>
                         </WaveButton>
                         <WaveButton>
