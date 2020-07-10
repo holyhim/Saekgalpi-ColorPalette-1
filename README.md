@@ -52,7 +52,7 @@
 
 url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용하십시오.
 
-## About Service (움짤 첨부 예정)
+## About Service
    1. main page 
       - 조회수 순서로 16개의 색갈피 정렬
       - 최신순으로 4개의 색갈피 정렬
