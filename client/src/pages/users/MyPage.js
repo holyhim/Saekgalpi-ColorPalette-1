@@ -6,25 +6,26 @@ import { UniquePaletteGetAPI } from '../../PaletteAPI';
 import { WaveButton } from '../Pages_styd';
 import styd from 'styled-components';
 
-const MyPage = ({ userInfo, dispatch, history, match }) => {
-    const MypageSig = styd.div`
+const MypageSig = styd.div`
 width: 120px;
 height: 150px;
-background-color: ${userInfo.signatureColor};
+background-color: ${(props) => props.signatureColor};
 margin-bottom: 10px;
 border-radius: 5px;
 box-shadow: 0 0 20px 3px #d7d7d7;
 position: relative;
 div {
-    width: 120px;
-    heigth: 10px;
-    border-radius: 0 0 5px 5px;
-        background-color: white;
-        position: absolute;
-        bottom: 0;
+width: 120px;
+heigth: 10px;
+border-radius: 0 0 5px 5px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
 
-    }
+}
 `;
+
+const MyPage = ({ userInfo, dispatch, history, match }) => {
     const { id } = match.params;
     if (id !== String(userInfo.id)) {
         history.push('/');
@@ -33,7 +34,7 @@ div {
     const [userPalleteData, setUserPalleteData] = useState([]);
     useEffect(() => {
         UniquePaletteGetAPI(userInfo.id).then((res) => {
-            setUserPalleteData(res.data);
+            setUserPalleteData([...res.data]);
         });
     }, []);
     return (
@@ -44,7 +45,7 @@ div {
                 <div className='MyPage__wrapper'>
                     <section className='MyPage__Profile'>
                         <div>
-                            <MypageSig>
+                            <MypageSig signatureColor={userInfo.signatureColor}>
                                 <div>{userInfo.signatureColor}</div>
                             </MypageSig>
                         </div>

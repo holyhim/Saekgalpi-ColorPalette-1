@@ -98,7 +98,7 @@ const MakePalette = ({ userInfo, isLogin, history }) => {
 
     const onClickPostButton = async () => {
         const makePaletteData = await axios.post(
-            `http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/makePalette`,
+            `http://54.180.156.40:5000/makePalette`,
             {
                 id: userInfo.id,
                 paletteName: title,
