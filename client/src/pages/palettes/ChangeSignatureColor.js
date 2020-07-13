@@ -11,25 +11,26 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
     }
 
     const [isOpen, setIsOpen] = useState(false);
-    const [color, setColor] = useState(userInfo && userInfo.signatureColor);
+    const [userColor, setUserColor] = useState(userInfo.signatureColor);
 
     const togglePicker = () => {
         setIsOpen((prevState) => !prevState);
     };
 
     const onChangeComplete = (color) => {
-        setColor(userInfo && color.hex);
+        setUserColor(color.hex);
+        console.log(userColor);
     };
 
     const onClickSaveButton = async () => {
         try {
             await axios.post(
-                `http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/changeSignatureColor/${userInfo.id}`,
+                `http://54.180.156.40:5000/changeSignatureColor/${userInfo.id}`,
                 {
-                    signatureColor: color,
+                    signatureColor: userColor,
                 }
             );
-            setUserInfo({ ...userInfo, signatureColor: color });
+            setUserInfo({ ...userInfo, signatureColor: userColor });
         } catch (error) {
             console.log(error);
         }
@@ -57,11 +58,11 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
                         <SignatureColor
                             className='change-signature-color__color'
                             onClick={togglePicker}
-                            color={color}
+                            color={userColor}
                         />
                         <ColorPicker
                             className='change-signature-color__st'
-                            color={color}
+                            color={userColor}
                             isOpen={isOpen}
                             onChangeComplete={onChangeComplete}
                         />

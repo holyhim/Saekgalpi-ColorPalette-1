@@ -103,20 +103,17 @@ const EditPalette = ({ palette, isLogin, history }) => {
     };
 
     const onClickPostButton = async () => {
-        await axios.post(
-            `http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/editPalette/${id}`,
-            {
-                paletteName: title,
-                description,
-                colorCode01: colors[0] || null,
-                colorCode02: colors[1] || null,
-                colorCode03: colors[2] || null,
-                colorCode04: colors[3] || null,
-                colorCode05: colors[4] || null,
-                colorCode06: colors[5] || null,
-                colorCode07: colors[6] || null,
-            }
-        );
+        await axios.post(`http://54.180.156.40:5000/editPalette/${id}`, {
+            paletteName: title,
+            description,
+            colorCode01: colors[0] || null,
+            colorCode02: colors[1] || null,
+            colorCode03: colors[2] || null,
+            colorCode04: colors[3] || null,
+            colorCode05: colors[4] || null,
+            colorCode06: colors[5] || null,
+            colorCode07: colors[6] || null,
+        });
         // post 요청으로 db 수정된거 확인되면 풀기
         history.push('/');
     };

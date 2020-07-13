@@ -86,9 +86,7 @@ const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
     const { id, userId, paletteName, colorCode, description } = palette;
 
     const countVisit = async () => {
-        await axios.get(
-            `http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/paletteDetailVisit/${id}`
-        );
+        await axios.get(`http://54.180.156.40:5000/paletteDetailVisit/${id}`);
     };
 
     useEffect(() => {
@@ -96,14 +94,12 @@ const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
     });
 
     const onClickDeleteBtn = async () => {
-        await axios.post(
-            `http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/paletteDetail/${id}`
-        );
+        await axios.post(`http://54.180.156.40:5000/paletteDetail/${id}`);
         const favPalettesData = await axios.get(
-            'http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/visitGet'
+            'http://54.180.156.40:5000/visitGet'
         );
         const currentPalettesData = await axios.get(
-            'http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/updateGet'
+            'http://54.180.156.40:5000/updateGet'
         );
 
         dispatch({

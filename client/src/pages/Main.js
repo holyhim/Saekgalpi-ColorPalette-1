@@ -18,10 +18,10 @@ const Main = ({
         dispatch({ type: LOADING_START });
         try {
             const favPalettesData = await axios.get(
-                'http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/visitGet'
+                'http://54.180.156.40:5000/visitGet'
             );
             const currentPalettesData = await axios.get(
-                'http://ec2-54-180-156-40.ap-northeast-2.compute.amazonaws.com:5000/updateGet'
+                'http://54.180.156.40:5000/updateGet'
             );
 
             if (!favPalettesData || !currentPalettesData) {
