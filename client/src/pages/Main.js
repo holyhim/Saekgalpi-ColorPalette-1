@@ -1,11 +1,13 @@
+/* eslint-disable */
+
 import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import PaletteList from '../components/palette/PaletteList';
 import RandomColorList from '../components/palette/RandomColorList';
 import { BigSquareButton } from './Pages_styd';
-import axios from 'axios';
 
 import { LOADING_START, LOADING_END } from '../Router';
+import { currentPalettesGetAPI, FavPalettesGetAPI } from '../api/PaletteAPI';
 
 const Main = ({
     isLogin,
@@ -17,12 +19,8 @@ const Main = ({
     const getPalettes = useCallback(async () => {
         dispatch({ type: LOADING_START });
         try {
-            const favPalettesData = await axios.get(
-                'http://54.180.156.40:5000/visitGet'
-            );
-            const currentPalettesData = await axios.get(
-                'http://54.180.156.40:5000/updateGet'
-            );
+            const favPalettesData = await FavPalettesGetAPI();
+            const currentPalettesData = await currentPalettesGetAPI();
 
             if (!favPalettesData || !currentPalettesData) {
                 dispatch({
@@ -40,11 +38,12 @@ const Main = ({
         } catch (error) {
             console.log(error);
         }
-    }, [dispatch]);
+    }, []);
 
+    // 실험
     useEffect(() => {
         getPalettes();
-    }, [getPalettes]);
+    }, []);
 
     return (
         <main className='main__main-content'>

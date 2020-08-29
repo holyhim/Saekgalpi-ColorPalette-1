@@ -4,7 +4,7 @@ import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 import { EditPaletteContainer } from '../Pages_styd';
 import { Slider, Input } from 'antd';
-import axios from 'axios';
+import { PaletteEditPostAPI } from '../../api/PaletteAPI';
 
 const { TextArea } = Input;
 
@@ -103,7 +103,7 @@ const EditPalette = ({ palette, isLogin, history }) => {
     };
 
     const onClickPostButton = async () => {
-        await axios.post(`http://54.180.156.40:5000/editPalette/${id}`, {
+        await PaletteEditPostAPI(id, {
             paletteName: title,
             description,
             colorCode01: colors[0] || null,

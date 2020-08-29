@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import { Form } from 'antd';
 import { SignForm, EmailInput, WaveButton, SignInPWInput } from '../Pages_styd';
-import { SignUpPostAPI } from '../../UserAPI';
+import { SignUpPostAPI } from '../../api/UserAPI';
 
 const initialState = {
     userName: '',

@@ -8,6 +8,7 @@ import Footer from './components/templete/Footer.js';
 
 import './scss/config/App.scss';
 import 'antd/dist/antd.css';
+
 const CheckLoginUser = (setUserInfo, userInfo, setIsLogin, setIsAdmin) => {
     try {
         // 만약에 있으면 userInfo에 user값을 넣어 주고
@@ -27,7 +28,7 @@ const CheckLoginUser = (setUserInfo, userInfo, setIsLogin, setIsAdmin) => {
             init();
         }, []);
     } catch {
-        localStorage.remove('user');
+        localStorage.removeItem('user');
         //재로그인 요청
     }
 };
@@ -38,7 +39,9 @@ const App = () => {
     const [userInfo, setUserInfo] = useState(
         JSON.parse(localStorage.getItem('user'))
     );
+
     CheckLoginUser(setUserInfo, userInfo, setIsLogin, setIsAdmin);
+
     return (
         <BrowserRouter>
             <Router
@@ -48,6 +51,7 @@ const App = () => {
                 setIsLogin={setIsLogin}
                 userInfo={userInfo}
                 setUserInfo={setUserInfo}
+                changeUserInfo={changeUserInfo}
             />
             <Footer />
         </BrowserRouter>

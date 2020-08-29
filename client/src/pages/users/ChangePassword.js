@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Form } from 'antd';
 import { SignForm, WaveButton, SignInPWInput } from '../Pages_styd';
-import { ChangePasswordPostAPI } from '../../UserAPI';
+import { ChangePasswordPostAPI } from '../../api/UserAPI';
 
 const reducer = (state, action) => {
     return {

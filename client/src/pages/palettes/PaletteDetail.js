@@ -1,15 +1,22 @@
 import React, { useRef, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
+
 import styled from 'styled-components';
 import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faShareAlt } from '@fortawesome/free-solid-svg-icons';
+
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import domtoimage from 'dom-to-image';
 import rgbHexColorCodeConverter from 'hex-rgb-color-code-converter';
-import axios from 'axios';
 
 import DELETE_PALETTE from '../../Router';
+import {
+    PaletteVisitPostAPI,
+    PaletteDeleteAPI,
+    FavPalettesGetAPI,
+    currentPalettesGetAPI,
+} from '../../api/PaletteAPI';
 
 const Paltte = styled.div`
     background-color: ${(props) => props.color || 'black'};
@@ -86,7 +93,7 @@ const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
     const { id, userId, paletteName, colorCode, description } = palette;
 
     const countVisit = async () => {
-        await axios.get(`http://54.180.156.40:5000/paletteDetailVisit/${id}`);
+        await PaletteVisitPostAPI(id);
     };
 
     useEffect(() => {
@@ -94,13 +101,11 @@ const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
     });
 
     const onClickDeleteBtn = async () => {
-        await axios.post(`http://54.180.156.40:5000/paletteDetail/${id}`);
-        const favPalettesData = await axios.get(
-            'http://54.180.156.40:5000/visitGet'
-        );
-        const currentPalettesData = await axios.get(
-            'http://54.180.156.40:5000/updateGet'
-        );
+        await PaletteDeleteAPI(id);
+
+        // TODO: 여기를 안해줘도 괜찮은지 검증 필요
+        const favPalettesData = await FavPalettesGetAPI();
+        const currentPalettesData = await currentPalettesGetAPI();
 
         dispatch({
             type: DELETE_PALETTE,
