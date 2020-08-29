@@ -2,7 +2,7 @@
 import React from 'react';
 import RandomColorListEntry from './RandomColorListEntry';
 import styled from 'styled-components';
-import { genRandomHexCode } from '../../Helper';
+import { genRandomHexCode } from '../../utils/Helper';
 
 const RandomColorsContainer = styled.div`
     display: grid;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStickyNote, faMugHot } from '@fortawesome/free-solid-svg-icons';
-//import { faSquare } from '@fortawesome/free-regular-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import styd from 'styled-components';
@@ -9,18 +8,18 @@ import { Layout } from 'antd';
 let { Footer } = Layout;
 
 Footer = styd(Footer)`
-background-color: #f7f7f7;
-height: 90px;
-border-top: 1px solid #ececec;
-display: flex;
-justify-content: space-between;
-color: #d7d7d7;
-a{
-    color: #a7a7a7;
-}
-a:hover {
-    color: #5c5c5c;
-}
+    background-color: #f7f7f7;
+    height: 90px;
+    border-top: 1px solid #ececec;
+    display: flex;
+    justify-content: space-between;
+    color: #d7d7d7;
+    a {
+        color: #a7a7a7;
+    }
+    a:hover {
+        color: #5c5c5c;
+    }
 `;
 
 const FooterDiv = () => {

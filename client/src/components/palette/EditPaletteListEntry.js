@@ -1,6 +1,7 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { SketchPicker } from 'react-color';
 import styled from 'styled-components';
+import useWindowSize from '../../hook/useWindowSize';
 
 const PaletteColor = styled.div`
     background-color: ${(props) => props.color};
@@ -36,21 +37,6 @@ const ColorPickerContainer = styled.div`
         }
     }
 `;
-
-// window 창의 리사이징을 검사하는 Hook
-// 출처: https://stackoverflow.com/questions/19014250/rerender-view-on-browser-resize-with-react
-const useWindowSize = () => {
-    const [size, setSize] = useState([0, 0]);
-    useLayoutEffect(() => {
-        const updateSize = () => {
-            setSize([window.innerWidth, window.innerHeight]);
-        };
-        window.addEventListener('resize', updateSize);
-        updateSize();
-        return () => window.removeEventListener('resize', updateSize);
-    }, []);
-    return size;
-};
 
 const EditPaletteListEntry = ({ paletteColor, idx, setNthColor }) => {
     const [color, setColor] = useState(paletteColor);
