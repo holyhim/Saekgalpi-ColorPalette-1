@@ -75,7 +75,6 @@ const Router = ({
     setIsLogin,
     userInfo,
     setUserInfo,
-    changeUserInfo,
 }) => {
     const [state, dispatch] = useReducer(paletteReducer, initialState);
     const { clickedPalette, favPalettes, currentPalettes, isLoading } = state;

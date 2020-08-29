@@ -32,6 +32,6 @@ export const FavPalettesGetAPI = () => {
     return axios.get('http://localhost:5000/visitGet');
 };
 
-export const currentPalettesGetAPI = () => {
+export const CurrentPalettesGetAPI = () => {
     return axios.get('http://localhost:5000/updateGet');
 };

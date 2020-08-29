@@ -15,7 +15,7 @@ import {
     PaletteVisitPostAPI,
     PaletteDeleteAPI,
     FavPalettesGetAPI,
-    currentPalettesGetAPI,
+    CurrentPalettesGetAPI,
 } from '../../api/PaletteAPI';
 
 const Paltte = styled.div`
@@ -105,7 +105,7 @@ const PaletteDetail = ({ isLogin, palette, dispatch, history }) => {
 
         // TODO: 여기를 안해줘도 괜찮은지 검증 필요
         const favPalettesData = await FavPalettesGetAPI();
-        const currentPalettesData = await currentPalettesGetAPI();
+        const currentPalettesData = await CurrentPalettesGetAPI();
 
         dispatch({
             type: DELETE_PALETTE,
