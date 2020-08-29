@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
 import { ColorPicker, SignatureColor, WaveButton } from '../Pages_styd';
-import axios from 'axios';
+import { SignatureColorPostAPI } from '../../api/UserAPI';
 
 const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
     const { id } = match.params;
@@ -19,18 +19,19 @@ const ChangeSignatureColor = ({ userInfo, setUserInfo, history, match }) => {
 
     const onChangeComplete = (color) => {
         setUserColor(color.hex);
-        console.log(userColor);
     };
 
     const onClickSaveButton = async () => {
         try {
-            await axios.post(
-                `http://54.180.156.40:5000/changeSignatureColor/${userInfo.id}`,
-                {
-                    signatureColor: userColor,
-                }
-            );
+            await SignatureColorPostAPI(userInfo.id, userColor);
             setUserInfo({ ...userInfo, signatureColor: userColor });
+            localStorage.setItem(
+                'user',
+                JSON.stringify({
+                    ...userInfo,
+                    signatureColor: userColor,
+                })
+            );
         } catch (error) {
             console.log(error);
         }

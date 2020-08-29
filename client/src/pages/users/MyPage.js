@@ -2,27 +2,28 @@
 import React, { useEffect, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PaletteList from '../../components/palette/PaletteList';
-import { UniquePaletteGetAPI } from '../../PaletteAPI';
+import { UniquePaletteGetAPI } from '../../api/PaletteAPI';
 import { WaveButton } from '../Pages_styd';
 import styd from 'styled-components';
+import { UserGetAPI } from '../../api/UserAPI';
 
 const MypageSig = styd.div`
-width: 120px;
-height: 150px;
-background-color: ${(props) => props.signatureColor};
-margin-bottom: 10px;
-border-radius: 5px;
-box-shadow: 0 0 20px 3px #d7d7d7;
-position: relative;
-div {
-width: 120px;
-heigth: 10px;
-border-radius: 0 0 5px 5px;
-    background-color: white;
-    position: absolute;
-    bottom: 0;
+    width: 120px;
+    height: 150px;
+    background-color: ${(props) => props.signatureColor};
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 3px #d7d7d7;
+    position: relative;
+    div {
+        width: 120px;
+        heigth: 10px;
+        border-radius: 0 0 5px 5px;
+        background-color: white;
+        position: absolute;
+        bottom: 0;
 
-}
+    }
 `;
 
 const MyPage = ({ userInfo, dispatch, history, match }) => {
@@ -31,12 +32,17 @@ const MyPage = ({ userInfo, dispatch, history, match }) => {
         history.push('/');
     }
 
+    const [signatureColor, setSigantureColor] = useState(
+        userInfo.signatureColor
+    );
     const [userPalleteData, setUserPalleteData] = useState([]);
+
     useEffect(() => {
         UniquePaletteGetAPI(userInfo.id).then((res) => {
             setUserPalleteData([...res.data]);
         });
     }, []);
+
     return (
         //그리고 내 컬러 팔레트만 어떻게 가지고 올 수 있게 하는지? 그것도 물어봐야 되고
         <main>
@@ -45,8 +51,8 @@ const MyPage = ({ userInfo, dispatch, history, match }) => {
                 <div className='MyPage__wrapper'>
                     <section className='MyPage__Profile'>
                         <div>
-                            <MypageSig signatureColor={userInfo.signatureColor}>
-                                <div>{userInfo.signatureColor}</div>
+                            <MypageSig signatureColor={signatureColor}>
+                                <div>{signatureColor}</div>
                             </MypageSig>
                         </div>
                         <span className='Mypage__username'>
