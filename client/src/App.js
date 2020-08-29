@@ -51,7 +51,6 @@ const App = () => {
                 setIsLogin={setIsLogin}
                 userInfo={userInfo}
                 setUserInfo={setUserInfo}
-                changeUserInfo={changeUserInfo}
             />
             <Footer />
         </BrowserRouter>

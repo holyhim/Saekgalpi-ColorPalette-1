@@ -7,12 +7,13 @@ import RandomColorList from '../components/palette/RandomColorList';
 import { BigSquareButton } from './Pages_styd';
 
 import { LOADING_START, LOADING_END } from '../Router';
-import { currentPalettesGetAPI, FavPalettesGetAPI } from '../api/PaletteAPI';
+import { CurrentPalettesGetAPI, FavPalettesGetAPI } from '../api/PaletteAPI';
 
 const Main = ({
     isLogin,
     favPalettes,
     currentPalettes,
+    isLoading,
     dispatch,
     userInfo,
 }) => {
@@ -20,7 +21,7 @@ const Main = ({
         dispatch({ type: LOADING_START });
         try {
             const favPalettesData = await FavPalettesGetAPI();
-            const currentPalettesData = await currentPalettesGetAPI();
+            const currentPalettesData = await CurrentPalettesGetAPI();
 
             if (!favPalettesData || !currentPalettesData) {
                 dispatch({
@@ -45,7 +46,9 @@ const Main = ({
         getPalettes();
     }, []);
 
-    return (
+    return isLoading ? (
+        <main className='main__main-content'>로딩중...</main>
+    ) : (
         <main className='main__main-content'>
             <BigSquareButton>
                 {!isLogin ? (
