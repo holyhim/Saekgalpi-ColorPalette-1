@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { RoundButton, NoneSquareBtn, LogoutBtn } from './Templete_styd';
-import { LogoutPostAPI } from '../../UserAPI';
+import { LogoutPostAPI } from '../../api/UserAPI';
 
 const MainHeader = ({
     isLogin,

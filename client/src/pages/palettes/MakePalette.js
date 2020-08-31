@@ -10,7 +10,7 @@ import {
     SET_PALETTE_NUMBER,
     SET_PALETTE_TITLE,
 } from './EditPalette';
-import axios from 'axios';
+import { PaletteCreatePostAPI } from '../../api/PaletteAPI';
 
 const MakePaletteContainer = styled.section`
     width: 70vw;
@@ -97,21 +97,18 @@ const MakePalette = ({ userInfo, isLogin, history }) => {
     };
 
     const onClickPostButton = async () => {
-        const makePaletteData = await axios.post(
-            `http://54.180.156.40:5000/makePalette`,
-            {
-                id: userInfo.id,
-                paletteName: title,
-                description,
-                colorCode01: colors[0],
-                colorCode02: colors[1],
-                colorCode03: colors[2],
-                colorCode04: colors[3],
-                colorCode05: colors[4],
-                colorCode06: colors[5],
-                colorCode07: colors[6],
-            }
-        );
+        const makePaletteData = await PaletteCreatePostAPI({
+            id: userInfo.id,
+            paletteName: title,
+            description,
+            colorCode01: colors[0],
+            colorCode02: colors[1],
+            colorCode03: colors[2],
+            colorCode04: colors[3],
+            colorCode05: colors[4],
+            colorCode06: colors[5],
+            colorCode07: colors[6],
+        });
 
         if (makePaletteData.status === 200) {
             history.push('/');

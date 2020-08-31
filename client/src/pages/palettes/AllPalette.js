@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PaletteList from '../../components/palette/PaletteList';
-import { AllPaletteGetAPI } from '../../PaletteAPI';
+import { AllPaletteGetAPI } from '../../api/PaletteAPI';
 
 const AllPalette = ({ dispatch }) => {
     //더미 데이터를 넣어서 잘 들어오는지 확인해 볼 것

@@ -4,8 +4,8 @@ import PaletteList from '../../components/palette/PaletteList';
 
 import { WaveButton } from '../Pages_styd';
 
-import { AllPaletteGetAPI } from '../../PaletteAPI';
-import { AdminGetAPI, AdminPostAPI } from '../../UserAPI';
+import { AllPaletteGetAPI } from '../../api/PaletteAPI';
+import { AdminGetAPI, AdminPostAPI } from '../../api/UserAPI';
 
 const MyPage = ({ dispatch, isAdmin, isLogin }) => {
     const [palleteData, setPalleteData] = useState([]);

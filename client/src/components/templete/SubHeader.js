@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { RoundWaveButton, UnderlineButton } from './Templete_styd';
-import logos from '../../images/10.png';
-import { LogoutPostAPI } from '../../UserAPI';
+import logos from '../../assets/images/10.png';
+import { LogoutPostAPI } from '../../api/UserAPI';
 
 const SubHeader = ({
     isLogin,
