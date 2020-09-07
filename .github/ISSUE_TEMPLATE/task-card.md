@@ -1,44 +1,26 @@
 ---
 name: Task Card
-about: 'Task 카드 생성시 사용되는 template 입니다. '
-title: "[Task] 작업 내용을 작성해 주세요"
-labels: Task
+about: Task 카드를 작성할 때 사용하는 템플릿입니다.
+title: "[Task]  Sprint00 - 기능설명"
+labels: ''
 assignees: ''
 
 ---
 
-## Task Card 
+**라벨링 하는 방법**     
+E:h -> 예상 소요 시간  
+Sprint00 -> 해당 스프린트  
+high, middle, low -> 긴급도  
+**프로젝트 추가와 마일즈스톤 추가를 해주세요**  
+----------이 줄 포함 위의 내용은 삭제해주세요------------
 
-**Assignee** : (본명)
+#### Assignee : 이름
 
-#### Job Description
->  작업 내용을 적어주세요
+#### 해야할 일
+>  작업 내용을 적어주세요 (지워주세요)
 
-(여기)
-
-#### Todo 
->  해당 작업이 완성되기 위해서 완료되어야 하는 작업 리스트를 적어주세요 
-
+#### 이전에 완료되어야 하는 일
+>  해당 작업이 완성되기 위해서 완료되어야 하는 작업 리스트를 적어주세요 (지워주세요)
 1. 
 2. 
-3.  
-
-#### *Important*
-
-##### estimated / consumed 
-
-Task Card 하나의 estimated time / consumed time 이 최대 3h 이 넘어가지 않게 작성해 주시기 바랍니다. 
-
-##### Labelling
-
-- estimated time :  `E:2h` 
-- consumed time :  `C:1h`  
-- page : `Mypage`, `Index` ...
-- position : `Clinet`, `Server` 
-- sprint : `Sprint`
-- urgency : `High`, `Middle`, `Low`
-
-##### Status 관리
-
-- Task Card 의 상태에 따라  `To do`,  `In progress`, `Done` 유지를 해주세요
-- 진행하던 Task Card 를 중간에 안하게 되는 경우, `In Progress` 에서 `To do` 로 Status 를 변경해 주시기 바랍니다.
+3.
