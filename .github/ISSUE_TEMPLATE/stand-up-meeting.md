@@ -2,7 +2,7 @@
 name: Stand up Meeting
 about: Stand Up Meeting 시 사용되는 템플릿입니다.
 title: "[Stand Up Meeting] 2020.00.00"
-labels: ''
+labels: Stand Up
 assignees: lsy26499, Trisha-Park, holyhim
 
 ---
