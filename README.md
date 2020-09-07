@@ -180,11 +180,11 @@ url : **http://hwabaek.s3-website.ap-northeast-2.amazonaws.com** 에서 사용�
 
 <div>
 
-**Team members, BackEnd**  
-📧 Gmail : 
-🆔 Github Id : 
-💡 Blog : 
-
+**Team members, BackEnd**    
+📧 Gmail :    
+🆔 Github Id :     
+💡 Blog :     
+    
 # License
 
 이 코드는 <a href="https://github.com/carloscuesta/gitmoji/blob/master/LICENSE">MIT</a>의 라이센스에 따라 사용이 가능합니다. 
