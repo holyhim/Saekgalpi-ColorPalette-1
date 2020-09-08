@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "users",
+    "palettes",
 ]
 
 MIDDLEWARE = [
@@ -75,8 +78,12 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",  # DB engine set
+        "NAME": "testmysql",  # DB name
+        "USER": "root",  # DB 연결 시 유저 이름
+        "PASSWORD": "fstone",  # DB User password
+        "HOST": "localhost",
+        "PORT": "3306",
     }
 }
 
