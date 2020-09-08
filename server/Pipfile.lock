@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d7540815e51141fcecc600eb105ace185213d1d9e59b66093e07e5fef18ae4dd"
+            "sha256": "0e8b7354f027d706160d530cc157196943937996bb112071d13f7803b7ad52f0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -31,6 +31,24 @@
             ],
             "index": "pypi",
             "version": "==3.1.1"
+        },
+        "djangorestframework": {
+            "hashes": [
+                "sha256:6dd02d5a4bd2516fb93f80360673bf540c3b6641fec8766b1da2870a5aa00b32",
+                "sha256:8b1ac62c581dbc5799b03e535854b92fc4053ecfe74bad3f9c05782063d4196b"
+            ],
+            "index": "pypi",
+            "version": "==3.11.1"
+        },
+        "mysqlclient": {
+            "hashes": [
+                "sha256:3f39855a4ad22805361e782cc4d1010ac74796225fa2d1c03cc16673ccdc983a",
+                "sha256:a6b5648f648b16335e3b1aaec93dc3fcc81a9a661180e306936437cc522c810b",
+                "sha256:edd42ccaa444b00702d5374b2f5f7585c9d0ce201917f15339f1c3cf91c1b1ed",
+                "sha256:fb2f75aea14722390d2d8ddf384ad99da708c707a96656210a7be8af20a2c5e5"
+            ],
+            "index": "pypi",
+            "version": "==2.0.1"
         },
         "pytz": {
             "hashes": [
