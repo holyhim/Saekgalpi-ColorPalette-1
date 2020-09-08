@@ -2,6 +2,12 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-class User(AbstractUser):
+# 배열이 되는가?
 
-    bio = models.TextField(default="")
+
+class User(AbstractUser):
+    id = models.CharField()
+    email = models.CharField()
+    password = models.CharField()
+    userName = models.CharField()
+    signatureColor = models.CharField()
