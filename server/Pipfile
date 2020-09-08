@@ -8,6 +8,8 @@ black = "*"
 
 [packages]
 django = "*"
+djangorestframework = "*"
+mysqlclient = "*"
 
 [requires]
 python_version = "3.8"
