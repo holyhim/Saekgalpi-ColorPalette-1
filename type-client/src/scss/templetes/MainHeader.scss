@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'IBMPlexSansKR-ExtraLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-ExtraLight.woff')
+        format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.mainHeader__Wapper {
+    height: 600px;
+    position: relative;
+
+    nav {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        font-size: 1.2em;
+        margin-top: 20px;
+        li {
+            display: inline-block;
+            margin: 5px;
+        }
+    }
+    background-image: url(../../assets/images/10.png);
+    background-size: 550px;
+    background-position: center 100px;
+    background-repeat: no-repeat;
+
+    .mainHeader__center {
+        width: 100%;
+        position: absolute;
+        bottom: 20px;
+
+        div {
+            /*모든 색갈피 보기 및 색갈피*/
+            padding-bottom: 10px;
+            text-align: center;
+            margin: 0 auto;
+            width: 400px;
+        }
+
+        .mainHeader__logo {
+            .LOGO {
+                font-family: 'IBMPlexSansKR-ExtraLight';
+                font-size: 8em;
+                color: #3d3d3d;
+                letter-spacing: -10px;
+                span {
+                    box-shadow: inset 0 0 0 0 #dd3e42;
+                    display: inline-block;
+                    padding: 5px;
+                    transition: all 0.3s ease-in-out;
+                    &:hover {
+                        box-shadow: 0 150px 0 0 #dd3e42 inset;
+                    }
+                }
+            }
+
+            height: 130px;
+            margin-bottom: 120px;
+            img {
+                width: 400px;
+            }
+        }
+    }
+}
