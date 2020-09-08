@@ -10,6 +10,7 @@ black = "*"
 django = "*"
 djangorestframework = "*"
 mysqlclient = "*"
+django-mysql = "*"
 
 [requires]
 python_version = "3.8"
