@@ -1,0 +1,81 @@
+.copy {
+    z-index: 1;
+    position: fixed;
+    top: 40%;
+    font-size: 100px;
+    opacity: 0;
+}
+.palette-detail__main {
+    .h1 {
+        margin-bottom: 20px;
+    }
+    .palette-detail__all-wrapper {
+        width: 1200px;
+        height: 600px;
+        border-radius: 20px;
+        border: 1px solid #e7e7e7;
+        .palette-detail__container {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            height: 55vh;
+            .palette-detail__column:first-child {
+                border-right: 1px solid #c7c7c7;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .palette-detail__share-container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    margin-top: 10px;
+                    width: 500px;
+                    .palette-detail__share-lists {
+                        display: inherit;
+                        margin-top: 20px;
+                        .palette-detail__item-link {
+                            cursor: pointer;
+                            color: #c7c7c7;
+                            transition: 0.5s all;
+                            &:hover {
+                                color: rgb(30, 171, 65);
+                            }
+                        }
+                        .palette-detail__item-download {
+                            cursor: pointer;
+                            color: #c7c7c7;
+                            transition: 0.5s all;
+                            &:hover {
+                                color: rgb(30, 110, 171);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //설명칸
+        .palette-detail__column:last-child {
+            justify-content: center;
+            .palette-detail__info {
+                padding: 10px;
+                padding-left: 30px;
+                display: grid;
+                & > {
+                    text-align: center;
+                }
+                .palette-detail__title {
+                    margin-top: 10px;
+                    font-size: 3em;
+                    font-weight: 700;
+                }
+                .palette-detail__username {
+                    font-size: 1.3em;
+                }
+            }
+            .palette-detail__code-container {
+                margin: 30px;
+            }
+        }
+    }
+}
