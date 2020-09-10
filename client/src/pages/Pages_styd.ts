@@ -4,19 +4,19 @@ import styd from 'styled-components';
 
 ///////////////////팔레트/////////////////////
 
-export const ColorPicker = styd(BlockPicker)`
-    display: ${(props) => (props.isOpen ? 'block' : 'none')};
-    position: absolute;
-    left: 1rem;
-    top: 10px;
-`;
+// export const ColorPicker = styd(BlockPicker)`
+//     display: ${(props) => (props.isOpen ? 'block' : 'none')};
+//     position: absolute;
+//     left: 1rem;
+//     top: 10px;
+// `;
 
-export const SignatureColor = styd.div`
-    width: 300px;
-    height: 300px;
-    cursor: pointer;
-    background-color: ${(props) => props.color || 'royalblue'};
-`;
+// export const SignatureColor = styd.div`
+//     width: 300px;
+//     height: 300px;
+//     cursor: pointer;
+//     background-color: ${(props) => props.color || 'royalblue'};
+// `;
 
 export const EditPaletteContainer = styd.section`
     width: 70vw;
