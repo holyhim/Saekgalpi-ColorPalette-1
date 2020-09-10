@@ -19,7 +19,6 @@ export const favPalettesGetAPI = async () => {
     const { data }: AxiosResponse<PaletteData[]> = await axios.get(
       'http://localhost:5000/visitGet'
     );
-
     return data;
   } catch (error) {
     console.log(error);
@@ -27,11 +26,14 @@ export const favPalettesGetAPI = async () => {
 };
 
 export const currentPalettesGetAPI = async () => {
-  const { data }: AxiosResponse<PaletteData[]> = await axios.get(
-    'http://localhost:5000/updateGet'
-  );
-
-  return data;
+  try {
+    const { data }: AxiosResponse<PaletteData[]> = await axios.get(
+      'http://localhost:5000/updateGet'
+    );
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const AllPaletteGetAPI = () => {
