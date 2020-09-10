@@ -1,8 +1,4 @@
-import axios from 'axios';
-
-type PaletteResponse = {
-  data: PaletteData[];
-};
+import axios, { AxiosResponse } from 'axios';
 
 export type PaletteData = {
   id: number;
@@ -18,12 +14,24 @@ export type PaletteData = {
   colorCode07: string;
 };
 
-export const FavPalettesGetAPI = () => {
-  return axios.get<PaletteResponse>('http://localhost:5000/visitGet');
+export const favPalettesGetAPI = async () => {
+  try {
+    const { data }: AxiosResponse<PaletteData[]> = await axios.get(
+      'http://localhost:5000/visitGet'
+    );
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const CurrentPalettesGetAPI = () => {
-  return axios.get('http://localhost:5000/updateGet');
+export const currentPalettesGetAPI = async () => {
+  const { data }: AxiosResponse<PaletteData[]> = await axios.get(
+    'http://localhost:5000/updateGet'
+  );
+
+  return data;
 };
 
 export const AllPaletteGetAPI = () => {
