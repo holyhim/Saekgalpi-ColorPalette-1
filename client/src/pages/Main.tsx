@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { currentPalettesGetAPI, favPalettesGetAPI } from '../apis/paletteAPI';
 import { PaletteData } from '../apis/paletteAPI';
 
+import RandomColorList from '../components/palette/RandomColorList';
+
 import { BigSquareButton } from './Pages_styd';
 
 function Main() {
@@ -54,7 +56,7 @@ function Main() {
       </section>
       <section className='random-colors__container'>
         <h3 className='random-colors__title'>지금의 색</h3>
-        {/* <RandomColorList /> */}
+        <RandomColorList />
       </section>
     </main>
   );
