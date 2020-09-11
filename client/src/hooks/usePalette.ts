@@ -4,7 +4,7 @@ import { RootState } from '../reducer';
 import { setClickedPalette } from '../actions/paletteAction';
 
 export default function usePalette() {
-  const palette = useSelector(
+  const clickedPalette = useSelector(
     (state: RootState) => state.paletteReducer.clickedPalette
   );
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export default function usePalette() {
   );
 
   return {
-    palette,
+    clickedPalette,
     setPalette,
   };
 }
