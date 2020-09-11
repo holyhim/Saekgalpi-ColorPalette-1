@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Main from './pages/Main';
+import PaletteDetail from './pages/palettes/PaletteDetail';
 
 const Router = () => {
   return (
@@ -72,25 +73,12 @@ const Router = () => {
         <Route path='/makePalette' userInfo={userInfo}>
           <MakePalette userInfo={userInfo} isLogin={isLogin} />
         </Route>
-        <Route path='/paletteDetail/:id'>
-          <PaletteDetail
-            userInfo={userInfo}
-            palette={clickedPalette}
-            favPalettes={favPalettes}
-            currentPalettes={currentPalettes}
-            dispatch={dispatch}
-            isLogin={isLogin}
-          />
-        </Route> */}
+*/}
         <Route path='/' exact>
-          <Main
-          // isLogin={isLogin}
-          // favPalettes={favPalettes}
-          // currentPalettes={currentPalettes}
-          // isLoading={isLoading}
-          // dispatch={dispatch}
-          // userInfo={userInfo}
-          />
+          <Main />
+        </Route>
+        <Route path='/paletteDetail/:id'>
+          <PaletteDetail />
         </Route>
       </Switch>
     </BrowserRouter>

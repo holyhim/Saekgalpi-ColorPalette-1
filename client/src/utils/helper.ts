@@ -27,3 +27,27 @@ export const genRandomHexCode = (): string => {
 
   return `#${HexCode}`;
 };
+
+export const getPaletteImage = (colorCode: string[]) => {
+  const paletteContainer = document.createElement('canvas');
+  const ctx = paletteContainer.getContext('2d');
+
+  paletteContainer.width = 300;
+  paletteContainer.height = 150;
+
+  const colorWidth = 300 / colorCode.length;
+  const colorHeight = 150;
+
+  colorCode.forEach((color: string, i: number) => {
+    if (ctx) {
+      ctx.fillStyle = color;
+      ctx.fillRect(i * colorWidth, 0, colorWidth, colorHeight);
+    }
+  });
+
+  const dataUrl = paletteContainer.toDataURL();
+  const link = document.createElement('a');
+  link.href = dataUrl;
+  link.download = '색갈피';
+  link.click();
+};
