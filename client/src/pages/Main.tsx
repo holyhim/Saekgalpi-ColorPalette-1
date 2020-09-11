@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { currentPalettesGetAPI, favPalettesGetAPI } from '../apis/paletteAPI';
 import { PaletteData } from '../apis/paletteAPI';
 
+import PaletteList from '../components/palette/PaletteList';
 import RandomColorList from '../components/palette/RandomColorList';
 
 import { BigSquareButton } from './Pages_styd';
@@ -40,19 +41,11 @@ function Main() {
       </BigSquareButton>
       <section className='fav-palettes__container'>
         <h3 className='fav-palettes__title'>많이 찾은 색갈피</h3>
-        {/* <PaletteList
-                dispatch={dispatch}
-                palettes={favPalettes}
-                userInfo={userInfo}
-            /> */}
+        <PaletteList palettes={favPalettes} />
       </section>
       <section className='current-palettes__container'>
         <h3 className='current-palettes__title'>새로운 색갈피</h3>
-        {/* <PaletteList
-                dispatch={dispatch}
-                palettes={currentPalettes}
-                userInfo={userInfo}
-            /> */}
+        <PaletteList palettes={curPalettes} />
       </section>
       <section className='random-colors__container'>
         <h3 className='random-colors__title'>지금의 색</h3>
