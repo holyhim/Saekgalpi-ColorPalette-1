@@ -74,12 +74,8 @@ const Router = () => {
           <MakePalette userInfo={userInfo} isLogin={isLogin} />
         </Route>
 */}
-        <Route path='/' exact>
-          <Main />
-        </Route>
-        <Route path='/paletteDetail/:id'>
-          <PaletteDetail />
-        </Route>
+        <Route path='/' exact component={Main} />
+        <Route path='/paletteDetail/:id' component={PaletteDetail} />
       </Switch>
     </BrowserRouter>
   );

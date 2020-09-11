@@ -87,7 +87,7 @@ const PaletteListEntry = ({ palette }: PaletteListEntryProps) => {
 
   return (
     <div className='palette__wrapper'>
-      <Link to={`/paletteDetail/${id}`}>
+      <Link to={{ pathname: `/paletteDetail/${id}`, state: palette }}>
         <PaletteColors
           className='palette__colors'
           number={colorCode.length}
