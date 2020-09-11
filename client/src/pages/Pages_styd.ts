@@ -1,5 +1,4 @@
 import { Button, Form, Input } from 'antd';
-import { BlockPicker } from 'react-color';
 import styd from 'styled-components';
 
 ///////////////////팔레트/////////////////////

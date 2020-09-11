@@ -1,34 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import usePalette from '../hooks/usePalette';
 
-import { CurrentPalettesGetAPI, FavPalettesGetAPI } from '../apis/paletteAPI';
+import { currentPalettesGetAPI, favPalettesGetAPI } from '../apis/paletteAPI';
 import { PaletteData } from '../apis/paletteAPI';
 
 import { BigSquareButton } from './Pages_styd';
 
 function Main() {
-  const { palette, setPalette } = usePalette();
-
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [favPalettes, setFavPalettes] = useState<PaletteData[]>([]);
-  const [curPalettes, setCurPalettes] = useState([]);
+  const [curPalettes, setCurPalettes] = useState<PaletteData[]>([]);
 
   const getPalettes = async () => {
-    const favPalettesData = await FavPalettesGetAPI();
-    const currentPalettesData = await CurrentPalettesGetAPI();
-    // console.log(typeof favPalettesData);
+    const favPalettesData = await favPalettesGetAPI();
+    const currentPalettesData = await currentPalettesGetAPI();
 
-    // setFavPalettes([]);
-    // setCurPalettes([...currentPalettesData.data]);
+    setFavPalettes([...favPalettesData]);
+    setCurPalettes([...currentPalettesData]);
   };
+
+  useEffect(() => {
+    setIsLoading(true);
+    getPalettes();
+    setIsLoading(false);
+  }, []);
 
   return isLoading ? (
     <main className='main__main-content'>로딩중...</main>
   ) : (
     <main className='main__main-content'>
-      <BigSquareButton onClick={getPalettes}>
-        ㅁㅁㅁ
+      <BigSquareButton>
         {/* {!isLogin ? (
                 <Link to='/signIn'>내 색갈피 만들기</Link>
             ) : (
