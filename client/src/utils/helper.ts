@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-export const genRandomHexCode = () => {
+export const genRandomHexCode = (): string => {
   const sample = [
     '0',
     '1',
