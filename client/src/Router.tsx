@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Main from './pages/Main';
 import PaletteDetail from './pages/palettes/PaletteDetail';
+import MakePalette from './pages/palettes/MakePalette';
 
 const Router = () => {
   return (
@@ -70,12 +71,10 @@ const Router = () => {
             isLogin={isLogin}
           />
         </Route>
-        <Route path='/makePalette' userInfo={userInfo}>
-          <MakePalette userInfo={userInfo} isLogin={isLogin} />
-        </Route>
 */}
         <Route path='/' exact component={Main} />
         <Route path='/paletteDetail/:id' component={PaletteDetail} />
+        <Route path='/makePalette' component={MakePalette} />
       </Switch>
     </BrowserRouter>
   );
