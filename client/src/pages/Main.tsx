@@ -33,6 +33,7 @@ function Main() {
   ) : (
     <main className='main__main-content'>
       <BigSquareButton>
+        <Link to='/makePalette'>내 색갈피 만들기</Link>
         {/* {!isLogin ? (
                 <Link to='/signIn'>내 색갈피 만들기</Link>
             ) : (
