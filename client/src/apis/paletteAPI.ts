@@ -52,6 +52,14 @@ export const paletteDeleteAPI = async (id: number) => {
   }
 };
 
+export const paletteCreatePostAPI = async (paletteInfo: object) => {
+  try {
+    await axios.post(`http://localhost:5000/makePalette`, paletteInfo);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const AllPaletteGetAPI = () => {
   return axios.get('http://localhost:5000/allPalette', {
     withCredentials: true,
@@ -66,8 +74,4 @@ export const UniquePaletteGetAPI = (userInfoID: number) => {
 
 export const PaletteEditPostAPI = (id: number, paletteInfo: object) => {
   return axios.post(`http://localhost:5000/editPalette/${id}`, paletteInfo);
-};
-
-export const PaletteCreatePostAPI = (paletteInfo: object) => {
-  return axios.post(`http://localhost:5000/makePalette`, paletteInfo);
 };

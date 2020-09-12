@@ -1,10 +1,10 @@
 import React, { useEffect, useReducer } from 'react';
 import styled from 'styled-components';
 import { Slider, Input } from 'antd';
-// import EditPaletteList from '../../components/palette/EditPaletteList';
+import EditPaletteList from '../../components/palette/EditPaletteList';
 // import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 
-import { PaletteCreatePostAPI } from '../../apis/paletteAPI';
+import { paletteCreatePostAPI } from '../../apis/paletteAPI';
 
 const MakePaletteContainer = styled.section`
   width: 70vw;
@@ -109,7 +109,7 @@ function MakePalette() {
   };
 
   const onClickPostButton = async () => {
-    const makePaletteData = await PaletteCreatePostAPI({
+    await paletteCreatePostAPI({
       id: 1,
       paletteName: title,
       description,
@@ -128,11 +128,11 @@ function MakePalette() {
       <span className='h1'>색갈피 만들기</span>
       <div className='makePageWrapper'>
         <MakePaletteContainer className='make-palette__color-container'>
-          {/* <EditPaletteList
-                        number={number}
-                        colors={colors}
-                        setNthColor={setNthColor}
-                    /> */}
+          <EditPaletteList
+            number={number}
+            colors={colors}
+            setNthColor={setNthColor}
+          />
         </MakePaletteContainer>
         <MakePaletteContainer className='make-palette__hex-container'>
           {/* <EditPaletteHexList
@@ -148,18 +148,15 @@ function MakePalette() {
               e.preventDefault();
             }}
           >
-            <label className='palette-info__color-range-label'>
-              색상 갯수
-              <Slider
-                className='palette-info__color-range'
-                min={2}
-                max={7}
-                step={1}
-                defaultValue={number}
-                style={{ width: '200px' }}
-                onChange={onChangeColorNumber}
-              />
-            </label>
+            <label className='palette-info__color-range-label'>색상 갯수</label>
+            <Slider
+              min={2}
+              max={7}
+              step={1}
+              defaultValue={number}
+              style={{ width: '200px' }}
+              onChange={onChangeColorNumber}
+            />
             <Input
               className='palette-info__palette-name'
               type='text'

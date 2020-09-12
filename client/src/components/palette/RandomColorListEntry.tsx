@@ -14,7 +14,7 @@ type RandomColorListEntryProps = {
   color: string;
 };
 
-const RandomColorListEntry = ({ color }: RandomColorListEntryProps) => {
+function RandomColorListEntry({ color }: RandomColorListEntryProps) {
   return (
     <CopyToClipboard text={color}>
       <div className='random-color__wrapper'>
@@ -26,7 +26,7 @@ const RandomColorListEntry = ({ color }: RandomColorListEntryProps) => {
       </div>
     </CopyToClipboard>
   );
-};
+}
 
 export default RandomColorListEntry;
 //모든 색갈피 페이지

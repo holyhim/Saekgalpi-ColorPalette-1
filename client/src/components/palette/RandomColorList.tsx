@@ -11,7 +11,7 @@ const RandomColorsContainer = styled.div`
   height: 40vh;
 `;
 
-const RandomColorList = () => {
+function RandomColorList() {
   const randomColors = Array(7)
     .fill(0)
     .map((color: string) => (color = genRandomHexCode()));
@@ -25,6 +25,6 @@ const RandomColorList = () => {
       </RandomColorsContainer>
     </>
   );
-};
+}
 
 export default RandomColorList;
