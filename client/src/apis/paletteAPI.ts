@@ -36,6 +36,22 @@ export const currentPalettesGetAPI = async () => {
   }
 };
 
+export const paletteVisitPostAPI = async (id: number) => {
+  try {
+    await axios.get(`http://localhost:5000/paletteDetailVisit/${id}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const paletteDeleteAPI = async (id: number) => {
+  try {
+    await axios.post(`http://localhost:5000/paletteDetail/${id}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const AllPaletteGetAPI = () => {
   return axios.get('http://localhost:5000/allPalette', {
     withCredentials: true,
@@ -54,12 +70,4 @@ export const PaletteEditPostAPI = (id: number, paletteInfo: object) => {
 
 export const PaletteCreatePostAPI = (paletteInfo: object) => {
   return axios.post(`http://localhost:5000/makePalette`, paletteInfo);
-};
-
-export const PaletteVisitPostAPI = (id: number) => {
-  return axios.get(`http://localhost:5000/paletteDetailVisit/${id}`);
-};
-
-export const PaletteDeleteAPI = (id: number) => {
-  return axios.post(`http://localhost:5000/paletteDetail/${id}`);
 };

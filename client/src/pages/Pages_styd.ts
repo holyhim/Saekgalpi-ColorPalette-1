@@ -120,3 +120,42 @@ transition: all .5s liner;
 }
 
 `;
+
+//* PaletteDetail page
+
+export const EditButton = styd(Button)`
+  color: #a6a6a6;
+  background-color: #e7e7e7;
+  border: 1px solid #e7e7e7;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  &:hover {
+    background-color: #e7e7e7;
+    border: 1px solid #e7e7e7;
+    color: #5d5d5d;
+  }
+  &:focus {
+    background-color: #e7e7e7;
+    border: 1px solid #e7e7e7;
+    color: #a6a6a6;
+  }
+  &:after {
+    --antd-wave-shadow-color: #c7c7c7;
+  }
+`;
+
+export const ShareBtn = styd.button`
+  all: unset;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 20px;
+`;
+
+export const PaletteDescription = styd.div`
+  width: 90%;
+  margin: 0 auto;
+  height: 5vw;
+  border-top: 1px solid #c7c7c7;
+  padding: 10px;
+  font-size: 1.5em;
+`;
