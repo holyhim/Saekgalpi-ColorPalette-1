@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
 import styled from 'styled-components';
 import { Slider, Input } from 'antd';
-// import EditPaletteList from '../../components/palette/EditPaletteList';
+import EditPaletteList from '../../components/palette/EditPaletteList';
 // import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 
 import { PaletteCreatePostAPI } from '../../apis/paletteAPI';
@@ -128,11 +128,11 @@ function MakePalette() {
       <span className='h1'>색갈피 만들기</span>
       <div className='makePageWrapper'>
         <MakePaletteContainer className='make-palette__color-container'>
-          {/* <EditPaletteList
-                        number={number}
-                        colors={colors}
-                        setNthColor={setNthColor}
-                    /> */}
+          <EditPaletteList
+            number={number}
+            colors={colors}
+            setNthColor={setNthColor}
+          />
         </MakePaletteContainer>
         <MakePaletteContainer className='make-palette__hex-container'>
           {/* <EditPaletteHexList
