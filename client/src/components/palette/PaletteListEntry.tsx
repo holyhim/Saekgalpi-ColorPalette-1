@@ -52,7 +52,7 @@ const PaletteColor = styled.div`
   }
 `;
 
-const PaletteListEntry = ({ palette }: PaletteListEntryProps) => {
+function PaletteListEntry({ palette }: PaletteListEntryProps) {
   const {
     id,
     paletteName,
@@ -117,6 +117,6 @@ const PaletteListEntry = ({ palette }: PaletteListEntryProps) => {
       <button className='palette__delete--hidden'>삭제</button>
     </div>
   );
-};
+}
 
 export default PaletteListEntry;

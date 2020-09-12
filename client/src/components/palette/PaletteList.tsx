@@ -17,7 +17,7 @@ type PaletteListProps = {
   palettes: PaletteData[];
 };
 
-const PaletteList = ({ palettes }: PaletteListProps) => {
+function PaletteList({ palettes }: PaletteListProps) {
   return (
     <PalettesWrapper>
       {palettes.map((palette: PaletteData, idx: number) => (
@@ -25,6 +25,6 @@ const PaletteList = ({ palettes }: PaletteListProps) => {
       ))}
     </PalettesWrapper>
   );
-};
+}
 
 export default PaletteList;

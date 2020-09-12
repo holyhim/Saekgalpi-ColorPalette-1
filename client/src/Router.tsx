@@ -5,7 +5,7 @@ import Main from './pages/Main';
 import PaletteDetail from './pages/palettes/PaletteDetail';
 import MakePalette from './pages/palettes/MakePalette';
 
-const Router = () => {
+function Router() {
   return (
     <BrowserRouter>
       {/* <Header
@@ -78,6 +78,6 @@ const Router = () => {
       </Switch>
     </BrowserRouter>
   );
-};
+}
 
 export default Router;
