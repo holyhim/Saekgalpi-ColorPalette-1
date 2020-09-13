@@ -1,10 +1,10 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from . import models
-
-# Register your models here.
-# users folder에 admin?
 
 
 @admin.register(models.User)
-class UserAdmin(admin.ModelAdmin):
-    pass
+class CustomUserAdmin(UserAdmin):
+    fieldsets = UserAdmin.fieldsets + (
+        ("Another Info", {"fields": ("signatureColor", "superhost")}),
+    )

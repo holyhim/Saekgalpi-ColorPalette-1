@@ -1,5 +1,6 @@
 import { PaletteAction, SET_CLICKED_PALETTE } from '../actions/paletteAction';
 
+// 자세하게 써야 함 clickedPalette의 type 정의
 export type PaletteState = {
   clickedPalette: object;
 };
@@ -16,7 +17,7 @@ function paletteReducer(
     case SET_CLICKED_PALETTE: {
       return {
         ...state,
-        palette: action.palette,
+        clickedPalette: action.palette,
       };
     }
     default: {

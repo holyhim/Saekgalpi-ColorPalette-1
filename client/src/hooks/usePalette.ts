@@ -1,10 +1,12 @@
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { PaletteState } from '../reducer/paletteReducer';
+import { RootState } from '../reducer';
 import { setClickedPalette } from '../actions/paletteAction';
 
 export default function usePalette() {
-  const palette = useSelector((state: PaletteState) => state.clickedPalette);
+  const clickedPalette = useSelector(
+    (state: RootState) => state.paletteReducer.clickedPalette
+  );
   const dispatch = useDispatch();
 
   const setPalette = useCallback(
@@ -13,7 +15,7 @@ export default function usePalette() {
   );
 
   return {
-    palette,
+    clickedPalette,
     setPalette,
   };
 }
