@@ -6,8 +6,8 @@ from django.db import models
 
 
 class User(AbstractUser):
-    id = models.CharField()
-    email = models.CharField()
-    password = models.CharField()
-    userName = models.CharField()
-    signatureColor = models.CharField()
+
+    """ custom user model"""
+
+    signatureColor = models.CharField(default="", max_length=7)
+    superhost = models.BooleanField(default=False)
