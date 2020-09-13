@@ -13,7 +13,7 @@ const MakePaletteContainer = styled.section`
 
 const { TextArea } = Input;
 
-type Action =
+export type Action =
   | { type: 'SET_PALETTE_TITLE'; title: string }
   | { type: 'SET_PALETTE_NUMBER'; number: number }
   | { type: 'SET_PALETTE_DESCRIPTION'; description: string }
@@ -34,7 +34,7 @@ const initialState: makePaletteState = {
 };
 
 function paletteReducer(
-  state: makePaletteState = initialState,
+  state: makePaletteState,
   action: Action
 ): makePaletteState {
   switch (action.type) {
