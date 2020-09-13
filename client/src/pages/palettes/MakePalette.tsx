@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import styled from 'styled-components';
 import { Slider, Input } from 'antd';
 import EditPaletteList from '../../components/palette/EditPaletteList';
-// import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
+import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 
 import { paletteCreatePostAPI } from '../../apis/paletteAPI';
 
@@ -135,11 +135,7 @@ function MakePalette() {
           />
         </MakePaletteContainer>
         <MakePaletteContainer className='make-palette__hex-container'>
-          {/* <EditPaletteHexList
-                        number={number}
-                        colors={colors}
-                        setNthColor={setNthColor}
-                    /> */}
+          <EditPaletteHexList number={number} colors={colors} />
         </MakePaletteContainer>
         <section className='make-palette__palette-info'>
           <form

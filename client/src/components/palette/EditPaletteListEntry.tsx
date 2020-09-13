@@ -7,6 +7,7 @@ type EditPaletteListEntryProp = {
   paletteColor: string;
   idx: number;
   setNthColor: (idx: number, color: string) => void;
+  number: number;
 };
 
 type PaletteColorProp = {
@@ -37,6 +38,7 @@ const ColorPickerContainer = styled.div`
   top: 200px;
   left: ${(props: ColorPickerContainerProp) => props.left}px;
   padding: 10px;
+  z-index: 1;
 
   .color-picker__button {
     margin-top: 10px;
@@ -58,6 +60,7 @@ function EditPaletteListEntry({
   paletteColor,
   idx,
   setNthColor,
+  number,
 }: EditPaletteListEntryProp) {
   const [color, setColor] = useState(paletteColor);
   const [isOpen, setIsOpen] = useState(false);
@@ -80,7 +83,8 @@ function EditPaletteListEntry({
       <ColorPickerContainer
         className='color-picker__container'
         left={
-          ((useWindowSize()[0] * 0.7) / paletteColor.length) * (0.5 + idx) + 100
+          ((useWindowSize()[0] * 0.7) / number) * (idx + 0.5) +
+          ((useWindowSize()[0] * 0.7) / number) * 0.6
         }
         isOpen={isOpen}
       >

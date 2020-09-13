@@ -31,6 +31,7 @@ function EditPaletteList({ number, colors, setNthColor }: EditPaletteListProp) {
             idx={idx}
             key={idx}
             setNthColor={setNthColor}
+            number={number}
           />
         ))}
       </ColorLists>
