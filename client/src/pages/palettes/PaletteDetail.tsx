@@ -11,6 +11,7 @@ import { paletteVisitPostAPI, paletteDeleteAPI } from '../../apis/paletteAPI';
 
 import { Button } from 'antd';
 import { EditButton, ShareBtn, PaletteDescription } from '../Pages_styd';
+import { Link } from 'react-router-dom';
 
 type ColorCodeProp = {
   number: number;
@@ -124,14 +125,19 @@ function PaletteDetail({ location, history }: any) {
                     </EditButton>
                     <EditButton
                       className='palette-detail__edit-btn'
-                      onClick={onClickEditBtn}
                     >
                       색갈피 편집
-                      // TODO: 여기 Link를 사용
                     </EditButton>
                   </div>
                 </>
               )} */}
+              <Link
+                to={{ pathname: `/editPalette/${id}`, state: location.state }}
+              >
+                <EditButton className='palette-detail__edit-btn'>
+                  색갈피 편집
+                </EditButton>
+              </Link>
               <ul className='palette-detail__share-lists'>
                 <li className='palette-detail__share-item'>
                   <CopyToClipboard text={`http://localhost:5000/${id}`}>
