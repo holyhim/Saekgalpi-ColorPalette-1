@@ -12,7 +12,7 @@ class Palettes(models.Model):
     paletteName = models.CharField(max_length=256)
     description = models.TextField(default="")
     colors = ListCharField(
-        base_field=models.CharField(max_length=10), size=6, max_length=(6 * 11)
+        base_field=models.CharField(max_length=10), size=7, max_length=(7 * 11)
     )
     visit = models.IntegerField(default="0")
     created_at = models.DateTimeField(auto_now_add=True)
