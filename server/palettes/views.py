@@ -8,19 +8,21 @@ from palettes.models import Palettes
 
 class Palette_Info_View(APIView):
     def get(self, request, id):
+        """ 특정한(id) 팔레트의 정보를 불러옴 """
         palette_queryset = Palettes.objects.filter(id=id)
         palette_queryset_serializer = PaletteSerializer(palette_queryset, many=True)
         return Response(palette_queryset_serializer.data, status=status.HTTP_200_OK)
 
 
 class Palette_View(APIView):
-    # test
     def get(self, request):
-        palette_queryset = Palettes.objects.all()  # 모든 palette의 정보를 불러온다.
+        """ 모든 팔레트의 정보를 불러옴 """
+        palette_queryset = Palettes.objects.all()
         palette_queryset_serializer = PaletteSerializer(palette_queryset, many=True)
         return Response(palette_queryset_serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
+        """ 팔레트를 생성함 """
         palette_serializer = PaletteSerializer(
             data=request.data
         )  # Request의 data를 paletteSerializer로 변환
