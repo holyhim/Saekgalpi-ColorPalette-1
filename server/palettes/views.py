@@ -6,6 +6,13 @@ from rest_framework import status
 from palettes.models import Palettes
 
 
+class Palette_Info_View(APIView):
+    def get(self, request, id):
+        palette_queryset = Palettes.objects.filter(id=id)
+        palette_queryset_serializer = PaletteSerializer(palette_queryset, many=True)
+        return Response(palette_queryset_serializer.data, status=status.HTTP_200_OK)
+
+
 class Palette_View(APIView):
     # test
     def get(self, request):
