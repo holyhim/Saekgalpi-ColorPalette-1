@@ -5,6 +5,7 @@ import Main from './pages/Main';
 import PaletteDetail from './pages/palettes/PaletteDetail';
 import MakePalette from './pages/palettes/MakePalette';
 import EditPalette from './pages/palettes/EditPalette';
+import AllPalette from './pages/palettes/AllPalette';
 
 function Router() {
   return (
@@ -29,13 +30,6 @@ function Router() {
         </Route>
         <Route path='/signUp'>
           <SignUp userInfo={userInfo} isLogin={isLogin} />
-        </Route>
-        <Route path='/allPalette'>
-          <AllPalette
-            dispatch={dispatch}
-            userInfo={userInfo}
-            isLoading={isLoading}
-          />
         </Route>
         <Route path='/admin'>
           <Admin
@@ -65,18 +59,12 @@ function Router() {
             isLogin={isLogin}
           />
         </Route>
-        <Route path='/editPalette/:id'>
-          <EditPalette
-            palette={clickedPalette}
-            userInfo={userInfo}
-            isLogin={isLogin}
-          />
-        </Route>
 */}
         <Route path='/' exact component={Main} />
         <Route path='/paletteDetail/:id' component={PaletteDetail} />
         <Route path='/makePalette' component={MakePalette} />
         <Route path='/editPalette/:id' component={EditPalette} />
+        <Route path='/allPalette' component={AllPalette} />
       </Switch>
     </BrowserRouter>
   );
