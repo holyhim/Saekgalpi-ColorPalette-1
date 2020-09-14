@@ -13,11 +13,7 @@ import { Button } from 'antd';
 import { EditButton, ShareBtn, PaletteDescription } from '../Pages_styd';
 import { Link } from 'react-router-dom';
 
-type ColorCodeProp = {
-  number: number;
-};
-
-const Paltte = styled.div`
+const Paltte = styled.div<{ color: string }>`
   background-color: ${(props) => props.color || 'black'};
   cursor: pointer;
   transition: all 0.3s;
@@ -29,21 +25,21 @@ const Paltte = styled.div`
   }
 `;
 
-const PaletteWrapper = styled.div`
+const PaletteWrapper = styled.div<{ number: number }>`
   width: 500px;
   height: 250px;
   margin-bottom: 20px;
   display: grid;
 
-  grid-template-columns: repeat(${(props: ColorCodeProp) => props.number}, 1fr);
+  grid-template-columns: repeat(${(props) => props.number}, 1fr);
 `;
 
-const ColorCodeDetail = styled.div`
+const ColorCodeDetail = styled.div<{ number: number }>`
   display: grid;
-  grid-template-columns: repeat(${(props: ColorCodeProp) => props.number}, 1fr);
+  grid-template-columns: repeat(${(props) => props.number}, 1fr);
 `;
 
-const ColorCode = styled.div`
+const ColorCode = styled.div<{ color: string }>`
   background-color: ${(props) => props.color};
   text-align: center;
   padding: 5px;

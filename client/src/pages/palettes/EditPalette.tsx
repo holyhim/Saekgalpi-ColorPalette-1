@@ -22,19 +22,21 @@ type editPaletteState = {
   colors: string[];
 };
 
-const initialState = ({
-  id,
-  userId,
-  paletteName,
-  description,
-  colorCode01,
-  colorCode02,
-  colorCode03,
-  colorCode04,
-  colorCode05,
-  colorCode06,
-  colorCode07,
-}: any): editPaletteState => {
+const initialState = (data: any): editPaletteState => {
+  const {
+    id,
+    userId,
+    paletteName,
+    description,
+    colorCode01,
+    colorCode02,
+    colorCode03,
+    colorCode04,
+    colorCode05,
+    colorCode06,
+    colorCode07,
+  } = data;
+
   const colors = [
     colorCode01,
     colorCode02,

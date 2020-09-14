@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
-const RandomColor = styled.div`
+const RandomColor = styled.div<{ color: string }>`
   position: absolute;
   border-radius: 0 10px;
   width: 120px;
