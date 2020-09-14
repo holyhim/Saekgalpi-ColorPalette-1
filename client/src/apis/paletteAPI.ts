@@ -76,9 +76,12 @@ export const paletteEditPostAPI = async (id: number, paletteInfo: object) => {
 
 export const allPaletteGetAPI = async () => {
   try {
-    const { data } = await axios.get('http://localhost:5000/allPalette', {
-      withCredentials: true,
-    });
+    const { data }: AxiosResponse<PaletteData[]> = await axios.get(
+      'http://localhost:5000/allPalette',
+      {
+        withCredentials: true,
+      }
+    );
     return data;
   } catch (error) {
     console.log(error);
