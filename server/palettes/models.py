@@ -18,9 +18,9 @@ def validate_palette_Description(value):
         return value
 
 
-class Palettes(models.Model):
+class Palette(models.Model):
 
-    """ Palettes Model Definition """
+    """ Palette Model Definition """
 
     user_id = models.ForeignKey(user_models.User, on_delete=models.CASCADE)
     username = models.CharField(max_length=100)
