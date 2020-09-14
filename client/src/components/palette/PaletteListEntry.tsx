@@ -19,21 +19,10 @@ type PaletteListEntryProps = {
   palette: PaletteData;
 };
 
-type PaletteColorsProps = {
-  number: number;
-};
-
-type PaletteColorProps = {
-  color: string;
-};
-
-const PaletteColors = styled.div`
+const PaletteColors = styled.div<{ number: number }>`
   position: absolute;
   display: grid;
-  grid-template-columns: repeat(
-    ${(props: PaletteColorsProps) => props.number},
-    2fr
-  );
+  grid-template-columns: repeat(${(props) => props.number}, 2fr);
   width: 280px;
   height: 160px;
   cursor: pointer;
@@ -42,8 +31,8 @@ const PaletteColors = styled.div`
   background-color: white;
 `;
 
-const PaletteColor = styled.div`
-  background-color: ${(props: PaletteColorProps) => props.color};
+const PaletteColor = styled.div<{ color: string }>`
+  background-color: ${(props) => props.color};
   &:nth-child(1) {
     border-radius: 15px 0 0 15px;
   }

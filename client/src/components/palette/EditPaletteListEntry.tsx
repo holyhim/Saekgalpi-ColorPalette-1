@@ -10,17 +10,8 @@ type EditPaletteListEntryProp = {
   number: number;
 };
 
-type PaletteColorProp = {
-  color: string;
-};
-
-type ColorPickerContainerProp = {
-  isOpen: boolean;
-  left: number;
-};
-
-const PaletteColor = styled.div`
-    background-color: ${(props: PaletteColorProp) => props.color};
+const PaletteColor = styled.div<{ color: string }>`
+    background-color: ${(props) => props.color};
     cursor: pointer;
     box-shadow: 
     1px 0 0 0 #c7c7c7, 
@@ -31,12 +22,11 @@ const PaletteColor = styled.div`
 }
 `;
 
-const ColorPickerContainer = styled.div`
-  display: ${(props: ColorPickerContainerProp) =>
-    props.isOpen ? 'block' : 'none'};
+const ColorPickerContainer = styled.div<{ isOpen: boolean; left: number }>`
+  display: ${(props) => (props.isOpen ? 'block' : 'none')};
   position: absolute;
   top: 200px;
-  left: ${(props: ColorPickerContainerProp) => props.left}px;
+  left: ${(props) => props.left}px;
   padding: 10px;
   z-index: 1;
 

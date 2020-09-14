@@ -8,16 +8,9 @@ type EditPaletteListProp = {
   setNthColor: (idx: number, color: string) => void;
 };
 
-type ColorListsProp = {
-  number: number;
-};
-
-const ColorLists = styled.div`
+const ColorLists = styled.div<{ number: number }>`
   display: grid;
-  grid-template-columns: repeat(
-    ${(props: ColorListsProp) => props.number},
-    1fr
-  );
+  grid-template-columns: repeat(${(props) => props.number}, 1fr);
   grid-template-rows: 20vh;
 `;
 
