@@ -5,6 +5,7 @@ import EditPaletteList from '../../components/palette/EditPaletteList';
 import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 
 import { paletteCreatePostAPI } from '../../apis/paletteAPI';
+import { useHistory } from 'react-router-dom';
 
 const MakePaletteContainer = styled.section`
   width: 70vw;
@@ -66,6 +67,7 @@ function paletteReducer(
 }
 
 function MakePalette() {
+  const history = useHistory();
   const [state, dispatch] = useReducer(paletteReducer, initialState);
   const { title, number, description, colors } = state;
 
@@ -121,6 +123,8 @@ function MakePalette() {
       colorCode06: colors[5],
       colorCode07: colors[6],
     });
+
+    history.push('/');
   };
 
   return (
