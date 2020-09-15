@@ -3,14 +3,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import PaletteSerializer
 from rest_framework import status
-from palettes.models import Palettes
+from palettes.models import Palette
 
 
 class Palette_List_BrandNew_View(APIView):
     """ 생성순으로 4개의 팔레트 정보를 불러옴 """
 
     def get(self, request):
-        palette_queryset = Palettes.objects.order_by("-created_at")[:4]
+        palette_queryset = Palette.objects.order_by("-created_at")[:4]
         palette_queryset_serializer = PaletteSerializer(palette_queryset, many=True)
         return Response(palette_queryset_serializer.data, status=status.HTTP_200_OK)
 
@@ -19,7 +19,7 @@ class Palette_List_Popularity_View(APIView):
     """ 인기순(방문자 순서)으로 16개의 팔레트의 정보를 불러옴 """
 
     def get(self, request):
-        palette_queryset = Palettes.objects.all().order_by("-visit")[:16]
+        palette_queryset = Palette.objects.all().order_by("-visit")[:16]
         palette_queryset_serializer = PaletteSerializer(palette_queryset, many=True)
         return Response(palette_queryset_serializer.data, status=status.HTTP_200_OK)
 
@@ -28,7 +28,7 @@ class Palette_Info_View(APIView):
     """ 특정한(id) 팔레트의 정보를 불러옴 """
 
     def get(self, request, id):
-        palette_queryset = Palettes.objects.filter(id=id)
+        palette_queryset = Palette.objects.filter(id=id)
         palette_queryset_serializer = PaletteSerializer(palette_queryset, many=True)
         return Response(palette_queryset_serializer.data, status=status.HTTP_200_OK)
 
@@ -38,7 +38,7 @@ class Palette_View(APIView):
 
         """ 모든 팔레트의 정보를 불러옴 """
 
-        palette_queryset = Palettes.objects.all()
+        palette_queryset = Palette.objects.all()
         palette_queryset_serializer = PaletteSerializer(palette_queryset, many=True)
         return Response(palette_queryset_serializer.data, status=status.HTTP_200_OK)
 
