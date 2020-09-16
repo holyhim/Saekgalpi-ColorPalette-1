@@ -2,8 +2,19 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import PaletteSerializer
-from rest_framework import status
+from rest_framework import status, generics
 from palettes.models import Palette
+
+
+class Palette_Search_View(generics.ListAPIView):
+    serializer_class = PaletteSerializer
+
+    def get_queryset(self):
+        queryset = Palette.objects.all()
+        paletteName = self.request.query_params.get("paletteName", None)
+        if paletteName is not None:
+            queryset = queryset.filter(palette__paletteName=paletteName)
+        return queryset
 
 
 class Palette_List_BrandNew_View(APIView):
