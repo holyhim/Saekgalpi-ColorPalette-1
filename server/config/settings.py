@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +38,14 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # JWT rest-auth
     "rest_framework",
+    "rest_framework.authtoken",
+    # JWT Registration (optional)
+    "allauth",
+    "allauth.account",
+    "rest_auth",
+    # MySQL set
     "django_mysql",
 ]
 
@@ -112,6 +120,25 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+# jwt set
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated"),
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_jwt.authenticataion.JSONWebTokenAuthentication",
+        "rest_framework.authenticataion.SessionAuthentication",
+        "rest_framework.authenticataion.BasicAuthentication",
+    ),
+}
+
+JWT_AUTH = {
+    "JWT_SECRET_KEY": SECRET_KEY,
+    "JWT_ALGORITHM": "HS384",
+    "JWT_ALLOW_REFRESH": True,
+    "JWT_EXPIRATION_DELTA": timedelta(days=7),
+    "JWT_REFRESH_EXPIRATION_DELTA": timedelta(days=28),
+}
 
 
 # Internationalization

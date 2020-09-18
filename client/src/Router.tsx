@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Main from './pages/Main';
 import PaletteDetail from './pages/palettes/PaletteDetail';
 import MakePalette from './pages/palettes/MakePalette';
+import EditPalette from './pages/palettes/EditPalette';
 
 function Router() {
   return (
@@ -75,6 +76,7 @@ function Router() {
         <Route path='/' exact component={Main} />
         <Route path='/paletteDetail/:id' component={PaletteDetail} />
         <Route path='/makePalette' component={MakePalette} />
+        <Route path='/editPalette/:id' component={EditPalette} />
       </Switch>
     </BrowserRouter>
   );

@@ -16,10 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
+from rest_framework_jwt.views import (
+    obtain_jwt_token,
+    verify_jwt_token,
+    refresh_jwt_token,
+)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     # include 함수를 통해 users의 urls.py로 라우팅
     path("users/", include("users.urls"), name="users"),
     path("palettes/", include("palettes.urls"), name="palettes"),
+    # jwt
+    path("api/token/", obtain_jwt_token),  # jwt 발행
+    path("api/token/", verify_jwt_token),  # jwt 유효성 검사
+    path("api/token/", refresh_jwt_token),  # jwt 갱신
 ]

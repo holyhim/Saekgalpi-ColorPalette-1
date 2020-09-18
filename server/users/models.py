@@ -11,3 +11,6 @@ class User(AbstractUser):
 
     signatureColor = models.CharField(default="", max_length=7)
     superhost = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.username
