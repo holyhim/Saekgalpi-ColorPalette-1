@@ -42,9 +42,9 @@ DJANGO_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     # JWT Registration (optional)
-    "allauth",
-    "allauth.account",
-    "rest_auth",
+    # "allauth",
+    # "allauth.account",
+    # "rest_auth",
     # MySQL set
     "django_mysql",
 ]
@@ -126,10 +126,13 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated"),
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_jwt.authenticataion.JSONWebTokenAuthentication",
-        "rest_framework.authenticataion.SessionAuthentication",
-        "rest_framework.authenticataion.BasicAuthentication",
+        "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
     ),
+    "DEFAULT_PARSER_CLASSES": [
+        "rest_framework.parsers.JSONParser",
+    ],
 }
 
 JWT_AUTH = {
