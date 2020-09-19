@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.parser import JSONparser
+from rest_framework.parsers import JSONParser
 from .serializers import UserSerializer
 from .models import User
 
@@ -22,7 +22,7 @@ class UserView(APIView):
             return Response("users ok", status=200)
 
 
-class UserPost(APIView):
+class SignUp(APIView):
     def post(self, request):
         if request.method == "POST":
             data = JSONparser().parse(request)
