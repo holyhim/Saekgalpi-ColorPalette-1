@@ -24,11 +24,16 @@ from rest_framework_jwt.views import (
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # include 함수를 통해 users의 urls.py로 라우팅
+    # django-apps urls
     path("users/", include("users.urls"), name="users"),
     path("palettes/", include("palettes.urls"), name="palettes"),
-    # jwt
-    path("api/token/", obtain_jwt_token),  # jwt 발행
-    path("api/token/", verify_jwt_token),  # jwt 유효성 검사
-    path("api/token/", refresh_jwt_token),  # jwt 갱신
+    # django-restframework urls
+    path("api-auth/", include("rest_framework.urls")),
+    # django-rest-auth urls
+    path("rest-auth/", include("rest_auth.urls")),
+    path("rest-auth/registration/", include("rest_auth.registration.urls")),
+    # jwt urls
+    path("jwt-auth/", obtain_jwt_token),  # jwt 발행
+    path("jwt-valid/", verify_jwt_token),  # jwt 유효성 검사
+    path("jwt-renewal/", refresh_jwt_token),  # jwt 갱신
 ]
