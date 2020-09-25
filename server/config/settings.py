@@ -38,16 +38,20 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # JWT rest-auth
+    "django.contrib.sites",
+    # django-rest-auth set
     "rest_framework",
     "rest_framework.authtoken",
-    # JWT Registration (optional)
-    # "allauth",
-    # "allauth.account",
-    # "rest_auth",
+    "rest_auth",
+    # django-rest-auth registration (optional)
+    "allauth",
+    "allauth.account",
+    "rest_auth.registration",
     # MySQL set
     "django_mysql",
 ]
+
+SITE_ID = 1
 
 PROJECT_APPS = [
     "users.apps.UsersConfig",
