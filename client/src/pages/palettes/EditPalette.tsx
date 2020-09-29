@@ -140,6 +140,14 @@ function EditPalette() {
   };
 
   const onClickPostButton = async () => {
+    if (title.length > 20) {
+      return;
+    }
+
+    if (description.length < 3) {
+      return;
+    }
+
     await paletteEditPostAPI(id, {
       paletteName: title,
       description,
@@ -200,6 +208,9 @@ function EditPalette() {
               value={description}
               onChange={handleInputValue}
             />
+            <span className='palette-info__input-info'>
+              팔레트 이름은 20글자 이하, 팔레트 설명은 3글자 이상이어야 합니다.
+            </span>
             <button
               className='make-palette__button'
               onClick={onClickPostButton}

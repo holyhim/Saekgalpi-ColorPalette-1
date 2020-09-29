@@ -7,12 +7,12 @@ import EditPaletteHexList from '../../components/palette/EditPaletteHexList';
 import { paletteCreatePostAPI } from '../../apis/paletteAPI';
 import { useHistory } from 'react-router-dom';
 
+const { TextArea } = Input;
+
 const MakePaletteContainer = styled.section`
   width: 70vw;
   margin-bottom: 20px;
 `;
-
-const { TextArea } = Input;
 
 export type Action =
   | { type: 'SET_PALETTE_TITLE'; title: string }
@@ -111,6 +111,14 @@ function MakePalette() {
   };
 
   const onClickPostButton = async () => {
+    if (title.length > 20) {
+      return;
+    }
+
+    if (description.length < 3) {
+      return;
+    }
+
     await paletteCreatePostAPI({
       id: 1,
       paletteName: title,
@@ -170,6 +178,9 @@ function MakePalette() {
               name='description'
               onChange={handleInputValue}
             />
+            <span className='palette-info__input-info'>
+              팔레트 이름은 20글자 이하, 팔레트 설명은 3글자 이상이어야 합니다.
+            </span>
             <button
               className='make-palette__button'
               onClick={onClickPostButton}
