@@ -1,8 +1,13 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
-# 배열이 되는가? 된다 200 ok
+def validate_user_Name(value):
+    if len(value) > 13:
+        raise ValidationError("이름을 13 글자 이하로 설정해 주세요")
+    else:
+        return value
 
 
 class User(AbstractUser):
