@@ -6,4 +6,5 @@ urlpatterns = [
     # User에 관한 API를 처리하는 View로 Request를 넘김
     path("", views.UserView.as_view()),
     path("post/", views.SignUp, name="post"),
+    path("edit-password/", views.Edit_Password, name="edit_password"),
 ]
