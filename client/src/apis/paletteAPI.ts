@@ -88,7 +88,17 @@ export const allPaletteGetAPI = async () => {
   }
 };
 
-export const UniquePaletteGetAPI = (userInfoID: number) => {
+export const signatureColorPostAPI = async (id: number, userColor: string) => {
+  try {
+    await axios.post(`http://localhost:5000/changeSignatureColor/${id}`, {
+      signatureColor: userColor,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const uniquePaletteGetAPI = (userInfoID: number) => {
   return axios.get(`http://localhost:5000/MyPage/${userInfoID}`, {
     withCredentials: true,
   });

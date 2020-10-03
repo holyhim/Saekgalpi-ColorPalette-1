@@ -6,6 +6,7 @@ import PaletteDetail from './pages/palettes/PaletteDetail';
 import MakePalette from './pages/palettes/MakePalette';
 import EditPalette from './pages/palettes/EditPalette';
 import AllPalette from './pages/palettes/AllPalette';
+import ChangeSignatureColor from './pages/palettes/ChangeSignatureColor';
 
 function Router() {
   return (
@@ -52,19 +53,16 @@ function Router() {
         <Route path='/changePassword/:id'>
           <ChangePassword userInfo={userInfo} />
         </Route>
-        <Route path='/changeSignatureColor/:id'>
-          <ChangeSignatureColor
-            userInfo={userInfo}
-            setUserInfo={setUserInfo}
-            isLogin={isLogin}
-          />
-        </Route>
 */}
         <Route path='/' exact component={Main} />
         <Route path='/paletteDetail/:id' component={PaletteDetail} />
         <Route path='/makePalette' component={MakePalette} />
         <Route path='/editPalette/:id' component={EditPalette} />
         <Route path='/allPalette' component={AllPalette} />
+        {/* <Route
+          path='/changeSignatureColor/:id'
+          component={ChangeSignatureColor}
+        /> */}
       </Switch>
     </BrowserRouter>
   );
