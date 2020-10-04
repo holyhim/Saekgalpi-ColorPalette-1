@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux';
-import paletteReducer from './paletteReducer';
-import userReducer from './UserReducer';
+import userReducer from './userReducer';
 
 const rootReducer = combineReducers({
-  paletteReducer,
   userReducer,
 });
 

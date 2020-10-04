@@ -13,7 +13,6 @@ import {
   faShareAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
-import usePalette from '../../hooks/usePalette';
 
 type PaletteListEntryProps = {
   palette: PaletteData;
@@ -64,12 +63,6 @@ function PaletteListEntry({ palette }: PaletteListEntryProps) {
     colorCode07,
   ].filter((code) => code !== null);
 
-  const { setPalette } = usePalette();
-
-  const onClickPalette = (e: React.MouseEvent<HTMLElement>) => {
-    setPalette(palette);
-  };
-
   const onClickDownload = async (e: React.MouseEvent<HTMLElement>) => {
     getPaletteImage(colorCode);
   };
@@ -77,11 +70,7 @@ function PaletteListEntry({ palette }: PaletteListEntryProps) {
   return (
     <div className='palette__wrapper'>
       <Link to={{ pathname: `/paletteDetail/${id}`, state: palette }}>
-        <PaletteColors
-          className='palette__colors'
-          number={colorCode.length}
-          onClick={onClickPalette}
-        >
+        <PaletteColors className='palette__colors' number={colorCode.length}>
           {colorCode.map((color: string, idx: number) => (
             <PaletteColor className='palette__color' color={color} key={idx} />
           ))}
